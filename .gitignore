@@ -1,0 +1,7 @@
+.DS_Store
+.unused_images_backup/
+*.mov
+scratch_thumb.jpg
+node_modules/
+.env
+.env.*

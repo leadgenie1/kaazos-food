@@ -1,0 +1,98 @@
+{
+  "version": "1.0",
+  "source": "Instagram Feed Proxy",
+  "username": "kaazos_food",
+  "profile_url": "https://www.instagram.com/kaazos_food/",
+  "last_updated": "2026-10-04T18:05:00Z",
+  "total": 8,
+  "data": [
+    {
+      "id": "sahanaa_DdTKI1jTcgy",
+      "username": "sahanaa._",
+      "creator_name": "Sahanaa",
+      "creator_role": "Fitness & Food Creator",
+      "caption": "55G OF PROTEIN\u2026 IN A RICE BOWL?!? Loaded bowls, crunchy nachos, and cheesy quesadillas right in Indiranagar.",
+      "media_url": "assets/videos/reels/sahanaa.__DdTKI1jTcgy.mp4",
+      "thumbnail_url": "assets/images/reels/sahanaa.__DdTKI1jTcgy.jpg",
+      "permalink": "https://www.instagram.com/sahanaa._/reel/DdTKI1jTcgy/",
+      "timestamp": "2026-03-28T12:00:00Z"
+    },
+    {
+      "id": "theindiankannadiga_DdTTZmrze2t",
+      "username": "theindiankannadiga",
+      "creator_name": "The Indian Kannadiga",
+      "creator_role": "Bengaluru Food Guide",
+      "caption": "Bengaluru\u2019s newest Mexican obsession! The cheesy quesadillas and spicy rice bowls are an absolute mood.",
+      "media_url": "assets/videos/reels/theindiankannadiga_DdTTZmrze2t.mp4",
+      "thumbnail_url": "assets/images/reels/theindiankannadiga_DdTTZmrze2t.jpg",
+      "permalink": "https://www.instagram.com/theindiankannadiga/reel/DdTTZmrze2t/",
+      "timestamp": "2026-03-26T15:30:00Z"
+    },
+    {
+      "id": "discover_bangalore_DdGrYwTKmKL",
+      "username": "discover_bangalore",
+      "creator_name": "Discover Bangalore",
+      "creator_role": "City Explorer",
+      "caption": "Must-try Mexican hotspot on 100ft road! The salsa bar and grilled burritos give serious international Cali vibes.",
+      "media_url": "assets/videos/reels/discover_bangalore_DdGrYwTKmKL.mp4",
+      "thumbnail_url": "assets/images/reels/discover_bangalore_DdGrYwTKmKL.jpg",
+      "permalink": "https://www.instagram.com/discover_bangalore/reel/DdGrYwTKmKL/",
+      "timestamp": "2026-03-24T18:15:00Z"
+    },
+    {
+      "id": "bengaluru_hungry_guy_DctGeQXtbpJ",
+      "username": "bengaluru_hungry_guy",
+      "creator_name": "Bengaluru Hungry Guy",
+      "creator_role": "Food & Street Critic",
+      "caption": "Freshly seared meat, crisp lettuce, and signature chipotle mayo. Definitely my favorite casual lunch pitstop.",
+      "media_url": "assets/videos/reels/bengaluru_hungry_guy_DctGeQXtbpJ.mp4",
+      "thumbnail_url": "assets/images/reels/bengaluru_hungry_guy_DctGeQXtbpJ.jpg",
+      "permalink": "https://www.instagram.com/bengaluru_hungry_guy/reel/DctGeQXtbpJ/",
+      "timestamp": "2026-03-22T13:45:00Z"
+    },
+    {
+      "id": "aswathii_nikhil_DbLr-FjSjWt",
+      "username": "aswathii_nikhil",
+      "creator_name": "Aswathi & Nikhil",
+      "creator_role": "Couple Food Bloggers",
+      "caption": "The vibe, the colors, and that spicy Mexican salsa! Everything here feels made from real whole ingredients.",
+      "media_url": "assets/videos/reels/aswathii_nikhil_DbLr-FjSjWt.mp4",
+      "thumbnail_url": "assets/images/reels/aswathii_nikhil_DbLr-FjSjWt.jpg",
+      "permalink": "https://www.instagram.com/aswathii_nikhil/reel/DbLr-FjSjWt/",
+      "timestamp": "2026-03-20T17:00:00Z"
+    },
+    {
+      "id": "fivefeetfoodiess_Dd6WOIEtAtq",
+      "username": "fivefeetfoodiess",
+      "creator_name": "Five Feet Foodiess",
+      "creator_role": "Food & Travel",
+      "caption": "Mexican street-style loaded bowls and golden crispy tacos in Indiranagar. Unbelievably fresh and chatpata.",
+      "media_url": "assets/videos/reels/fivefeetfoodiess_Dd6WOIEtAtq.mp4",
+      "thumbnail_url": "assets/images/reels/fivefeetfoodiess_Dd6WOIEtAtq.jpg",
+      "permalink": "https://www.instagram.com/fivefeetfoodiess/reel/Dd6WOIEtAtq/",
+      "timestamp": "2026-03-18T11:20:00Z"
+    },
+    {
+      "id": "zulu_virtual_DdvePXeyTum",
+      "username": "zulu_virtual",
+      "creator_name": "Zulu Virtual",
+      "creator_role": "Visual Storyteller",
+      "caption": "Super satisfying without feeling heavy. The chicken rice bowl and loaded nachos are absolute 10/10.",
+      "media_url": "assets/videos/reels/zulu_virtual_DdvePXeyTum.mp4",
+      "thumbnail_url": "assets/images/reels/zulu_virtual_DdvePXeyTum.jpg",
+      "permalink": "https://www.instagram.com/zulu_virtual/reel/DdvePXeyTum/",
+      "timestamp": "2026-03-16T14:10:00Z"
+    },
+    {
+      "id": "eatt_withusss_DdES0D5tb6d",
+      "username": "eatt.withusss",
+      "creator_name": "Eat With Us",
+      "creator_role": "Bengaluru Food Reviewers",
+      "caption": "Pure comfort food done cleanly. The cheese pull on the quesadillas alone is worth the trip to 100ft road.",
+      "media_url": "assets/videos/reels/eatt.withusss_DdES0D5tb6d.mp4",
+      "thumbnail_url": "assets/images/reels/eatt.withusss_DdES0D5tb6d.jpg",
+      "permalink": "https://www.instagram.com/eatt.withusss/reel/DdES0D5tb6d/",
+      "timestamp": "2026-03-14T19:30:00Z"
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition In-Take &amp; Macro Calculator | Kaazos Mexican Kitchen</title>
+  <meta name="description" content="Calculate calories, protein, carbs, and fats in real-time for your custom burrito wrap, rice bowl, or salad at Kaazos Indiranagar. Wholesome scratch-cooked nutrition.">
+  <meta name="theme-color" content="#0c4f48">
+
+  <!-- Google Fonts: Bricolage Grotesque, Syne, Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800;12..96,900&family=Syne:wght@700;800&family=Outfit:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=20261004-navbrand">
+</head>
+<body class="page-nutrition">
+  <!-- Global Top Navigation Header -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <!-- Brand Logo Lockup -->
+      <a href="index.html" class="brand-mark" aria-label="Kaazos Homepage">
+        <img src="assets/images/logo-transparent.png" alt="Kaazos Mexican Kitchen" class="brand-logo-img" width="100" height="44">
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html#menuSection">Menu</a></li>
+          <li class="nav-item"><a href="story.html">Our Story</a></li>
+          <li class="nav-item"><a href="nutrition.html" class="active">Nutrition</a></li>
+          <li class="nav-item"><a href="index.html#influencersSection">Community</a></li>
+          <li class="nav-item"><a href="careers.html">Careers</a></li>
+          <li class="nav-item"><a href="index.html#locationSection">Location</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Mobile Toggle) -->
+      <div class="nav-actions">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stuff'd-Style Interactive Nutrition In-Take Calculator -->
+  <section class="stuffd-nutrition-section" id="nutritionSection" style="padding: 5.5rem 0 5rem; background-color: var(--kz-cream-bg);">
+    <div id="trackerSection"></div>
+    <div class="container stuffd-container">
+      <!-- Section Header -->
+      <div class="stuffd-head" style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="stuffd-eyebrow">Interactive Macro Engine</span>
+        <h1 class="stuffd-title" style="font-size: clamp(2rem, 4vw, 3rem); margin: 0.5rem 0 0.75rem;">NUTRITION IN-TAKE CALCULATOR</h1>
+        <p class="stuffd-subtitle">Select your base, protein, and house toppings to calculate exact calories, protein, and macros in real time.</p>
+      </div>
+
+      <!-- Dish Category Navigation Tabs (Stuff'd Style) -->
+      <div class="stuffd-tabs-nav-wrap">
+        <ul class="stuffd-nav-tabs" id="stuffdDishTabs" role="tablist">
+          <li class="stuffd-tab-item active" data-tab="burrito" role="tab" aria-selected="true" tabindex="0">
+            <span class="stuffd-tab-icon">🌯</span>
+            <span class="stuffd-tab-label">Burrito Wrap</span>
+          </li>
+          <li class="stuffd-tab-item" data-tab="bowl" role="tab" aria-selected="false" tabindex="0">
+            <span class="stuffd-tab-icon">🍚</span>
+            <span class="stuffd-tab-label">Daily Bowl</span>
+          </li>
+          <li class="stuffd-tab-item" data-tab="quesadilla" role="tab" aria-selected="false" tabindex="0">
+            <span class="stuffd-tab-icon">🌮</span>
+            <span class="stuffd-tab-label">Quesadilla &amp; Nachos</span>
+          </li>
+          <li class="stuffd-tab-item" data-tab="salad" role="tab" aria-selected="false" tabindex="0">
+            <span class="stuffd-tab-icon">🥗</span>
+            <span class="stuffd-tab-label">Salad Bowl</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Table Section Subtitle -->
+      <div class="stuffd-calc-prompt">
+        <h3 class="stuffd-calc-subtitle">Select To Begin Your Calculation</h3>
+        <p class="stuffd-calc-hint">Click any ingredient row or the <strong>+</strong> button to add or remove it from your customized meal.</p>
+      </div>
+
+      <!-- The Nutrition In-Take Calculation Table -->
+      <div class="stuffd-table-card">
+        <div class="stuffd-table-responsive">
+          <table class="stuffd-table" id="stuffdTable">
+            <thead>
+              <tr>
+                <th class="col-ingredient">Ingredient</th>
+                <th class="col-metric">Energy<br><span class="unit">[kcal]</span></th>
+                <th class="col-metric">Total Fat<br><span class="unit">[g]</span></th>
+                <th class="col-metric">Sat Fat<br><span class="unit">[g]</span></th>
+                <th class="col-metric">Sodium<br><span class="unit">[mg]</span></th>
+                <th class="col-metric">Carbs<br><span class="unit">[g]</span></th>
+                <th class="col-metric col-protein-header">Protein<br><span class="unit">[g]</span></th>
+                <th class="col-metric">Dietary Fibres<br><span class="unit">[g]</span></th>
+                <th class="col-metric">Sugars<br><span class="unit">[g]</span></th>
+              </tr>
+            </thead>
+            <tbody id="stuffdTableBody">
+              <!-- Rendered dynamically by app.js based on selected tab -->
+            </tbody>
+            <tfoot>
+              <tr class="stuffd-total-row">
+                <td class="col-ingredient total-label-cell">
+                  <div class="total-heading-box">
+                    <span class="total-title">TOTALS</span>
+                    <button type="button" class="btn-reset-stuffd" id="stuffdResetBtn" title="Reset all ingredients to default">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                      <span>Reset</span>
+                    </button>
+                  </div>
+                </td>
+                <td class="col-metric total-val" id="totalKcal">0</td>
+                <td class="col-metric total-val" id="totalFat">0</td>
+                <td class="col-metric total-val" id="totalSatFat">0</td>
+                <td class="col-metric total-val" id="totalSodium">0</td>
+                <td class="col-metric total-val" id="totalCarbs">0</td>
+                <td class="col-metric total-val total-prot-val" id="totalProtein">0</td>
+                <td class="col-metric total-val" id="totalFiber">0</td>
+                <td class="col-metric total-val" id="totalSugars">0</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Sticky Floating Quick Totals Cockpit Bar -->
+        <div class="stuffd-sticky-cockpit" id="stuffdStickyCockpit">
+          <div class="cockpit-macro-strip">
+            <div class="cockpit-stat highlight">
+              <span class="lbl">ENERGY</span>
+              <div class="val-box"><strong id="cockpitKcal">0</strong> <small>KCAL</small></div>
+            </div>
+            <div class="cockpit-stat prot">
+              <span class="lbl">PROTEIN</span>
+              <div class="val-box"><strong id="cockpitProtein">0</strong> <small>g</small></div>
+            </div>
+            <div class="cockpit-stat">
+              <span class="lbl">CARBS</span>
+              <div class="val-box"><strong id="cockpitCarbs">0</strong> <small>g</small></div>
+            </div>
+            <div class="cockpit-stat">
+              <span class="lbl">TOTAL FAT</span>
+              <div class="val-box"><strong id="cockpitFat">0</strong> <small>g</small></div>
+            </div>
+            <div class="cockpit-stat">
+              <span class="lbl">FIBRES</span>
+              <div class="val-box"><strong id="cockpitFiber">0</strong> <small>g</small></div>
+            </div>
+            <div class="cockpit-stat">
+              <span class="lbl">SODIUM</span>
+              <div class="val-box"><strong id="cockpitSodium">0</strong> <small>mg</small></div>
+            </div>
+          </div>
+          <div class="cockpit-action-group">
+            <a href="#" id="stuffdWaOrderBtn" target="_blank" rel="noopener" class="btn-stuffd-whatsapp" title="Inquire this calculated meal on WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Inquire This Meal</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stuff'd Ingredient Detailed Nutrition Modal Dialog -->
+    <div class="stuffd-modal-overlay" id="stuffdInfoModal" aria-hidden="true" role="dialog">
+      <div class="stuffd-modal-dialog">
+        <button class="stuffd-modal-close" id="stuffdModalClose" aria-label="Close dialog">&times;</button>
+        <div class="stuffd-modal-header">
+          <span class="stuffd-modal-eyebrow" id="stuffdModalCategory">Ingredient Breakdown</span>
+          <h3 class="stuffd-modal-title" id="stuffdModalTitle">Ingredient</h3>
+          <p class="stuffd-modal-serving">Standard Single Portion Serving</p>
+        </div>
+        <div class="stuffd-modal-body">
+          <table class="stuffd-fact-table">
+            <tbody id="stuffdModalFactsBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-columns-grid">
+        <div class="footer-col">
+          <img src="assets/images/logo-transparent.png" alt="Kaazos Mexican Kitchen" class="footer-logo-img" width="140" height="62">
+          <p style="line-height: 1.6; margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.75);">
+            Scratch-cooked Mexican street cuisine fused with bold Indian spices. Pure ingredients, zero preservatives, and honest craftsmanship.
+          </p>
+          <div style="font-weight: 700; color: var(--kz-cream-100);">
+            Near Honda Center • Open Daily 11:00 AM – 11:30 PM
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Menu Highlights</h5>
+          <ul class="footer-links-list">
+            <li><a href="index.html#menuSection">Custom Burrito Wraps</a></li>
+            <li><a href="index.html#menuSection">Mexican Rice Bowls</a></li>
+            <li><a href="index.html#menuSection">Loaded Peri-Peri Fries</a></li>
+            <li><a href="index.html#menuSection">Chicken Wings</a></li>
+            <li><a href="nutrition.html">High Protein Macro Bowls</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Beverages &amp; Shakes</h5>
+          <ul class="footer-links-list">
+            <li><a href="index.html#menuSection">Belgian Dark Chocolate Shake</a></li>
+            <li><a href="index.html#menuSection">Hazelnut Nutella Shake</a></li>
+            <li><a href="index.html#menuSection">Sparkling Virgin Mojito</a></li>
+            <li><a href="index.html#menuSection">Watermelon Agua Fresca</a></li>
+            <li><a href="index.html#menuSection">Oreo Chocodilla</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Transparency &amp; Story</h5>
+          <ul class="footer-links-list">
+            <li><a href="nutrition.html" style="color: var(--kz-cream-100); font-weight: 700;">Nutrition Calculator</a></li>
+            <li><a href="story.html">Our Kitchen Story</a></li>
+            <li><a href="careers.html" style="color: var(--kz-red-light); font-weight: 700;">Join Our Team (Careers)</a></li>
+            <li><a href="index.html#influencersSection">Community Reactions</a></li>
+            <li><a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp Kitchen Chat</a></li>
+            <li><a href="https://www.instagram.com/kaazos_food/" target="_blank" rel="noopener">Instagram @kaazos_food</a></li>
+            <li><a href="https://facebook.com/kaazos" target="_blank" rel="noopener">Facebook Page</a></li>
+            <li><a href="https://www.district.in/dining/bangalore/kaazos-indiranagar-bangalore?srsltid=AU7gw4XMNjIk6ADWHaK-yYT8Jh5cUDr1JtA4sZpsERDEtiptm9NIL7LX" target="_blank" rel="noopener">Book on District</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-legal-bar">
+        <div>
+          &copy; 2026 Kaazos Mexican Kitchen. All rights reserved.
+        </div>
+        <div>
+          <span>Scratch-Made • 100% Farm Fresh • Indiranagar, Bengaluru</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Social & Inquiry Icons Dock (Right Bottom Corner) -->
+  <aside class="floating-social-dock" id="floatingDock" aria-label="Social &amp; Direct Inquiry Channels">
+    <!-- Floating Action Buttons -->
+    <div class="dock-cards-stack">
+      <!-- Card 1: Swiggy -->
+      <a href="https://www.swiggy.com" target="_blank" rel="noopener" class="float-btn float-swiggy" aria-label="Order on Swiggy" title="Order on Swiggy">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
+          <path d="M12.034 24c-.376-.411-2.075-2.584-3.95-5.513-.547-.916-.901-1.63-.833-1.814.178-.48 3.355-.743 4.333-.308.298.132.29.307.29.409 0 .44-.022 1.619-.022 1.619a.441.441 0 1 0 .883-.002l-.005-2.939c0-.255-.278-.319-.331-.329-.511-.002-1.548-.006-2.661-.006-2.457 0-3.006.101-3.423-.172-.904-.591-2.383-4.577-2.417-6.819C3.849 4.964 5.723 2.225 8.362.868A8.13 8.13 0 0 1 12.026 0c4.177 0 7.617 3.153 8.075 7.209l.001.011c.084.981-5.321 1.189-6.39.904-.164-.044-.206-.212-.206-.284L13.5 4.996a.442.442 0 0 0-.884.002l.009 3.866a.33.33 0 0 0 .268.32l3.354-.001c1.79 0 2.542.207 3.042.588.333.254.461.739.349 1.37C18.633 16.755 12.273 23.71 12.034 24z"/>
+        </svg>
+        <span class="float-tooltip">Order on Swiggy</span>
+      </a>
+
+      <!-- Card 2: Zomato -->
+      <a href="https://www.zomato.com" target="_blank" rel="noopener" class="float-btn float-zomato" aria-label="Order on Zomato" title="Order on Zomato">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
+          <text x="12" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" font-style="italic" fill="#ffffff" text-anchor="middle">z</text>
+        </svg>
+        <span class="float-tooltip">Order on Zomato</span>
+      </a>
+
+      <!-- Card 3: WhatsApp -->
+      <a href="https://wa.me/919876543210?text=Hi%20Kaazos!%20I'd%20like%20to%20inquire%20about%20your%20menu." target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.301-.15-1.782-.879-2.058-.979-.276-.1-.477-.15-.678.15s-.778.979-.954 1.18c-.176.2-.351.226-.652.075s-1.272-.469-2.423-1.496c-.896-.799-1.501-1.787-1.677-2.088s-.019-.464.132-.614c.136-.135.301-.351.452-.527.15-.176.201-.301.301-.502.1-.2.05-.376-.025-.527s-.678-1.633-.929-2.235c-.244-.587-.492-.507-.678-.517-.176-.009-.377-.01-.578-.01s-.527.075-.803.376c-.276.301-1.054 1.029-1.054 2.509s1.079 2.906 1.23 3.107c.15.201 2.123 3.242 5.144 4.547.719.311 1.28.497 1.718.636.722.229 1.379.197 1.898.119.579-.087 1.782-.728 2.033-1.431.251-.703.251-1.305.176-1.431-.076-.126-.277-.201-.578-.351z"/>
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.434 5.176L2 22l4.981-1.396A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.642 0-3.176-.492-4.463-1.336l-.32-.209-2.964.83.844-2.894-.229-.333A8.167 8.167 0 0 1 3.8 12c0-4.521 3.679-8.2 8.2-8.2 4.521 0 8.2 3.679 8.2 8.2 0 4.521-3.679 8.2-8.2 8.2z"/>
+        </svg>
+        <span class="float-tooltip">Chat on WhatsApp</span>
+      </a>
+
+      <!-- Card 4: Instagram -->
+      <a href="https://www.instagram.com/kaazos_food/" target="_blank" rel="noopener" class="float-btn float-instagram" aria-label="Follow Instagram @kaazos_food" title="Instagram">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        <span class="float-tooltip">Instagram @kaazos_food</span>
+      </a>
+
+      <!-- Card 5: Facebook -->
+      <a href="https://facebook.com/kaazos" target="_blank" rel="noopener" class="float-btn float-facebook" aria-label="Visit Facebook" title="Visit Facebook">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span class="float-tooltip">Facebook</span>
+      </a>
+    </div>
+
+    <!-- Mobile Wallet-Stack Trigger Button -->
+    <button type="button" class="float-dock-toggle wallet-stack-toggle" id="floatDockToggle" aria-label="Order &amp; Connect Menu" aria-expanded="false">
+      <!-- The Stack of Cards inside the trigger button -->
+      <div class="wallet-cards-deck">
+        <span class="deck-card card-back"></span>
+        <span class="deck-card card-middle"></span>
+        <span class="deck-card card-front">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
+            <path d="M12.034 24c-.376-.411-2.075-2.584-3.95-5.513-.547-.916-.901-1.63-.833-1.814.178-.48 3.355-.743 4.333-.308.298.132.29.307.29.409 0 .44-.022 1.619-.022 1.619a.441.441 0 1 0 .883-.002l-.005-2.939c0-.255-.278-.319-.331-.329-.511-.002-1.548-.006-2.661-.006-2.457 0-3.006.101-3.423-.172-.904-.591-2.383-4.577-2.417-6.819C3.849 4.964 5.723 2.225 8.362.868A8.13 8.13 0 0 1 12.026 0c4.177 0 7.617 3.153 8.075 7.209l.001.011c.084.981-5.321 1.189-6.39.904-.164-.044-.206-.212-.206-.284L13.5 4.996a.442.442 0 0 0-.884.002l.009 3.866a.33.33 0 0 0 .268.32l3.354-.001c1.79 0 2.542.207 3.042.588.333.254.461.739.349 1.37C18.633 16.755 12.273 23.71 12.034 24z"/>
+          </svg>
+        </span>
+      </div>
+      <!-- Close icon when expanded -->
+      <span class="wallet-close-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </span>
+      <span class="dock-toggle-badge" aria-hidden="true"></span>
+      <span class="wallet-tap-hint">ORDER</span>
+    </button>
+  </aside>
+
+  <!-- Mobile Floating Dock Backdrop -->
+  <div class="dock-backdrop" id="dockBackdrop" aria-hidden="true"></div>
+
+  <!-- JavaScript -->
+  <script src="app.js" defer></script>
+</body>
+</html>
