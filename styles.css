@@ -3083,7 +3083,17 @@ button,
 @media (max-width: 1024px) {
   .luxury-editorial-hero {
     min-height: auto;
-    padding: 3.5rem 0;
+    padding: 3.25rem 0 2.25rem;
+  }
+  .hero-photo-theme .hero-showcase-stage {
+    display: none !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .hero-photo-theme .hero-grid-layout {
+    gap: 0 !important;
   }
   .hero-grid-layout {
     grid-template-columns: 1fr;
@@ -3097,10 +3107,11 @@ button,
     text-align: center;
   }
   .luxury-editorial-hero .hero-desc {
-    margin: 0 auto 2rem;
+    margin: 0 auto 1.75rem;
   }
   .luxury-editorial-hero .hero-ctas {
     justify-content: center;
+    margin-bottom: 0 !important;
   }
   .hero-trust-bar {
     margin: 0 auto;
@@ -3157,7 +3168,7 @@ button,
     padding-bottom: 65px;
   }
   .luxury-editorial-hero {
-    padding: 2.5rem 0 3rem;
+    padding: 2.25rem 0 2rem;
   }
   .luxury-editorial-hero .hero-title {
     font-size: clamp(2.6rem, 9vw, 3.4rem);
