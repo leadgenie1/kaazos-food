@@ -921,7 +921,7 @@ async function fetchLiveInstagramReels() {
   const config = window.KAAZOS_INSTAGRAM_CONFIG || {};
   if (!config.enabled) return null;
 
-  const endpoint = config.apiUrl || (config.accessToken 
+  const endpoint = config.apiUrl || (config.accessToken
     ? "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=" + encodeURIComponent(config.accessToken)
     : null);
 
@@ -946,10 +946,10 @@ function renderMinimalReelCard(reel) {
   const posterSrc = reel.thumbnail_url || reel.thumbnailUrl || reel.poster || "";
   const caption = reel.caption || reel.text || "Fresh bites, real reactions, and street-style energy straight from Indiranagar.";
   const cleanCaption = caption.split("#")[0].trim().replace(/\n+/g, " ");
-  
+
   let rawUser = reel.username || (reel.creator_name ? reel.creator_name.toLowerCase().replace(/\s+/g, "_") : "kaazos_food");
   if (!rawUser.startsWith("@")) rawUser = "@" + rawUser;
-  
+
   const creatorRole = reel.creator_role || "Food & Lifestyle Creator";
   const permalink = reel.permalink || reel.reel_url || `https://www.instagram.com/${rawUser.replace("@", "")}/`;
 
@@ -1049,7 +1049,7 @@ function initReelsCarousel() {
 
     theatreVideo.play().catch(() => {
       theatreVideo.muted = true;
-      theatreVideo.play().catch(() => {});
+      theatreVideo.play().catch(() => { });
     });
   }
 
@@ -1064,7 +1064,7 @@ function initReelsCarousel() {
 
     allVideos.forEach(v => {
       v.muted = true;
-      v.play().catch(() => {});
+      v.play().catch(() => { });
     });
 
     resumeScrollAfterDelay(1000);
@@ -1180,7 +1180,7 @@ function initReelsCarousel() {
           if (playPromise !== undefined) {
             playPromise.catch(() => {
               video.muted = true;
-              video.play().catch(() => {});
+              video.play().catch(() => { });
             });
           }
         } else {
@@ -1210,7 +1210,7 @@ function initReelsCarousel() {
           track.querySelectorAll(".reel-sound-btn").forEach(btn => btn.classList.remove("is-unmuted"));
           video.muted = false;
           soundBtn.classList.add("is-unmuted");
-          video.play().catch(() => {});
+          video.play().catch(() => { });
         } else {
           video.muted = true;
           soundBtn.classList.remove("is-unmuted");
@@ -1270,7 +1270,7 @@ function renderMinimalReviewCard(review) {
   const tag = review.tag || review.relative_time_description || 'verified diner';
   const text = (review.text || review.quote || '').trim().replace(/^["“]|["”]$/g, '');
   const starsCount = Math.min(5, Math.max(1, review.rating || 5));
-  
+
   const starSvg = `<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
   const starsHtml = Array(starsCount).fill(starSvg).join('');
 
@@ -1508,7 +1508,7 @@ function initHeroParallaxScroll() {
   function onScroll() {
     const rect = heroSection.getBoundingClientRect();
     const heroHeight = heroSection.offsetHeight || 700;
-    
+
     // Scrolled distance from top of hero
     const scrolled = Math.max(0, -rect.top);
     targetScrollProgress = Math.min(1, Math.max(0, scrolled / (heroHeight * 0.82)));
@@ -1521,7 +1521,7 @@ function initHeroParallaxScroll() {
   function tick(now) {
     // Smooth lerp for scroll progress
     currentScrollProgress += (targetScrollProgress - currentScrollProgress) * 0.12;
-    
+
     // Smooth lerp for mouse coordinates
     currentMouseX += (targetMouseX - currentMouseX) * 0.08;
     currentMouseY += (targetMouseY - currentMouseY) * 0.08;
@@ -1660,7 +1660,7 @@ function initHeroParallaxScroll() {
 }
 
 /* ==========================================================================
-   MOBILE SPEED-DIAL FAB CONTROLLER
+   EXPANDABLE WALLET-STACK FLOATING DOCK CONTROLLER
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('floatDockToggle');
@@ -1668,16 +1668,66 @@ document.addEventListener('DOMContentLoaded', () => {
   const backdrop = document.getElementById('dockBackdrop');
   if (!toggle || !dock) return;
 
+  let openScrollY = 0;
+
+  // Auto-close when moving cursor far away from the dock (> 240px)
+  function onMouseMoveAway(e) {
+    if (!dock.classList.contains('is-open')) return;
+    const rect = dock.getBoundingClientRect();
+    const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
+    const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist > 640) {
+      closeDock();
+    }
+  }
+
+  // Auto-close if user scrolls away on the screen
+  function onScrollAway() {
+    if (!dock.classList.contains('is-open')) return;
+    if (Math.abs(window.scrollY - openScrollY) > 60) {
+      closeDock();
+    }
+  }
+
+  // Auto-close when cursor leaves the browser window
+  function onMouseLeaveScreen(e) {
+    if (!e.relatedTarget && !e.toElement && dock.classList.contains('is-open')) {
+      closeDock();
+    }
+  }
+
+  // Auto-close when window loses focus (e.g. alt-tab or switching away)
+  function onWindowBlur() {
+    if (dock.classList.contains('is-open')) {
+      closeDock();
+    }
+  }
+
   function closeDock() {
     dock.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
     if (backdrop) backdrop.classList.remove('is-open');
+
+    // Clean up active listeners
+    window.removeEventListener('mousemove', onMouseMoveAway);
+    window.removeEventListener('scroll', onScrollAway);
+    document.documentElement.removeEventListener('mouseleave', onMouseLeaveScreen);
+    window.removeEventListener('blur', onWindowBlur);
   }
 
   function openDock() {
     dock.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
     if (backdrop) backdrop.classList.add('is-open');
+    openScrollY = window.scrollY;
+
+    // Attach moving-away detection listeners
+    window.addEventListener('mousemove', onMouseMoveAway, { passive: true });
+    window.addEventListener('scroll', onScrollAway, { passive: true });
+    document.documentElement.addEventListener('mouseleave', onMouseLeaveScreen);
+    window.addEventListener('blur', onWindowBlur);
   }
 
   toggle.addEventListener('click', (e) => {
@@ -1777,24 +1827,11 @@ function prevMenuLightbox() {
 function updateLightboxContent() {
   const board = MENU_BOARDS[activeLightboxIndex];
   if (!board) return;
-  const tagEl = document.getElementById('lightboxTag');
-  const titleEl = document.getElementById('lightboxTitle');
-  const counterEl = document.getElementById('lightboxCounter');
   const imgEl = document.getElementById('lightboxImg');
-  const rawLinkEl = document.getElementById('lightboxRawLink');
-
-  if (tagEl) tagEl.textContent = board.tag;
-  if (titleEl) titleEl.textContent = board.title;
-  if (counterEl) counterEl.textContent = `${activeLightboxIndex + 1} / ${MENU_BOARDS.length}`;
   if (imgEl) {
     imgEl.src = board.image;
-    imgEl.alt = `${board.tag} - ${board.title}`;
-    imgEl.classList.remove('zoomed');
+    imgEl.alt = board.title;
   }
-  if (rawLinkEl) {
-    rawLinkEl.href = board.image;
-  }
-  isLightboxZoomed = false;
 }
 
 function toggleLightboxZoom(e) {

@@ -2669,37 +2669,56 @@ button,
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.15rem;
+  gap: 0.75rem;
 }
 
 .partner-logo-item {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.35rem 0.5rem;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  text-decoration: none;
-  opacity: 0.9;
-  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(12, 79, 72, 0.05) !important;
+  border-radius: 9999px !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(12, 79, 72, 0.1) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  border-radius: 6px;
 }
 
 .partner-logo-item:hover {
-  opacity: 1;
-  transform: translateY(-3px) scale(1.08);
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.14));
+  background: rgba(12, 79, 72, 0.12) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(12, 79, 72, 0.12);
 }
 
 .partner-logo-item:active {
-  transform: translateY(-1px) scale(0.98);
+  transform: translateY(0) scale(0.98);
+}
+
+.partner-logo-item .partner-brand-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  object-fit: cover;
+  display: block;
+}
+
+.partner-logo-item .partner-brand-icon[alt="WhatsApp"] {
+  border-radius: 0 !important;
+  object-fit: contain !important;
+}
+
+.partner-logo-item .partner-brand-text {
+  font-family: var(--font-body);
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--kz-green);
+  letter-spacing: 0.2px;
 }
 
 .partner-logo-item img {
   display: block;
-  height: 32px;
+  height: 24px;
   width: auto;
   object-fit: contain;
 }
@@ -3404,48 +3423,48 @@ button,
   }
 }
 
-@keyframes pulseGlowSwiggy {
-  0%, 100% {
-    box-shadow: 0 4px 14px rgba(252, 128, 25, 0.4);
-  }
-  50% {
-    box-shadow: 0 8px 24px rgba(252, 128, 25, 0.65);
-  }
-}
-
-@keyframes pulseGlowZomato {
-  0%, 100% {
-    box-shadow: 0 4px 14px rgba(226, 55, 68, 0.4);
-  }
-  50% {
-    box-shadow: 0 8px 24px rgba(226, 55, 68, 0.65);
-  }
-}
-
-@keyframes pulseGlowWhatsApp {
-  0%, 100% {
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
-  }
-  50% {
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.65);
-  }
-}
-
 .floating-social-dock {
   position: fixed;
-  bottom: 24px;
-  right: 22px;
-  z-index: 9999;
+  bottom: 26px;
+  right: 26px;
+  z-index: 10000;
   display: flex;
   flex-direction: column;
   gap: 12px;
   align-items: flex-end;
 }
 
+/* Backdrop Scrim (Click outside to close on Desktop & Mobile) */
+.dock-backdrop {
+  display: block !important;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 24, 22, 0.52);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.dock-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Action Buttons Stack (Collapsed by default on Desktop & Mobile) */
+.dock-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
 .float-btn {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50% !important;
   border: none !important;
   outline: none !important;
   display: flex;
@@ -3453,454 +3472,394 @@ button,
   justify-content: center;
   color: #ffffff !important;
   text-decoration: none !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, filter 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   position: relative;
-  will-change: transform, box-shadow;
+  overflow: visible !important;
+  padding: 0 !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.5);
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform, box-shadow, opacity;
 }
 
-/* Staggered entrance and organic floating wave animation */
-.float-btn:nth-child(1) {
-  animation: dockEntrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both, floatBob 3.4s ease-in-out infinite 0s, pulseGlowSwiggy 2.8s ease-in-out infinite 0s;
+.float-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  pointer-events: none;
 }
 
-.float-btn:nth-child(2) {
-  animation: dockEntrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both, floatBob 3.4s ease-in-out infinite 0.68s, pulseGlowZomato 2.8s ease-in-out infinite 1.4s;
+/* Expanded State for Action Buttons */
+.floating-social-dock.is-open .float-btn {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
 }
 
-.float-btn:nth-child(3) {
-  animation: dockEntrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both, floatBob 3.4s ease-in-out infinite 1.36s, pulseGlowWhatsApp 2.8s ease-in-out infinite 0.7s;
+/* Staggered Spring Upward Animation */
+.floating-social-dock.is-open .float-btn:nth-child(6) {
+  transition-delay: 0.02s;
+}
+.floating-social-dock.is-open .float-btn:nth-child(5) {
+  transition-delay: 0.06s;
+}
+.floating-social-dock.is-open .float-btn:nth-child(4) {
+  transition-delay: 0.10s;
+}
+.floating-social-dock.is-open .float-btn:nth-child(3) {
+  transition-delay: 0.14s;
+}
+.floating-social-dock.is-open .float-btn:nth-child(2) {
+  transition-delay: 0.18s;
+}
+.floating-social-dock.is-open .float-btn:nth-child(1) {
+  transition-delay: 0.22s;
 }
 
-.float-btn:nth-child(4) {
-  animation: dockEntrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both, floatBob 3.4s ease-in-out infinite 2.04s;
+/* Interactive Hover States when dock is open */
+.floating-social-dock.is-open .float-btn:hover {
+  transform: translateY(-3px) scale(1.1) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28) !important;
 }
 
-.float-btn:nth-child(5) {
-  animation: dockEntrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both, floatBob 3.4s ease-in-out infinite 2.72s;
+.floating-social-dock.is-open .float-btn:active {
+  transform: translateY(-1px) scale(0.96) !important;
 }
 
-/* Interactive Hover States - Pauses float and pops forward */
-.float-btn:hover {
-  animation-play-state: paused !important;
-  transform: translateY(-6px) scale(1.16) !important;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-}
-
-.float-btn:active {
-  transform: translateY(-2px) scale(0.95) !important;
-}
-
+/* Brand Button Backgrounds */
 .float-btn.float-swiggy {
   background-color: #fc8019 !important;
-  border: none !important;
-  box-shadow: 0 4px 14px rgba(252, 128, 25, 0.4);
-}
-
-.float-btn.float-swiggy:hover {
-  box-shadow: 0 10px 28px rgba(252, 128, 25, 0.65) !important;
 }
 
 .float-btn.float-zomato {
   background-color: #e23744 !important;
-  border: none !important;
-  box-shadow: 0 4px 14px rgba(226, 55, 68, 0.4);
 }
 
-.float-btn.float-zomato:hover {
-  box-shadow: 0 10px 28px rgba(226, 55, 68, 0.65) !important;
+.float-btn.float-district {
+  background-color: #5821c9 !important;
 }
 
 .float-btn.float-whatsapp {
-  background-color: #25d366 !important;
-  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.22));
 }
 
-.float-btn.float-whatsapp:hover {
-  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.65) !important;
+.floating-social-dock.is-open .float-btn.float-whatsapp:hover {
+  transform: translateY(-3px) scale(1.1) !important;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.32)) !important;
+  box-shadow: none !important;
+}
+
+.float-btn.float-whatsapp .float-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  display: block;
 }
 
 .float-btn.float-instagram {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%) !important;
-  border: none !important;
-}
-
-.float-btn.float-instagram:hover {
-  box-shadow: 0 10px 28px rgba(214, 36, 159, 0.65) !important;
 }
 
 .float-btn.float-facebook {
   background-color: #1877f2 !important;
-  border: none !important;
 }
 
-.float-btn.float-facebook:hover {
-  box-shadow: 0 10px 28px rgba(24, 119, 242, 0.65) !important;
-}
-
+/* Floating Text Badges / Labels - Shown ONLY on hover on that specific icon */
 .float-tooltip {
   position: absolute;
-  right: 64px;
-  background-color: var(--dig-green-900);
+  right: 62px;
+  background: rgba(12, 79, 72, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 700;
-  padding: 0.4rem 0.85rem;
+  padding: 0.38rem 0.85rem;
   border-radius: var(--radius-pill);
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  transform: translateX(12px) scale(0.92);
-  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.22);
+  visibility: hidden;
+  transform: translateX(10px) scale(0.92);
+  transition: opacity 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
   border: none !important;
 }
 
-.float-btn:hover .float-tooltip {
+/* ONLY show text badge when hovering over that specific button */
+.floating-social-dock.is-open .float-btn:hover .float-tooltip,
+.floating-social-dock.is-open .float-btn:focus-visible .float-tooltip {
   opacity: 1;
+  visibility: visible;
   transform: translateX(0) scale(1);
 }
 
-/* Desktop hidden states for mobile FAB trigger & wallet card elements */
-.dock-cards-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: flex-end;
-}
-
-.wallet-card-content,
-.wallet-card-arrow {
-  display: none !important;
-}
-
-.float-dock-toggle,
-.wallet-stack-toggle {
-  display: none !important;
-}
-
-.dock-backdrop {
-  display: none !important;
-}
-
 /* ==========================================================================
-   MOBILE WALLET-STACK FLOATING DOCK (<= 768px)
+   WALLET-STACK FLOATING DOCK TRIGGER BUTTON (Desktop & Mobile)
    ========================================================================== */
+.float-dock-toggle.wallet-stack-toggle {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  border: none !important;
+  outline: none !important;
+  background: linear-gradient(145deg, #0f3d37 0%, #062420 100%);
+  box-shadow: 0 8px 24px rgba(6, 36, 32, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  position: relative;
+  z-index: 10002;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background 0.25s ease, border-radius 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+  animation: walletPebbleBob 4s ease-in-out infinite;
+}
+
+.float-dock-toggle.wallet-stack-toggle:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 12px 28px rgba(6, 36, 32, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.float-dock-toggle.wallet-stack-toggle:active {
+  transform: scale(0.93);
+}
+
+.floating-social-dock.is-open .float-dock-toggle.wallet-stack-toggle {
+  background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  animation: none;
+}
+
+/* Mini Deck of Cards Stack inside the Trigger Button */
+.wallet-cards-deck {
+  position: relative;
+  width: 38px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.deck-card {
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Back Card (WhatsApp Green) */
+.deck-card.card-back {
+  width: 27px;
+  height: 18px;
+  background: #25d366;
+  z-index: 1;
+  transform: rotate(-18deg) translate(-6px, -4px);
+  animation: cardBackPeek 3.8s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck-card.card-back svg {
+  width: 12px;
+  height: 12px;
+  fill: #ffffff;
+}
+
+/* Middle Card (Zomato Red) */
+.deck-card.card-middle {
+  width: 28px;
+  height: 19px;
+  background: #e23744;
+  z-index: 2;
+  transform: rotate(-5deg) translate(-1px, -1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: cardMidPeek 3.8s ease-in-out infinite;
+}
+
+.deck-card.card-middle::after {
+  content: 'z';
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* Front Card (Swiggy Orange) */
+.deck-card.card-front {
+  width: 30px;
+  height: 21px;
+  background: #fc8019;
+  z-index: 3;
+  transform: rotate(9deg) translate(4px, 3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: cardFrontPeek 3.8s ease-in-out infinite;
+}
+
+.deck-card.card-front svg {
+  width: 14px;
+  height: 14px;
+  fill: #ffffff;
+}
+
+/* Order Tap Hint Badge */
+.wallet-tap-hint {
+  position: absolute;
+  bottom: -8px;
+  background: linear-gradient(135deg, #fc8019 0%, #e65100 100%);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(252, 128, 25, 0.55);
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Close Icon in Trigger */
+.wallet-close-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  opacity: 0;
+  transform: scale(0.4) rotate(-90deg);
+  transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+/* When Floating Dock is Open */
+.floating-social-dock.is-open .wallet-cards-deck {
+  opacity: 0;
+  transform: scale(0.3) rotate(45deg);
+  pointer-events: none;
+}
+
+.floating-social-dock.is-open .wallet-tap-hint {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+
+.floating-social-dock.is-open .wallet-close-icon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Pulse Badge on Trigger */
+.dock-toggle-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fc8019;
+  border: 2px solid #ffffff;
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.floating-social-dock.is-open .dock-toggle-badge {
+  display: none;
+}
+
+/* Subtle Card Deck Peek / Shuffle Animations */
+@keyframes walletPebbleBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes cardBackPeek {
+  0%, 75%, 100% {
+    transform: rotate(-18deg) translate(-6px, -4px);
+  }
+  82% {
+    transform: rotate(-26deg) translate(-10px, -7px);
+  }
+  89% {
+    transform: rotate(-18deg) translate(-6px, -4px);
+  }
+}
+
+@keyframes cardMidPeek {
+  0%, 75%, 100% {
+    transform: rotate(-5deg) translate(-1px, -1px);
+  }
+  82% {
+    transform: rotate(-9deg) translate(-3px, -3px);
+  }
+  89% {
+    transform: rotate(-5deg) translate(-1px, -1px);
+  }
+}
+
+@keyframes cardFrontPeek {
+  0%, 75%, 100% {
+    transform: rotate(9deg) translate(4px, 3px);
+  }
+  82% {
+    transform: rotate(18deg) translate(8px, 6px);
+  }
+  89% {
+    transform: rotate(9deg) translate(4px, 3px);
+  }
+}
+
+/* Mobile Adjustments for Floating Dock */
 @media (max-width: 768px) {
-  /* Dock Container on Mobile */
   .floating-social-dock {
     bottom: 20px;
     right: 16px;
     gap: 10px;
-    z-index: 10000;
-    align-items: flex-end;
   }
 
-  /* Backdrop Scrim */
-  .dock-backdrop {
-    display: block !important;
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 24, 22, 0.58);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    z-index: 9998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.28s ease;
-  }
-
-  .dock-backdrop.is-open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* Wallet Cards Deck Trigger Button */
-  .float-dock-toggle.wallet-stack-toggle {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 58px;
-    height: 58px;
-    border-radius: 18px;
-    border: none !important;
-    outline: none !important;
-    background: linear-gradient(145deg, #0f3d37 0%, #062420 100%);
-    box-shadow: 0 8px 24px rgba(6, 36, 32, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    position: relative;
-    z-index: 10002;
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background 0.25s ease, border-radius 0.25s ease;
-    -webkit-tap-highlight-color: transparent;
-    animation: walletPebbleBob 4s ease-in-out infinite;
-  }
-
-  .float-dock-toggle.wallet-stack-toggle:active {
-    transform: scale(0.92);
-  }
-
-  .floating-social-dock.is-open .float-dock-toggle.wallet-stack-toggle {
-    background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    border-radius: 50%;
-    animation: none;
-  }
-
-  /* Mini Deck of Cards Stack inside the Trigger Button */
-  .wallet-cards-deck {
-    position: relative;
-    width: 38px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  .deck-card {
-    position: absolute;
-    border-radius: 4px;
-    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  /* Back Card (WhatsApp Green) */
-  .deck-card.card-back {
-    width: 27px;
-    height: 18px;
-    background: #25d366;
-    z-index: 1;
-    transform: rotate(-18deg) translate(-6px, -4px);
-    animation: cardBackPeek 3.8s ease-in-out infinite;
-  }
-
-  /* Middle Card (Zomato Red) */
-  .deck-card.card-middle {
-    width: 28px;
-    height: 19px;
-    background: #e23744;
-    z-index: 2;
-    transform: rotate(-5deg) translate(-1px, -1px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: cardMidPeek 3.8s ease-in-out infinite;
-  }
-
-  .deck-card.card-middle::after {
-    content: 'z';
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 11px;
-    font-weight: 900;
-    font-style: italic;
-    color: #ffffff;
-    line-height: 1;
-  }
-
-  /* Front Card (Swiggy Orange) */
-  .deck-card.card-front {
-    width: 30px;
-    height: 21px;
-    background: #fc8019;
-    z-index: 3;
-    transform: rotate(9deg) translate(4px, 3px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: cardFrontPeek 3.8s ease-in-out infinite;
-  }
-
-  .deck-card.card-front svg {
-    width: 14px;
-    height: 14px;
-    fill: #ffffff;
-  }
-
-  /* Order Tap Hint Badge */
-  .wallet-tap-hint {
-    position: absolute;
-    bottom: -8px;
-    background: linear-gradient(135deg, #fc8019 0%, #e65100 100%);
-    color: #ffffff;
-    font-family: var(--font-body);
-    font-size: 0.6rem;
-    font-weight: 900;
-    letter-spacing: 0.8px;
-    padding: 2px 7px;
-    border-radius: 999px;
-    box-shadow: 0 2px 8px rgba(252, 128, 25, 0.55);
-    pointer-events: none;
-    white-space: nowrap;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-
-  /* Close Icon in Trigger */
-  .wallet-close-icon {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    opacity: 0;
-    transform: scale(0.4) rotate(-90deg);
-    transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-    pointer-events: none;
-  }
-
-  /* When Floating Dock is Open on Mobile */
-  .floating-social-dock.is-open .wallet-cards-deck {
-    opacity: 0;
-    transform: scale(0.3) rotate(45deg);
-    pointer-events: none;
-  }
-
-  .floating-social-dock.is-open .wallet-tap-hint {
-    opacity: 0;
-    transform: translateY(6px);
-    pointer-events: none;
-  }
-
-  .floating-social-dock.is-open .wallet-close-icon {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-
-  /* Pulse Badge on Trigger */
-  .dock-toggle-badge {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #fc8019;
-    border: 2px solid #ffffff;
-    animation: badgePulse 2s infinite;
-  }
-
-  @keyframes badgePulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-  }
-
-  .floating-social-dock.is-open .dock-toggle-badge {
-    display: none;
-  }
-
-  /* Collapsed vs Expanded Action Buttons (Mobile) */
   .float-btn {
     width: 46px !important;
     height: 46px !important;
-    border-radius: 50% !important;
-    padding: 0 !important;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(20px) scale(0.5);
-    transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.2s ease;
-    animation: none !important; /* disable continuous desktop idle bobbing on mobile */
-    border: none !important;
   }
 
-  .floating-social-dock.is-open .float-btn {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0) scale(1);
-  }
-
-  /* Staggered Spring Upward Animation */
-  .floating-social-dock.is-open .float-btn:nth-child(5) {
-    transition-delay: 0.03s;
-  }
-  .floating-social-dock.is-open .float-btn:nth-child(4) {
-    transition-delay: 0.07s;
-  }
-  .floating-social-dock.is-open .float-btn:nth-child(3) {
-    transition-delay: 0.11s;
-  }
-  .floating-social-dock.is-open .float-btn:nth-child(2) {
-    transition-delay: 0.15s;
-  }
-  .floating-social-dock.is-open .float-btn:nth-child(1) {
-    transition-delay: 0.19s;
-  }
-
-  /* Floating Text Badges / Labels on Mobile when open */
   .float-tooltip {
-    display: block !important;
-    right: 58px;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(10px) scale(0.9);
-    transition: opacity 0.2s ease 0.1s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
-    background: rgba(12, 79, 72, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: #ffffff;
-    font-size: 0.76rem;
-    font-weight: 700;
-    padding: 0.35rem 0.75rem;
-    border-radius: var(--radius-pill);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
-    border: none !important;
-    white-space: nowrap;
-  }
-
-  .floating-social-dock.is-open .float-tooltip {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-
-  /* Subtle Card Deck Peek / Shuffle Animations */
-  @keyframes walletPebbleBob {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-4px);
-    }
-  }
-
-  @keyframes cardBackPeek {
-    0%, 75%, 100% {
-      transform: rotate(-18deg) translate(-6px, -4px);
-    }
-    82% {
-      transform: rotate(-26deg) translate(-10px, -7px);
-    }
-    89% {
-      transform: rotate(-18deg) translate(-6px, -4px);
-    }
-  }
-
-  @keyframes cardMidPeek {
-    0%, 75%, 100% {
-      transform: rotate(-5deg) translate(-1px, -1px);
-    }
-    82% {
-      transform: rotate(-9deg) translate(-3px, -3px);
-    }
-    89% {
-      transform: rotate(-5deg) translate(-1px, -1px);
-    }
-  }
-
-  @keyframes cardFrontPeek {
-    0%, 75%, 100% {
-      transform: rotate(9deg) translate(4px, 3px);
-    }
-    82% {
-      transform: rotate(18deg) translate(8px, 6px);
-    }
-    89% {
-      transform: rotate(9deg) translate(4px, 3px);
-    }
+    right: 56px;
+    font-size: 0.74rem;
+    padding: 0.32rem 0.75rem;
   }
 }
 
@@ -5086,7 +5045,7 @@ button,
 .instore-menu-section {
   position: relative;
   background-color: var(--dig-cream);
-  padding: clamp(1.25rem, 2vw, 2rem) 0;
+  padding: clamp(1.75rem, 3vw, 2.75rem) 0;
   border-top: 1px solid rgba(12, 79, 72, 0.08);
   border-bottom: 1px solid rgba(12, 79, 72, 0.08);
   overflow: hidden;
@@ -5113,19 +5072,18 @@ button,
   min-width: 0;
   border-radius: 16px;
   overflow: hidden;
-  background: #0d1a18;
-  border: 1.5px solid rgba(12, 79, 72, 0.12);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  background: transparent;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.03);
   cursor: pointer;
   display: flex;
   position: relative;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
 .menu-strip-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 16px 36px rgba(12, 79, 72, 0.16), 0 3px 10px rgba(0, 0, 0, 0.06);
-  border-color: rgba(12, 79, 72, 0.35);
 }
 
 .menu-strip-img {
@@ -5134,6 +5092,8 @@ button,
   display: block;
   object-fit: cover;
   aspect-ratio: 1.5;
+  border: none;
+  border-radius: 16px;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -5142,7 +5102,7 @@ button,
 }
 
 /* ==========================================================================
-   INTERACTIVE MENU LIGHTBOX MODAL
+   MINIMAL IMAGE-ONLY MENU LIGHTBOX MODAL
    ========================================================================== */
 .menu-lightbox-modal {
   position: fixed;
@@ -5154,7 +5114,8 @@ button,
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  padding: 1rem;
 }
 
 .menu-lightbox-modal.active {
@@ -5166,266 +5127,108 @@ button,
 .lightbox-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(8, 20, 18, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.lightbox-dialog {
-  position: relative;
-  width: 95vw;
-  max-width: 1280px;
-  max-height: 94vh;
-  display: flex;
-  flex-direction: column;
-  background: #111a18;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
-  z-index: 2;
-  transform: scale(0.96);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.menu-lightbox-modal.active .lightbox-dialog {
-  transform: scale(1);
-}
-
-.lightbox-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem 1.4rem;
-  background: rgba(18, 30, 27, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  gap: 1rem;
-}
-
-.lightbox-title-area {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-width: 0;
-}
-
-.lightbox-tag {
-  background: var(--kz-yellow);
-  color: #1a1a1a;
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0.2rem 0.55rem;
-  border-radius: 5px;
-  white-space: nowrap;
-}
-
-.lightbox-title {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.lightbox-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-shrink: 0;
-}
-
-.lightbox-nav-btns {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 0.25rem 0.45rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.btn-lightbox-nav {
-  background: transparent;
-  border: none;
-  color: #ffffff;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(8, 20, 18, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.btn-lightbox-nav:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.lightbox-counter {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 0 0.35rem;
-  white-space: nowrap;
-}
-
-.btn-lightbox-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 0.45rem 0.85rem;
-  border-radius: 8px;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.2s ease;
-}
-
-.btn-lightbox-action:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--kz-yellow);
 }
 
 .btn-lightbox-close {
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
+  position: fixed;
+  top: clamp(1rem, 2.5vw, 1.75rem);
+  right: clamp(1rem, 2.5vw, 1.75rem);
+  z-index: 10002;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: all 0.2s ease;
 }
 
 .btn-lightbox-close:hover {
   background: var(--kz-red);
+  border-color: var(--kz-red);
   transform: rotate(90deg);
 }
 
-.lightbox-viewport {
+.lightbox-dialog-minimal {
   position: relative;
-  width: 100%;
-  height: calc(94vh - 65px);
-  background: #080f0e;
-  overflow: auto;
+  z-index: 10001;
+  max-width: 95vw;
+  max-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  cursor: zoom-in;
+  transform: scale(0.96);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.lightbox-img {
-  max-width: 100%;
-  max-height: 100%;
+.menu-lightbox-modal.active .lightbox-dialog-minimal {
+  transform: scale(1);
+}
+
+.lightbox-img-minimal {
+  max-width: 95vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
   user-select: none;
   -webkit-user-select: none;
 }
 
-.lightbox-img.zoomed {
-  max-width: none;
-  max-height: none;
-  width: 165%;
-  cursor: zoom-out;
-}
-
-.lightbox-hint {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.35rem 0.9rem;
-  border-radius: 9999px;
-  backdrop-filter: blur(4px);
-  pointer-events: none;
-}
-
-/* Mobile & Tablet Horizontal Line / Scroll */
-@media (max-width: 900px) {
+/* Mobile: Vertical Stack Layout */
+@media (max-width: 768px) {
   .instore-menu-section {
-    padding: 1rem 0 1.25rem;
+    padding: 1.5rem 0 2rem;
   }
 
   .menu-horizontal-container {
-    padding: 0;
+    padding: 0 1rem;
+    max-width: 540px;
+    margin: 0 auto;
   }
 
   .menu-horizontal-row {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    gap: 0.75rem;
-    padding: 0.25rem 1rem 0.5rem;
-    justify-content: flex-start;
-  }
-
-  .menu-horizontal-row::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .menu-horizontal-row::-webkit-scrollbar-thumb {
-    background: rgba(12, 79, 72, 0.2);
-    border-radius: 9999px;
+    flex-direction: column;
+    gap: 1.25rem;
+    overflow-x: visible;
+    padding: 0;
   }
 
   .menu-strip-item {
-    flex: 0 0 clamp(280px, 80vw, 360px);
-    scroll-snap-align: center;
-    border-radius: 14px;
+    flex: 0 0 auto;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
   }
 
-  .lightbox-dialog {
-    width: 98vw;
-    max-height: 96vh;
-    border-radius: 14px;
+  .menu-strip-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    aspect-ratio: 1.5;
   }
 
-  .lightbox-toolbar {
-    padding: 0.65rem 0.85rem;
-  }
-
-  .lightbox-title {
-    font-size: 0.9rem;
-  }
-
-  .btn-lightbox-action span {
-    display: none;
-  }
-
-  .btn-lightbox-action {
-    padding: 0.4rem 0.55rem;
-  }
-
-  .lightbox-viewport {
-    height: calc(96vh - 55px);
-    padding: 0.5rem;
-  }
-
-  .lightbox-img.zoomed {
-    width: 250%;
+  .lightbox-img-minimal {
+    max-width: 96vw;
+    max-height: 85vh;
+    border-radius: 8px;
   }
 }
+
+
 
 
 
