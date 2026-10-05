@@ -1714,4 +1714,141 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/* ==========================================================================
+   OFFICIAL IN-STORE MENU LIGHTBOX & TABS LOGIC
+   ========================================================================== */
+const MENU_BOARDS = [
+  {
+    tag: 'Board 01',
+    title: 'Custom Bowls & Burrito Wraps',
+    desc: 'Pick your base (Brown Rice, Burrito Wrap, Salad Bowl, Nachos Bowl), choose whole-food fillings & high-protein toppings.',
+    image: 'assets/images/menu-card-1.jpg'
+  },
+  {
+    tag: 'Board 02',
+    title: 'Tacos, Quesadillas & Nachos',
+    desc: 'Crispy hard shell & soft flour tacos (Buy Any Taco @ ₹89), golden grilled cheese quesadillas, and loaded Rancho\'s & Haven nachos.',
+    image: 'assets/images/menu-card-3.jpg'
+  },
+  {
+    tag: 'Board 03',
+    title: 'Crispy Sides, Shakes & Refrescos',
+    desc: 'Peri-peri fries, crispy chicken wings & tenders, Belgian dark chocolate shake, Nutella indulgence, and Mexican refrescos.',
+    image: 'assets/images/menu-card-2.jpg'
+  }
+];
+
+let activeLightboxIndex = 0;
+let isLightboxZoomed = false;
+
+function openMenuLightbox(index) {
+  activeLightboxIndex = (typeof index === 'number' && index >= 0 && index < MENU_BOARDS.length) ? index : 0;
+  updateLightboxContent();
+  const modal = document.getElementById('menuLightboxModal');
+  if (modal) {
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMenuLightbox() {
+  const modal = document.getElementById('menuLightboxModal');
+  if (modal) {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  isLightboxZoomed = false;
+  const img = document.getElementById('lightboxImg');
+  if (img) img.classList.remove('zoomed');
+}
+
+function nextMenuLightbox() {
+  activeLightboxIndex = (activeLightboxIndex + 1) % MENU_BOARDS.length;
+  updateLightboxContent();
+}
+
+function prevMenuLightbox() {
+  activeLightboxIndex = (activeLightboxIndex - 1 + MENU_BOARDS.length) % MENU_BOARDS.length;
+  updateLightboxContent();
+}
+
+function updateLightboxContent() {
+  const board = MENU_BOARDS[activeLightboxIndex];
+  if (!board) return;
+  const tagEl = document.getElementById('lightboxTag');
+  const titleEl = document.getElementById('lightboxTitle');
+  const counterEl = document.getElementById('lightboxCounter');
+  const imgEl = document.getElementById('lightboxImg');
+  const rawLinkEl = document.getElementById('lightboxRawLink');
+
+  if (tagEl) tagEl.textContent = board.tag;
+  if (titleEl) titleEl.textContent = board.title;
+  if (counterEl) counterEl.textContent = `${activeLightboxIndex + 1} / ${MENU_BOARDS.length}`;
+  if (imgEl) {
+    imgEl.src = board.image;
+    imgEl.alt = `${board.tag} - ${board.title}`;
+    imgEl.classList.remove('zoomed');
+  }
+  if (rawLinkEl) {
+    rawLinkEl.href = board.image;
+  }
+  isLightboxZoomed = false;
+}
+
+function toggleLightboxZoom(e) {
+  if (e && e.target && (e.target.closest('button') || e.target.closest('a'))) return;
+  const img = document.getElementById('lightboxImg');
+  if (!img) return;
+  isLightboxZoomed = !isLightboxZoomed;
+  img.classList.toggle('zoomed', isLightboxZoomed);
+}
+
+function initInstoreMenuTabs() {
+  const tabBtns = document.querySelectorAll('.instore-tab-btn');
+  const cards = document.querySelectorAll('.instore-board-card');
+  if (!tabBtns.length || !cards.length) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const targetBoard = btn.getAttribute('data-board');
+
+      cards.forEach(card => {
+        if (targetBoard === 'all' || card.getAttribute('data-board') === targetBoard) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+          card.style.opacity = '0';
+        }
+      });
+    });
+  });
+}
+
+// Global exposure for inline onclick handlers
+window.openMenuLightbox = openMenuLightbox;
+window.closeMenuLightbox = closeMenuLightbox;
+window.nextMenuLightbox = nextMenuLightbox;
+window.prevMenuLightbox = prevMenuLightbox;
+window.toggleLightboxZoom = toggleLightboxZoom;
+
+// Keyboard listener for Escape & Arrow navigation
+window.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('menuLightboxModal');
+  if (!modal || !modal.classList.contains('active')) return;
+  if (e.key === 'Escape') closeMenuLightbox();
+  if (e.key === 'ArrowRight') nextMenuLightbox();
+  if (e.key === 'ArrowLeft') prevMenuLightbox();
+});
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initInstoreMenuTabs);
+} else {
+  initInstoreMenuTabs();
+}
+
 

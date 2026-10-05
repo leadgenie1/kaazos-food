@@ -520,8 +520,62 @@
     </div>
   </section>
 
+  <!-- ==========================================================================
+       OFFICIAL IN-STORE MENU BOARDS SECTION (Under Testimonials)
+       ========================================================================== -->
+  <section class="instore-menu-section" id="menuSection">
+    <div class="menu-horizontal-container">
+      <div class="menu-horizontal-row">
+        <div class="menu-strip-item" onclick="openMenuLightbox(0)" title="Click to enlarge menu board 1">
+          <img src="assets/images/menu-card-1.jpg" alt="Kaazos In-Store Menu - Bowls & Burritos" loading="lazy" class="menu-strip-img" />
+        </div>
+        <div class="menu-strip-item" onclick="openMenuLightbox(1)" title="Click to enlarge menu board 2">
+          <img src="assets/images/menu-card-3.jpg" alt="Kaazos In-Store Menu - Tacos, Quesadillas & Nachos" loading="lazy" class="menu-strip-img" />
+        </div>
+        <div class="menu-strip-item" onclick="openMenuLightbox(2)" title="Click to enlarge menu board 3">
+          <img src="assets/images/menu-card-2.jpg" alt="Kaazos In-Store Menu - Crispy Sides, Shakes & Desserts" loading="lazy" class="menu-strip-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Interactive Menu Lightbox Modal -->
+  <div id="menuLightboxModal" class="menu-lightbox-modal" aria-hidden="true" role="dialog" aria-label="Menu Board Lightbox Viewer">
+    <div class="lightbox-backdrop" onclick="closeMenuLightbox()"></div>
+    <div class="lightbox-dialog">
+      <div class="lightbox-toolbar">
+        <div class="lightbox-title-area">
+          <span class="lightbox-tag" id="lightboxTag">Board 01</span>
+          <h4 class="lightbox-title" id="lightboxTitle">Custom Bowls &amp; Burrito Wraps</h4>
+        </div>
+        <div class="lightbox-controls">
+          <div class="lightbox-nav-btns">
+            <button type="button" class="btn-lightbox-nav" id="lightboxPrevBtn" onclick="prevMenuLightbox()" title="Previous Board (Left Arrow)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <span class="lightbox-counter" id="lightboxCounter">1 / 3</span>
+            <button type="button" class="btn-lightbox-nav" id="lightboxNextBtn" onclick="nextMenuLightbox()" title="Next Board (Right Arrow)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+          <a id="lightboxRawLink" href="assets/images/menu-card-1.jpg" target="_blank" rel="noopener noreferrer" class="btn-lightbox-action" title="Open full high-resolution image in new tab">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <span>Original</span>
+          </a>
+          <button type="button" class="btn-lightbox-close" onclick="closeMenuLightbox()" aria-label="Close Lightbox (Esc)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="lightbox-viewport" id="lightboxViewport" onclick="toggleLightboxZoom(event)">
+        <img id="lightboxImg" src="assets/images/menu-card-1.jpg" alt="Kaazos Official Menu Board" class="lightbox-img" />
+        <div class="lightbox-hint">Tap / Click to toggle zoom &bull; Use &larr; &rarr; arrows to switch boards</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Signature Menu Section (Curated Top 6 Food Items) -->
-  <section class="menu-catalog-section" id="menuSection">
+  <section class="menu-catalog-section" id="signatureCatalog">
     <div class="container">
       <div class="section-head text-center" style="max-width: 760px; margin: 0 auto 2.25rem; text-align: center;">
         <span class="eyebrow">Chef's Signature Selection</span>
