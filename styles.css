@@ -3168,11 +3168,37 @@ button,
     padding-bottom: 65px;
   }
   .luxury-editorial-hero {
-    padding: 2.25rem 0 2rem;
+    padding: 3.25rem 1.25rem 2.85rem !important;
+  }
+  .hero-photo-theme .hero-lifestyle-overlay {
+    background: linear-gradient(180deg, 
+      rgba(5, 31, 28, 0.78) 0%, 
+      rgba(5, 31, 28, 0.7) 42%, 
+      rgba(5, 31, 28, 0.88) 100%) !important;
+  }
+  .luxury-editorial-hero .hero-text-side {
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
   }
   .luxury-editorial-hero .hero-title {
-    font-size: clamp(2.6rem, 9vw, 3.4rem);
-    letter-spacing: -1.2px;
+    font-size: clamp(2rem, 7.5vw, 2.4rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 0.85rem !important;
+  }
+  .luxury-editorial-hero .hero-desc {
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+    color: rgba(255, 245, 235, 0.88) !important;
+    max-width: 320px !important;
+    margin: 0 auto 1.45rem !important;
+  }
+  .hero-photo-theme .btn-editorial-primary,
+  .btn-editorial-primary {
+    padding: 0.8rem 1.85rem !important;
+    font-size: 0.92rem !important;
+    box-shadow: 0 8px 20px -3px rgba(243, 89, 37, 0.5) !important;
   }
   .hero-trust-bar {
     gap: 0.75rem;
