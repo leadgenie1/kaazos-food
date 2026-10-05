@@ -2448,6 +2448,274 @@ button,
   border-bottom-color: var(--kz-red);
 }
 
+/* ==========================================================================
+   OFFICIAL GOOGLE REVIEWS & RATINGS EMBED GRID (100% FREE DIRECT FROM GOOGLE)
+   ========================================================================== */
+.google-reviews-embed-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 440px) 1fr;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  align-items: stretch;
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 960px) {
+  .google-reviews-embed-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.google-rating-summary-card {
+  background: var(--dig-cream-card, #ffffff);
+  border-radius: 24px;
+  padding: clamp(1.75rem, 2.5vw, 2.25rem);
+  border: 1.5px solid rgba(12, 79, 72, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.google-rating-summary-card:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+}
+
+.grs-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.google-g-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #1f2937;
+  letter-spacing: -0.01em;
+}
+
+.grs-status-pill {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.grs-score-block {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 0 1.25rem;
+  border-bottom: 1px solid rgba(12, 79, 72, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.grs-score-num {
+  font-size: clamp(3.2rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--kz-green);
+  font-family: var(--font-heading);
+  letter-spacing: -1px;
+}
+
+.grs-score-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.grs-stars {
+  color: #f59e0b;
+  font-size: 1.35rem;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.grs-verified-txt {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.grs-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 1.75rem;
+}
+
+.grs-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.grs-feat-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.grs-feature-item strong {
+  display: block;
+  color: #111827;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.grs-feature-item p {
+  margin: 0.2rem 0 0;
+  color: #4b5563;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.grs-cta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.grs-btn-main {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--kz-green);
+  color: #ffffff !important;
+  text-decoration: none !important;
+  padding: 0.95rem 1.4rem;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(12, 79, 72, 0.25);
+  text-align: center;
+}
+
+.grs-btn-main:hover {
+  background: var(--kz-green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(12, 79, 72, 0.35);
+  color: #ffffff !important;
+}
+
+.grs-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--kz-green) !important;
+  text-decoration: none !important;
+  padding: 0.8rem 1.25rem;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1.5px solid rgba(12, 79, 72, 0.25);
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.grs-btn-outline:hover {
+  border-color: var(--kz-green);
+  background: rgba(12, 79, 72, 0.05);
+  color: var(--kz-green) !important;
+}
+
+.grs-btn-outline svg {
+  fill: #f59e0b;
+}
+
+/* Interactive Map Card */
+.google-map-interactive-card {
+  background: var(--dig-cream-card, #ffffff);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1.5px solid rgba(12, 79, 72, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+  position: relative;
+}
+
+.gmic-iframe-wrap {
+  flex: 1;
+  width: 100%;
+  min-height: 400px;
+  position: relative;
+  background: #e5e7eb;
+}
+
+.gmic-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.gmic-caption-bar {
+  padding: 1.15rem 1.5rem;
+  background: #ffffff;
+  border-top: 1px solid rgba(12, 79, 72, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gmic-caption-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.gmic-name {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.gmic-addr {
+  font-size: 0.825rem;
+  color: #6b7280;
+}
+
+.gmic-direct-link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--kz-red) !important;
+  text-decoration: none !important;
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
+  background: rgba(199, 44, 44, 0.08);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.gmic-direct-link:hover {
+  background: var(--kz-red);
+  color: #ffffff !important;
+}
+
 /* Single Line Reviews Viewport & Track */
 .reviews-carousel-viewport {
   position: relative;
