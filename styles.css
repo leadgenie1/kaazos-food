@@ -3082,8 +3082,13 @@ button,
 
 @media (max-width: 1024px) {
   .luxury-editorial-hero {
-    min-height: auto;
-    padding: 3.25rem 0 2.25rem;
+    min-height: calc(100vh - 76px);
+    min-height: calc(100svh - 76px);
+    min-height: calc(100dvh - 76px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(2.5rem, 5vh, 4rem) 1.5rem;
   }
   .hero-photo-theme .hero-showcase-stage {
     display: none !important;
@@ -3168,37 +3173,68 @@ button,
     padding-bottom: 65px;
   }
   .luxury-editorial-hero {
-    padding: 3.25rem 1.25rem 2.85rem !important;
+    min-height: calc(100vh - 66px) !important;
+    min-height: calc(100svh - 66px) !important;
+    min-height: calc(100dvh - 66px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: clamp(2rem, 5vh, 3.5rem) 1.25rem !important;
+    box-sizing: border-box !important;
   }
   .hero-photo-theme .hero-lifestyle-overlay {
     background: linear-gradient(180deg, 
-      rgba(5, 31, 28, 0.78) 0%, 
-      rgba(5, 31, 28, 0.7) 42%, 
+      rgba(5, 31, 28, 0.76) 0%, 
+      rgba(5, 31, 28, 0.68) 45%, 
       rgba(5, 31, 28, 0.88) 100%) !important;
   }
+  .luxury-editorial-hero .hero-container,
+  .luxury-editorial-hero .hero-grid-layout {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    flex: 1 !important;
+  }
   .luxury-editorial-hero .hero-text-side {
-    max-width: 360px !important;
+    width: 100% !important;
+    max-width: min(90vw, 380px) !important;
     margin: 0 auto !important;
     padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
   }
   .luxury-editorial-hero .hero-title {
-    font-size: clamp(2rem, 7.5vw, 2.4rem) !important;
-    line-height: 1.15 !important;
+    font-size: clamp(2.1rem, 8vw, 2.65rem) !important;
+    line-height: 1.14 !important;
     letter-spacing: -0.5px !important;
-    margin-bottom: 0.85rem !important;
+    margin-bottom: clamp(0.75rem, 2vh, 1.1rem) !important;
   }
   .luxury-editorial-hero .hero-desc {
-    font-size: 0.92rem !important;
+    font-size: clamp(0.9rem, 2.8vw, 1rem) !important;
     line-height: 1.55 !important;
-    color: rgba(255, 245, 235, 0.88) !important;
-    max-width: 320px !important;
-    margin: 0 auto 1.45rem !important;
+    color: rgba(255, 248, 238, 0.9) !important;
+    max-width: min(85vw, 340px) !important;
+    margin: 0 auto clamp(1.4rem, 3vh, 2rem) !important;
+  }
+  .luxury-editorial-hero .hero-ctas {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 !important;
   }
   .hero-photo-theme .btn-editorial-primary,
   .btn-editorial-primary {
-    padding: 0.8rem 1.85rem !important;
-    font-size: 0.92rem !important;
-    box-shadow: 0 8px 20px -3px rgba(243, 89, 37, 0.5) !important;
+    padding: clamp(0.8rem, 2vh, 0.95rem) clamp(1.8rem, 5vw, 2.2rem) !important;
+    font-size: clamp(0.92rem, 2.6vw, 1rem) !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 8px 22px -3px rgba(243, 89, 37, 0.55) !important;
   }
   .hero-trust-bar {
     gap: 0.75rem;
