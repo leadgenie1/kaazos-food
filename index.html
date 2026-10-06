@@ -131,6 +131,11 @@
             <span>Explore The Menu</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
+          <button type="button" class="btn-secret-menu-trigger" onclick="openSecretMenuModal()" aria-label="Unlock Indiranagar Secret Menu">
+            <span class="secret-spark-icon">🤫</span>
+            <span>Secret Menu</span>
+            <span class="secret-vip-tag">VIP</span>
+          </button>
         </div>
       </div>
 
@@ -1010,6 +1015,21 @@
           <img src="assets/images/menu-card-2.jpg" alt="Kaazos In-Store Menu - Crispy Sides, Shakes & Desserts" loading="lazy" class="menu-strip-img" />
         </div>
       </div>
+
+      <!-- Secret Vault Teaser Banner -->
+      <div class="secret-vault-banner" onclick="openSecretMenuModal()" role="button" tabindex="0" aria-label="Open Secret Menu Modal">
+        <div class="svb-left">
+          <span class="svb-icon">🔒</span>
+          <div>
+            <span class="svb-title">Indiranagar VIP Secret Menu</span>
+            <span class="svb-sub">Off-menu kitchen specials crafted by our Head Chef. Available on direct order only.</span>
+          </div>
+        </div>
+        <button type="button" class="svb-btn">
+          <span>Unlock 3 Secret Dishes</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -1190,20 +1210,63 @@
   </section>
 
 
-  <!-- Editorial Split Section (Hosting & Group Catering) -->
-  <section class="split-section" style="background-color: var(--dig-cream); border-top: 1px solid rgba(12,79,72,0.08);">
+  <!-- Interactive Indiranagar Office Lunch & Team Catering Section -->
+  <section class="office-lunch-section" id="officeLunchSection">
     <div class="container">
-      <div class="split-grid reverse-order">
-        <div class="split-content">
-          <span class="eyebrow" style="color: var(--kz-red);">Gatherings &amp; Delivery</span>
-          <h2 class="split-title">Hosting made effortless. We have you covered.</h2>
-          <p class="split-text">
-            From team lunches and celebrations to weekend cravings, our kitchen caters to gatherings of any scale. Speak directly with our team on WhatsApp for group inquiries, or find us listed on delivery aggregators.
+      <div class="office-lunch-grid">
+        <div class="ol-content-side">
+          <span class="eyebrow" style="color: var(--kz-red);">Indiranagar &amp; 100ft Rd Startups</span>
+          <h2 class="section-title" style="margin-top: 0.35rem; margin-bottom: 0.65rem;">Office Lunch &amp; Team Catering</h2>
+          <p class="ol-lead">
+            Fuel your sprint, client demo, or Friday all-hands with hot, handcrafted burritos, sizzling fajita bowls, loaded crisps, and fresh agua frescas. Delivered piping hot right to your Indiranagar desk.
           </p>
+
+          <!-- Interactive Team Size Selector -->
+          <div class="team-size-selector">
+            <span class="tss-label">Select Your Team Size:</span>
+            <div class="tss-btn-row">
+              <button type="button" class="tss-btn active" data-tier="10" onclick="selectOfficeLunchTier(10)">10 People</button>
+              <button type="button" class="tss-btn" data-tier="20" onclick="selectOfficeLunchTier(20)">20 People</button>
+              <button type="button" class="tss-btn" data-tier="35" onclick="selectOfficeLunchTier(35)">35 People</button>
+              <button type="button" class="tss-btn" data-tier="50" onclick="selectOfficeLunchTier(50)">50+ All-Hands</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Tier Breakdown Card -->
+          <div class="office-tier-card">
+            <div class="otc-header">
+              <span class="otc-badge" id="otcBadge">10 Person Lunch Pack</span>
+              <span class="otc-time">⚡ 45-Min Scheduled Delivery</span>
+            </div>
+            <ul class="otc-list" id="otcList">
+              <li>✓ <strong>10 Signature Bowls / Burritos</strong> (Custom Veg / Non-Veg split)</li>
+              <li>✓ <strong>2 Large Warm Tortilla Crisp Trays</strong> with fresh Pico de Gallo</li>
+              <li>✓ <strong>FREE Salsa Bar</strong> (Smoky Chipotle, Salsa Verde &amp; Habanero Dips)</li>
+              <li>✓ <strong>100% Eco-Friendly Cutlery &amp; Thermal Box Packaging</strong></li>
+            </ul>
+            <div class="otc-perk" id="otcPerk">
+              🎁 <strong>Team Perk:</strong> Complimentary Tortilla Crisp Party Box Included!
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="ol-actions">
+            <a href="https://wa.me/919876543210?text=Hi%20Kaazos%20Kitchen!%20We%20want%20to%20order%20an%20Office%20Team%20Lunch%20for%2010%20people%20in%20Indiranagar." class="btn-editorial-primary btn-office-wa" id="officeWaBtn" target="_blank" rel="noopener noreferrer">
+              <span>Book Office Lunch via WhatsApp</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="ol-support-text">Direct kitchen line &bull; GST corporate invoice available upon request</span>
+          </div>
         </div>
 
-        <div class="split-visual">
-          <img src="assets/images/fries.jpg" alt="Crispy loaded fries and chicken wings" width="600" height="450" loading="lazy">
+        <div class="ol-visual-wrap">
+          <div class="ol-image-frame">
+            <img src="assets/images/fries.jpg" alt="Kaazos Office Lunch Spread - Crispy loaded crisps, bowls, and burritos" class="ol-img" width="600" height="450" loading="lazy">
+            <div class="ol-floating-pill">
+              <span class="ofp-icon">🌯</span>
+              <span>Trusted by <span class="ofp-num">40+</span> Indiranagar Tech Teams</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1411,10 +1474,79 @@
     </button>
   </aside>
 
+  <!-- Secret Menu Modal Vault -->
+  <div id="secretMenuModal" class="secret-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="secretMenuTitle" onclick="if(event.target === this) closeSecretMenuModal()">
+    <div class="secret-modal-dialog">
+      <button type="button" class="secret-modal-close-btn" onclick="closeSecretMenuModal()" aria-label="Close Secret Menu Modal">&times;</button>
+      
+      <div class="sm-header">
+        <span class="sm-eyebrow">🔐 Off-Menu Vault &bull; Indiranagar Only</span>
+        <h2 class="sm-title" id="secretMenuTitle">The Kaazos Secret Menu</h2>
+        <p class="sm-desc">
+          Created for our regulars, night owls, and culinary daredevils. These 3 limited off-menu creations are made in micro-batches and ordered directly via our Kitchen Hotline.
+        </p>
+      </div>
+
+      <div class="secret-dishes-grid">
+        <!-- Secret Dish 1 -->
+        <div class="secret-dish-card">
+          <div class="sdc-top">
+            <span class="sdc-badge">Chef's Rare Recipe</span>
+            <h3 class="sdc-title">The Birria Crunch Bomb</h3>
+            <div class="sdc-price">₹289</div>
+            <p class="sdc-desc">
+              Slow-braised pulled spiced chicken, melted Monterey Jack queso, and crispy crushed nachos tucked inside a griddled tortilla wrap. Served with rich dipping consommé.
+            </p>
+          </div>
+          <a href="https://wa.me/919876543210?text=Hi%20Kaazos!%20I%20want%20to%20order%20the%20Secret%20Menu%20dish:%20The%20Birria%20Crunch%20Bomb%20(%E2%82%B9289)" class="sdc-btn" target="_blank" rel="noopener noreferrer">
+            <span>Order Secret Item</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Secret Dish 2 -->
+        <div class="secret-dish-card">
+          <div class="sdc-top">
+            <span class="sdc-badge">Fitness / High Protein</span>
+            <h3 class="sdc-title">The 70g Beast Macro Bowl</h3>
+            <div class="sdc-price">₹349</div>
+            <p class="sdc-desc">
+              Double portion citrus fire-grilled chicken, black beans, charred broccoli, fresh avocado mash, egg whites, and greek yogurt chipotle swirl. 70g clean protein.
+            </p>
+          </div>
+          <a href="https://wa.me/919876543210?text=Hi%20Kaazos!%20I%20want%20to%20order%20the%20Secret%20Menu%20dish:%20The%2070g%20Beast%20Macro%20Bowl%20(%E2%82%B9349)" class="sdc-btn" target="_blank" rel="noopener noreferrer">
+            <span>Order Secret Item</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Secret Dish 3 -->
+        <div class="secret-dish-card">
+          <div class="sdc-top">
+            <span class="sdc-badge">Spice Challenge 🔥</span>
+            <h3 class="sdc-title">Ghost Pepper Lime Crisps</h3>
+            <div class="sdc-price">₹199</div>
+            <p class="sdc-desc">
+              Hand-cut freshly fried tortilla chips tossed in authentic Bhut Jolokia seasoning, fresh lime zest, and cotija crumble. Served with cooling mango salsa.
+            </p>
+          </div>
+          <a href="https://wa.me/919876543210?text=Hi%20Kaazos!%20I%20want%20to%20order%20the%20Secret%20Menu%20dish:%20Ghost%20Pepper%20Lime%20Crisps%20(%E2%82%B9199)" class="sdc-btn" target="_blank" rel="noopener noreferrer">
+            <span>Order Secret Item</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="sm-footer-note">
+        ⚡ <strong>Kitchen Pro-Tip:</strong> Mention "Secret Vault Order" to our crew if ordering in person at our Indiranagar counter.
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile Floating Dock Backdrop -->
   <div class="dock-backdrop" id="dockBackdrop" aria-hidden="true"></div>
 
   <!-- JavaScript -->
-  <script src="app.js?v=20261004-minimalreviews" defer></script>
+  <script src="app.js?v=20261006-secretmenu" defer></script>
 </body>
 </html>

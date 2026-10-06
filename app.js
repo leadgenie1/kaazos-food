@@ -1882,10 +1882,113 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') prevMenuLightbox();
 });
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initInstoreMenuTabs);
-} else {
-  initInstoreMenuTabs();
+/* ==========================================================================
+   MARKETING POWER PLAYS: SECRET MENU MODAL & OFFICE LUNCH INTERACTION
+   ========================================================================== */
+function openSecretMenuModal() {
+  const modal = document.getElementById('secretMenuModal');
+  if (modal) {
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
 }
+
+function closeSecretMenuModal() {
+  const modal = document.getElementById('secretMenuModal');
+  if (modal) {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+}
+
+const OFFICE_LUNCH_TIERS = {
+  10: {
+    badge: '10 Person Lunch Pack',
+    time: '⚡ 45-Min Scheduled Delivery',
+    items: [
+      '✓ <strong>10 Signature Bowls / Burritos</strong> (Custom Veg / Non-Veg split)',
+      '✓ <strong>2 Large Warm Tortilla Crisp Trays</strong> with fresh Pico de Gallo',
+      '✓ <strong>FREE Salsa Bar</strong> (Smoky Chipotle, Salsa Verde & Habanero Dips)',
+      '✓ <strong>100% Eco-Friendly Cutlery & Thermal Box Packaging</strong>'
+    ],
+    perk: '🎁 <strong>Team Perk:</strong> Complimentary Tortilla Crisp Party Box Included!',
+    waText: 'Hi Kaazos Kitchen! We want to order an Office Team Lunch for 10 people in Indiranagar.'
+  },
+  20: {
+    badge: '20 Person Team Feast',
+    time: '⚡ Scheduled Hot Delivery',
+    items: [
+      '✓ <strong>20 Signature Bowls / Burritos / Tacos</strong> (Custom diet split)',
+      '✓ <strong>4 Large Tortilla Crisp & Nacho Trays</strong> with melted queso',
+      '✓ <strong>FREE 2L Fresh Watermelon Agua Fresca</strong> for the team',
+      '✓ <strong>Full House Salsa Bar & Hot Queso Dips</strong>'
+    ],
+    perk: '🎁 <strong>Team Perk:</strong> Free 2 Litres of Fresh Watermelon Agua Fresca!',
+    waText: 'Hi Kaazos Kitchen! We want to order an Office Team Lunch for 20 people in Indiranagar.'
+  },
+  35: {
+    badge: '35 Person Floor Spread',
+    time: '⚡ Priority Kitchen Slot',
+    items: [
+      '✓ <strong>35 Signature Handcrafted Bowls, Wraps & Tacos</strong>',
+      '✓ <strong>Unlimited Fresh Guacamole & Warm Tortilla Bar</strong>',
+      '✓ <strong>Churros Box & Agua Frescas for the entire floor</strong>',
+      '✓ <strong>Dedicated Kitchen Coordinator & GST Invoicing</strong>'
+    ],
+    perk: '🎁 <strong>Team Perk:</strong> 10% Corporate Group Discount + Free Churros Box!',
+    waText: 'Hi Kaazos Kitchen! We want to book an Office Team Lunch for 35 people in Indiranagar.'
+  },
+  50: {
+    badge: '50+ All-Hands & Startup Event',
+    time: '⚡ Custom Kitchen Batch',
+    items: [
+      '✓ <strong>50+ Custom Bowls, Street Tacos & Loaded Nachos</strong>',
+      '✓ <strong>Full Live DIY Taco & Salsa Station Setup Available</strong>',
+      '✓ <strong>Assorted Coolers, Cold Brew Shakes & Desserts</strong>',
+      '✓ <strong>Dedicated Catering Delivery Lead & Corporate Invoicing</strong>'
+    ],
+    perk: '🎁 <strong>Team Perk:</strong> 15% VIP Corporate Discount + Free Dessert Crate!',
+    waText: 'Hi Kaazos Kitchen! We want to book a 50+ person all-hands office feast in Indiranagar.'
+  }
+};
+
+function selectOfficeLunchTier(tier) {
+  const data = OFFICE_LUNCH_TIERS[tier] || OFFICE_LUNCH_TIERS[10];
+  
+  // Update active button
+  document.querySelectorAll('.tss-btn').forEach(btn => {
+    btn.classList.toggle('active', parseInt(btn.getAttribute('data-tier'), 10) === tier);
+  });
+
+  // Update content
+  const badgeEl = document.getElementById('otcBadge');
+  const timeEl = document.querySelector('.otc-time');
+  const listEl = document.getElementById('otcList');
+  const perkEl = document.getElementById('otcPerk');
+  const waBtn = document.getElementById('officeWaBtn');
+
+  if (badgeEl) badgeEl.innerText = data.badge;
+  if (timeEl) timeEl.innerText = data.time;
+  if (listEl) {
+    listEl.innerHTML = data.items.map(item => `<li>${item}</li>`).join('');
+  }
+  if (perkEl) perkEl.innerHTML = data.perk;
+  if (waBtn) {
+    waBtn.href = `https://wa.me/919876543210?text=${encodeURIComponent(data.waText)}`;
+  }
+}
+
+// Global exposure
+window.openSecretMenuModal = openSecretMenuModal;
+window.closeSecretMenuModal = closeSecretMenuModal;
+window.selectOfficeLunchTier = selectOfficeLunchTier;
+
+// Listen for Escape key on secret menu
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeSecretMenuModal();
+  }
+});
+
 
 
