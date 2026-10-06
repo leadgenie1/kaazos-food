@@ -4,6 +4,18 @@
    Ultra-optimized for Low-End Mobile, Tablet & Desktop Performance
    ========================================================================== */
 
+/* ==========================================================================
+   KAAZOS BRAND LOGO FONT - CRAZY BLOCKS (PRIMARY TITLE & HEADINGS FONT)
+   ========================================================================== */
+@font-face {
+  font-family: 'Crazy Blocks';
+  src: url('assets/fonts/crazy-blocks.otf') format('opentype'),
+       url('assets/fonts/Crazy%20Blocks.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* ==========================================================================
      KAAZOS BRAND LOGO PALETTE
@@ -76,9 +88,10 @@
   --diet-veg:        #0f8a5f;
   --diet-nonveg:     #f35925;
 
-  /* Typography - Bricolage Grotesque (Headings, Brand Nav & Buttons) & Inter (Body) */
+  /* Typography - Crazy Blocks (Logo Titles & Headings), Bricolage Grotesque & Inter (Body) */
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Crazy Blocks', 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-logo: 'Crazy Blocks', sans-serif;
   --font-nav: 'Bricolage Grotesque', 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-button: 'Bricolage Grotesque', 'Inter', sans-serif;
 
@@ -139,6 +152,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   text-decoration: none !important;
   text-transform: none; /* Keep titles in natural casing */
+  letter-spacing: 0.02em;
 }
 
 button,
@@ -684,8 +698,8 @@ button,
   font-family: var(--font-heading);
   font-size: clamp(3.4rem, 5.4vw, 5.2rem);
   font-weight: 900;
-  line-height: 0.96;
-  letter-spacing: -2px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
   color: var(--kz-green-950);
   text-transform: none;
   text-decoration: none !important;
@@ -1192,9 +1206,9 @@ button,
   font-family: var(--font-heading);
   font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 900;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.02em;
   color: var(--kz-green);
-  line-height: 1.1;
+  line-height: 1.15;
   text-transform: none;
 }
 
@@ -1504,8 +1518,8 @@ button,
   font-family: var(--font-heading);
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
   color: var(--kz-green);
   text-transform: none;
   margin-bottom: 1.25rem;
@@ -1669,9 +1683,9 @@ button,
   font-size: clamp(2rem, 3.8vw, 2.75rem);
   font-weight: 900;
   color: #0c4f48;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.02em;
   margin: 0 0 0.85rem;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .stuffd-subtitle {
@@ -2382,7 +2396,7 @@ button,
   font-family: var(--font-heading);
   font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 900;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.02em;
   color: var(--kz-green);
   line-height: 1.15;
   margin: 0 0 0.5rem;
@@ -3499,8 +3513,8 @@ button,
   }
   .luxury-editorial-hero .hero-title {
     font-size: clamp(2.1rem, 8vw, 2.65rem) !important;
-    line-height: 1.14 !important;
-    letter-spacing: -0.5px !important;
+    line-height: 1.18 !important;
+    letter-spacing: 0.02em !important;
     margin-bottom: clamp(0.75rem, 2vh, 1.1rem) !important;
   }
   .luxury-editorial-hero .hero-desc {
@@ -4171,8 +4185,8 @@ button,
   font-family: var(--font-heading);
   font-size: clamp(2.4rem, 4.5vw, 3.5rem);
   font-weight: 900;
-  line-height: 1.08;
-  letter-spacing: -1px;
+  line-height: 1.12;
+  letter-spacing: 0.02em;
   color: var(--kz-green);
   margin-bottom: 1.25rem;
 }
