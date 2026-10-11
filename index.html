@@ -131,11 +131,6 @@
             <span>Explore The Menu</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <button type="button" class="btn-secret-menu-trigger" onclick="openSecretMenuModal()" aria-label="Unlock Indiranagar Secret Menu">
-            <span class="secret-spark-icon">🤫</span>
-            <span>Secret Menu</span>
-            <span class="secret-vip-tag">VIP</span>
-          </button>
         </div>
       </div>
 
@@ -1015,21 +1010,6 @@
           <img src="assets/images/menu-card-2.jpg" alt="Kaazos In-Store Menu - Crispy Sides, Shakes & Desserts" loading="lazy" class="menu-strip-img" />
         </div>
       </div>
-
-      <!-- Secret Vault Teaser Banner -->
-      <div class="secret-vault-banner" onclick="openSecretMenuModal()" role="button" tabindex="0" aria-label="Open Secret Menu Modal">
-        <div class="svb-left">
-          <span class="svb-icon">🔒</span>
-          <div>
-            <span class="svb-title">Indiranagar VIP Secret Menu</span>
-            <span class="svb-sub">Off-menu kitchen specials crafted by our Head Chef. Available on direct order only.</span>
-          </div>
-        </div>
-        <button type="button" class="svb-btn">
-          <span>Unlock 3 Secret Dishes</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </div>
     </div>
   </section>
 
@@ -1119,7 +1099,7 @@
           <!-- Left Callout 3 (Mid Left): Grilled Chicken -->
           <div class="salad-callout callout-mid-left" id="callout3">
             <div class="callout-card">
-              <h5 class="callout-title">42g Grilled Spiced Chicken</h5>
+              <h5 class="callout-title">Grilled Spiced Chicken</h5>
               <p class="callout-desc">All-natural poultry, citrus-marinated for 12 hours and flame-grilled to order.</p>
             </div>
             <div class="callout-line-wrap line-mid-left">
@@ -1144,17 +1124,17 @@
             </div>
           </div>
 
-          <!-- Left Callout 5 (Bottom Left): Romaine Lettuce -->
-          <div class="salad-callout callout-bottom-left" id="callout5">
+          <!-- Right Callout 5 (Bottom Right): Romaine Lettuce -->
+          <div class="salad-callout callout-bottom-right" id="callout5">
+            <div class="callout-line-wrap line-bottom-right">
+              <svg class="callout-svg" width="140" height="40" viewBox="0 0 140 40">
+                <line x1="20" y1="20" x2="140" y2="20" stroke="#1b2522" stroke-width="2"/>
+                <circle cx="20" cy="20" r="5" fill="#ffffff" stroke="#1b2522" stroke-width="2.5"/>
+              </svg>
+            </div>
             <div class="callout-card">
               <h5 class="callout-title">Triple-Washed Romaine</h5>
               <p class="callout-desc">Hand-torn crisp romaine lettuce bed, prepped fresh at 7:00 AM daily.</p>
-            </div>
-            <div class="callout-line-wrap line-bottom-left">
-              <svg class="callout-svg" width="140" height="40" viewBox="0 0 140 40">
-                <line x1="0" y1="20" x2="120" y2="20" stroke="#1b2522" stroke-width="2"/>
-                <circle cx="120" cy="20" r="5" fill="#ffffff" stroke="#1b2522" stroke-width="2.5"/>
-              </svg>
             </div>
           </div>
 
@@ -1210,63 +1190,20 @@
   </section>
 
 
-  <!-- Interactive Indiranagar Office Lunch & Team Catering Section -->
-  <section class="office-lunch-section" id="officeLunchSection">
+  <!-- Editorial Split Section (Hosting & Group Catering) -->
+  <section class="split-section" style="background-color: var(--dig-cream); border-top: 1px solid rgba(12,79,72,0.08);">
     <div class="container">
-      <div class="office-lunch-grid">
-        <div class="ol-content-side">
-          <span class="eyebrow" style="color: var(--kz-red);">Indiranagar &amp; 100ft Rd Startups</span>
-          <h2 class="section-title" style="margin-top: 0.35rem; margin-bottom: 0.65rem;">Office Lunch &amp; Team Catering</h2>
-          <p class="ol-lead">
-            Fuel your sprint, client demo, or Friday all-hands with hot, handcrafted burritos, sizzling fajita bowls, loaded crisps, and fresh agua frescas. Delivered piping hot right to your Indiranagar desk.
+      <div class="split-grid reverse-order">
+        <div class="split-content">
+          <span class="eyebrow" style="color: var(--kz-red);">Gatherings &amp; Delivery</span>
+          <h2 class="split-title">Hosting made effortless. We have you covered.</h2>
+          <p class="split-text">
+            From team lunches and celebrations to weekend cravings, our kitchen caters to gatherings of any scale. Speak directly with our team on WhatsApp for group inquiries, or find us listed on delivery aggregators.
           </p>
-
-          <!-- Interactive Team Size Selector -->
-          <div class="team-size-selector">
-            <span class="tss-label">Select Your Team Size:</span>
-            <div class="tss-btn-row">
-              <button type="button" class="tss-btn active" data-tier="10" onclick="selectOfficeLunchTier(10)">10 People</button>
-              <button type="button" class="tss-btn" data-tier="20" onclick="selectOfficeLunchTier(20)">20 People</button>
-              <button type="button" class="tss-btn" data-tier="35" onclick="selectOfficeLunchTier(35)">35 People</button>
-              <button type="button" class="tss-btn" data-tier="50" onclick="selectOfficeLunchTier(50)">50+ All-Hands</button>
-            </div>
-          </div>
-
-          <!-- Dynamic Tier Breakdown Card -->
-          <div class="office-tier-card">
-            <div class="otc-header">
-              <span class="otc-badge" id="otcBadge">10 Person Lunch Pack</span>
-              <span class="otc-time">⚡ 45-Min Scheduled Delivery</span>
-            </div>
-            <ul class="otc-list" id="otcList">
-              <li>✓ <strong>10 Signature Bowls / Burritos</strong> (Custom Veg / Non-Veg split)</li>
-              <li>✓ <strong>2 Large Warm Tortilla Crisp Trays</strong> with fresh Pico de Gallo</li>
-              <li>✓ <strong>FREE Salsa Bar</strong> (Smoky Chipotle, Salsa Verde &amp; Habanero Dips)</li>
-              <li>✓ <strong>100% Eco-Friendly Cutlery &amp; Thermal Box Packaging</strong></li>
-            </ul>
-            <div class="otc-perk" id="otcPerk">
-              🎁 <strong>Team Perk:</strong> Complimentary Tortilla Crisp Party Box Included!
-            </div>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="ol-actions">
-            <a href="https://wa.me/919876543210?text=Hi%20Kaazos%20Kitchen!%20We%20want%20to%20order%20an%20Office%20Team%20Lunch%20for%2010%20people%20in%20Indiranagar." class="btn-editorial-primary btn-office-wa" id="officeWaBtn" target="_blank" rel="noopener noreferrer">
-              <span>Book Office Lunch via WhatsApp</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <span class="ol-support-text">Direct kitchen line &bull; GST corporate invoice available upon request</span>
-          </div>
         </div>
 
-        <div class="ol-visual-wrap">
-          <div class="ol-image-frame">
-            <img src="assets/images/fries.jpg" alt="Kaazos Office Lunch Spread - Crispy loaded crisps, bowls, and burritos" class="ol-img" width="600" height="450" loading="lazy">
-            <div class="ol-floating-pill">
-              <span class="ofp-icon">🌯</span>
-              <span>Trusted by <span class="ofp-num">40+</span> Indiranagar Tech Teams</span>
-            </div>
-          </div>
+        <div class="split-visual">
+          <img src="assets/images/fries.jpg" alt="Crispy loaded fries and chicken wings" width="600" height="450" loading="lazy">
         </div>
       </div>
     </div>
@@ -1405,31 +1342,14 @@
   <aside class="floating-social-dock" id="floatingDock" aria-label="Social &amp; Direct Inquiry Channels">
     <!-- Floating Action Buttons -->
     <div class="dock-cards-stack">
-      <!-- Card 1: Swiggy -->
-      <a href="https://www.swiggy.com/city/bangalore/kaazos-indiranagar-rest1402554" target="_blank" rel="noopener" class="float-btn float-swiggy" aria-label="Order on Swiggy" title="Order on Swiggy">
-        <img src="assets/images/icons/swiggy.jpg" alt="Swiggy" class="float-icon-img" width="46" height="46">
-        <span class="float-tooltip">Order on Swiggy</span>
-      </a>
 
-      <!-- Card 2: Zomato -->
-      <a href="https://www.zomato.com/bangalore/kaazos-indiranagar-bangalore" target="_blank" rel="noopener" class="float-btn float-zomato" aria-label="Order on Zomato" title="Order on Zomato">
-        <img src="assets/images/icons/zomato.png" alt="Zomato" class="float-icon-img" width="46" height="46">
-        <span class="float-tooltip">Order on Zomato</span>
-      </a>
-
-      <!-- Card 3: District by Zomato -->
-      <a href="https://www.district.in/dining/bangalore/kaazos-indiranagar-bangalore?srsltid=AU7gw4WdRNuyMrE5ruEfetIx2vU3J5j6ZLZ-0-flbwa66z4z73ZaUSe-" target="_blank" rel="noopener" class="float-btn float-district" aria-label="Book on District by Zomato" title="Book on District by Zomato">
-        <img src="assets/images/icons/district.png" alt="District by Zomato" class="float-icon-img" width="46" height="46">
-        <span class="float-tooltip">District by Zomato</span>
-      </a>
-
-      <!-- Card 4: WhatsApp -->
+      <!-- Card 1: WhatsApp -->
       <a href="https://wa.me/919876543210?text=Hi%20Kaazos!%20I'd%20like%20to%20inquire%20about%20your%20menu." target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
         <img src="assets/images/icons/whatsapp.png" alt="WhatsApp" class="float-icon-img" width="46" height="46">
         <span class="float-tooltip">Chat on WhatsApp</span>
       </a>
 
-      <!-- Card 5: Instagram -->
+      <!-- Card 2: Instagram -->
       <a href="https://www.instagram.com/kaazos_food/" target="_blank" rel="noopener" class="float-btn float-instagram" aria-label="Follow on Instagram" title="Follow on Instagram">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -1437,7 +1357,7 @@
         <span class="float-tooltip">Instagram @kaazos_food</span>
       </a>
 
-      <!-- Card 6: Facebook -->
+      <!-- Card 3: Facebook -->
       <a href="https://facebook.com/kaazos" target="_blank" rel="noopener" class="float-btn float-facebook" aria-label="Visit Facebook" title="Visit Facebook">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
           <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -1446,22 +1366,18 @@
       </a>
     </div>
 
-    <!-- Mobile Wallet-Stack Trigger Button -->
-    <button type="button" class="float-dock-toggle wallet-stack-toggle" id="floatDockToggle" aria-label="Order &amp; Connect Menu" aria-expanded="false">
-      <!-- The Stack of Cards inside the trigger button -->
-      <div class="wallet-cards-deck">
-        <span class="deck-card card-back">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="#ffffff">
-            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/>
-          </svg>
-        </span>
-        <span class="deck-card card-middle"></span>
-        <span class="deck-card card-front">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
-            <path d="M12.034 24c-.376-.411-2.075-2.584-3.95-5.513-.547-.916-.901-1.63-.833-1.814.178-.48 3.355-.743 4.333-.308.298.132.29.307.29.409 0 .44-.022 1.619-.022 1.619a.441.441 0 1 0 .883-.002l-.005-2.939c0-.255-.278-.319-.331-.329-.511-.002-1.548-.006-2.661-.006-2.457 0-3.006.101-3.423-.172-.904-.591-2.383-4.577-2.417-6.819C3.849 4.964 5.723 2.225 8.362.868A8.13 8.13 0 0 1 12.026 0c4.177 0 7.617 3.153 8.075 7.209l.001.011c.084.981-5.321 1.189-6.39.904-.164-.044-.206-.212-.206-.284L13.5 4.996a.442.442 0 0 0-.884.002l.009 3.866a.33.33 0 0 0 .268.32l3.354-.001c1.79 0 2.542.207 3.042.588.333.254.461.739.349 1.37C18.633 16.755 12.273 23.71 12.034 24z"/>
-          </svg>
-        </span>
-      </div>
+    <!-- Mobile Floating Dock Trigger Button -->
+    <button type="button" class="float-dock-toggle wallet-stack-toggle" id="floatDockToggle" aria-label="Social Links &amp; Inquiry Menu" aria-expanded="false">
+      <!-- Actual Social Links Icon when closed -->
+      <span class="dock-open-icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+      </span>
       <!-- Close icon when expanded -->
       <span class="wallet-close-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
@@ -1470,83 +1386,47 @@
         </svg>
       </span>
       <span class="dock-toggle-badge" aria-hidden="true"></span>
-      <span class="wallet-tap-hint">ORDER</span>
+      <span class="wallet-tap-hint">SOCIAL LINKS</span>
     </button>
   </aside>
 
-  <!-- Secret Menu Modal Vault -->
-  <div id="secretMenuModal" class="secret-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="secretMenuTitle" onclick="if(event.target === this) closeSecretMenuModal()">
-    <div class="secret-modal-dialog">
-      <button type="button" class="secret-modal-close-btn" onclick="closeSecretMenuModal()" aria-label="Close Secret Menu Modal">&times;</button>
-      
-      <div class="sm-header">
-        <span class="sm-eyebrow">🔐 Off-Menu Vault &bull; Indiranagar Only</span>
-        <h2 class="sm-title" id="secretMenuTitle">The Kaazos Secret Menu</h2>
-        <p class="sm-desc">
-          Created for our regulars, night owls, and culinary daredevils. These 3 limited off-menu creations are made in micro-batches and ordered directly via our Kitchen Hotline.
-        </p>
-      </div>
+  <!-- Sticky Bottom Order Nav Bar (50/50 Swiggy & Zomato Split) -->
+  <aside class="bottom-order-nav" aria-label="Order Delivery">
+    <div class="bottom-order-nav-inner">
+      <a href="https://www.swiggy.com/city/bangalore/kaazos-indiranagar-rest1402554" 
+         target="_blank" 
+         rel="noopener" 
+         class="bottom-order-half bottom-order-swiggy" 
+         id="bottomNavSwiggy"
+         aria-label="Order on Swiggy"
+         title="Order on Swiggy">
+        <span class="bottom-order-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fc8019" aria-hidden="true">
+            <path d="M12.034 24c-.376-.411-2.075-2.584-3.95-5.513-.547-.916-.901-1.63-.833-1.814.178-.48 3.355-.743 4.333-.308.298.132.29.307.29.409 0 .44-.022 1.619-.022 1.619a.441.441 0 1 0 .883-.002l-.005-2.939c0-.255-.278-.319-.331-.329-.511-.002-1.548-.006-2.661-.006-2.457 0-3.006.101-3.423-.172-.904-.591-2.383-4.577-2.417-6.819C3.849 4.964 5.723 2.225 8.362.868A8.13 8.13 0 0 1 12.026 0c4.177 0 7.617 3.153 8.075 7.209l.001.011c.084.981-5.321 1.189-6.39.904-.164-.044-.206-.212-.206-.284L13.5 4.996a.442.442 0 0 0-.884.002l.009 3.866a.33.33 0 0 0 .268.32l3.354-.001c1.79 0 2.542.207 3.042.588.333.254.461.739.349 1.37C18.633 16.755 12.273 23.71 12.034 24z"/>
+          </svg>
+        </span>
+        <span class="bottom-order-label">Order on <span class="bottom-order-brand">Swiggy</span></span>
+      </a>
 
-      <div class="secret-dishes-grid">
-        <!-- Secret Dish 1 -->
-        <div class="secret-dish-card">
-          <div class="sdc-top">
-            <span class="sdc-badge">Chef's Rare Recipe</span>
-            <h3 class="sdc-title">The Birria Crunch Bomb</h3>
-            <div class="sdc-price">₹289</div>
-            <p class="sdc-desc">
-              Slow-braised pulled spiced chicken, melted Monterey Jack queso, and crispy crushed nachos tucked inside a griddled tortilla wrap. Served with rich dipping consommé.
-            </p>
-          </div>
-          <a href="https://wa.me/919876543210?text=Hi%20Kaazos!%20I%20want%20to%20order%20the%20Secret%20Menu%20dish:%20The%20Birria%20Crunch%20Bomb%20(%E2%82%B9289)" class="sdc-btn" target="_blank" rel="noopener noreferrer">
-            <span>Order Secret Item</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <!-- Secret Dish 2 -->
-        <div class="secret-dish-card">
-          <div class="sdc-top">
-            <span class="sdc-badge">Fitness / High Protein</span>
-            <h3 class="sdc-title">The 70g Beast Macro Bowl</h3>
-            <div class="sdc-price">₹349</div>
-            <p class="sdc-desc">
-              Double portion citrus fire-grilled chicken, black beans, charred broccoli, fresh avocado mash, egg whites, and greek yogurt chipotle swirl. 70g clean protein.
-            </p>
-          </div>
-          <a href="https://wa.me/919876543210?text=Hi%20Kaazos!%20I%20want%20to%20order%20the%20Secret%20Menu%20dish:%20The%2070g%20Beast%20Macro%20Bowl%20(%E2%82%B9349)" class="sdc-btn" target="_blank" rel="noopener noreferrer">
-            <span>Order Secret Item</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <!-- Secret Dish 3 -->
-        <div class="secret-dish-card">
-          <div class="sdc-top">
-            <span class="sdc-badge">Spice Challenge 🔥</span>
-            <h3 class="sdc-title">Ghost Pepper Lime Crisps</h3>
-            <div class="sdc-price">₹199</div>
-            <p class="sdc-desc">
-              Hand-cut freshly fried tortilla chips tossed in authentic Bhut Jolokia seasoning, fresh lime zest, and cotija crumble. Served with cooling mango salsa.
-            </p>
-          </div>
-          <a href="https://wa.me/919876543210?text=Hi%20Kaazos!%20I%20want%20to%20order%20the%20Secret%20Menu%20dish:%20Ghost%20Pepper%20Lime%20Crisps%20(%E2%82%B9199)" class="sdc-btn" target="_blank" rel="noopener noreferrer">
-            <span>Order Secret Item</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="sm-footer-note">
-        ⚡ <strong>Kitchen Pro-Tip:</strong> Mention "Secret Vault Order" to our crew if ordering in person at our Indiranagar counter.
-      </div>
+      <a href="https://www.zomato.com/bangalore/kaazos-indiranagar-bangalore" 
+         target="_blank" 
+         rel="noopener" 
+         class="bottom-order-half bottom-order-zomato" 
+         id="bottomNavZomato"
+         aria-label="Order on Zomato"
+         title="Order on Zomato">
+        <span class="bottom-order-badge">
+          <img src="assets/images/icons/zomato.png" alt="" class="bottom-order-img" width="18" height="18">
+        </span>
+        <span class="bottom-order-label">Order on <span class="bottom-order-brand">Zomato</span></span>
+      </a>
     </div>
-  </div>
+  </aside>
 
   <!-- Mobile Floating Dock Backdrop -->
   <div class="dock-backdrop" id="dockBackdrop" aria-hidden="true"></div>
 
   <!-- JavaScript -->
-  <script src="app.js?v=20261006-secretmenu" defer></script>
+  <script src="app.js?v=20261004-minimalreviews" defer></script>
 </body>
 </html>
