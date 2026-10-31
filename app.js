@@ -330,43 +330,40 @@ Object.keys(STUFFD_NUTRITION_DATA).forEach(cat => {
 
 let currentStuffdCategory = 'burrito';
 
-// Curated Kaazos Authentic Gallery Items (High-Resolution Professional Photography)
+// Curated Kaazos Authentic Gallery Items (Interleaved & Diverse Variety)
 const GALLERY_ITEMS = [
-  // Burritos & Signature Bowls
-  { title: 'Handcrafted Kaazos Burrito Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit61.jpg', tag: 'Signature Wrap' },
-  { title: 'Fiesta Paneer & Fresh Guac Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit4.jpg', tag: 'Golden Toasted' },
-  { title: 'Smoky Chipotle Chicken Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit56.jpg', tag: 'Flame-Grilled' },
   { title: 'Mexican Fiesta Rice Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit2.jpg', tag: 'Signature Bowl' },
-  { title: 'Fiesta Grilled Paneer Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit5.jpg', tag: 'Vegetarian Craft' },
-  { title: 'Flame-Grilled Chicken Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit20.jpg', tag: 'Double Protein' },
-  { title: 'Black Bean & Basmati Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit24.jpg', tag: 'Whole-Food Nutrition' },
-  { title: 'Mexican Burrito Bowl with Sour Cream', category: 'wraps', img: 'assets/images/JPEG/Edit35.jpg', tag: 'Creamy & Savory' },
-  { title: 'Smoky Chipotle Chicken Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit59.jpg', tag: 'Adobo Seared' },
-  { title: 'Charred Sweet Corn & Fajita Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit8.jpg', tag: 'House Marinade' },
-  { title: 'Indiranagar Signature Rice Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit32.jpg', tag: 'Cilantro Lime Base' },
-  { title: 'Slow-Simmered Black Bean Fiesta', category: 'wraps', img: 'assets/images/JPEG/Edit44.jpg', tag: 'Zero Preservatives' },
-
-  // Crisps, Salads & Quesadillas
-  { title: 'Fresh Garden Fiesta Salad Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit50.jpg', tag: 'Farm-Fresh Harvest' },
-  { title: 'Golden Toasted Artisanal Quesadilla', category: 'crispy', img: 'assets/images/JPEG/Edit60.jpg', tag: 'Crisp & Savory' },
-  { title: 'Grilled Bell Pepper & Corn Salad', category: 'crispy', img: 'assets/images/JPEG/Edit3.jpg', tag: 'Charred & Fresh' },
-  { title: 'Smoky Chipotle Tossed Salad Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit10.jpg', tag: 'Citrus Vinaigrette' },
-  { title: 'Fiesta Jalapeño Crunch Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit21.jpg', tag: 'Zesty & Crisp' },
-  { title: 'Adobo Spiced Protein Greens', category: 'crispy', img: 'assets/images/JPEG/Edit38.jpg', tag: 'High Nutrient' },
-  { title: 'Herb-Infused Garden Harvest Salad', category: 'crispy', img: 'assets/images/JPEG/Edit46.jpg', tag: 'Daily Crisp' },
-  { title: 'Crisp Greens with Feta & Corn', category: 'crispy', img: 'assets/images/JPEG/Edit54.jpg', tag: 'Clean Macro' },
-
-  // Coolers, Refrescos & Gourmet Shakes
-  { title: 'Classic Sparkling Mint Mojito', category: 'drinks', img: 'assets/images/JPEG/Edit25.jpg', tag: 'Muddled Mint & Lime' },
-  { title: 'Chilled Watermelon Mint Refresco', category: 'drinks', img: 'assets/images/JPEG/Edit13.jpg', tag: 'Fresh Pressed' },
   { title: 'Wild Berry Smoothie', category: 'drinks', img: 'assets/images/JPEG/Edit1.jpg', tag: 'Antioxidant Rich' },
-  { title: 'Sunshine Mango Refresco', category: 'drinks', img: 'assets/images/JPEG/Edit12.jpg', tag: 'Tropical Citrus' },
+  { title: 'Fresh Garden Fiesta Salad Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit50.jpg', tag: 'Farm-Fresh Harvest' },
+  { title: 'Handcrafted Kaazos Burrito Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit61.jpg', tag: 'Signature Wrap' },
+  { title: 'Chilled Watermelon Mint Refresco', category: 'drinks', img: 'assets/images/JPEG/Edit13.jpg', tag: 'Fresh Pressed' },
+  { title: 'Golden Toasted Artisanal Quesadilla', category: 'crispy', img: 'assets/images/JPEG/Edit34.jpg', tag: 'Crisp & Savory' },
+  { title: 'Fiesta Grilled Paneer Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit5.jpg', tag: 'Vegetarian Craft' },
+  { title: 'Fresh Tropical Fruit & Chia Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit18.jpg', tag: 'Vibrant & Light' },
   { title: 'Oreo Crumble Gourmet Thickshake', category: 'drinks', img: 'assets/images/JPEG/Edit16.jpg', tag: 'Ice Cold & Rich' },
+  { title: 'Flame-Grilled Chicken Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit20.jpg', tag: 'Double Protein' },
+  { title: 'Cheesy Loaded Veggie Quesadilla', category: 'crispy', img: 'assets/images/JPEG/Edit60.jpg', tag: 'Griddled & Crisp' },
+  { title: 'Classic Sparkling Mint Mojito', category: 'drinks', img: 'assets/images/JPEG/Edit25.jpg', tag: 'Muddled Mint & Lime' },
+  { title: 'Fiesta Paneer & Fresh Guac Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit4.jpg', tag: 'Golden Toasted' },
+  { title: 'Smoky Chipotle Tossed Salad Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit10.jpg', tag: 'Citrus Vinaigrette' },
   { title: 'Alphonso Mango Cream Shake', category: 'drinks', img: 'assets/images/JPEG/Edit28.jpg', tag: 'Fresh Fruit Slices' },
+  { title: 'Black Bean & Basmati Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit24.jpg', tag: 'Whole-Food Nutrition' },
+  { title: 'Fiesta Jalapeño Crunch Salad', category: 'crispy', img: 'assets/images/JPEG/Edit21.jpg', tag: 'Zesty & Crisp' },
+  { title: 'Sunshine Mango Refresco', category: 'drinks', img: 'assets/images/JPEG/Edit12.jpg', tag: 'Tropical Citrus' },
+  { title: 'Smoky Chipotle Chicken Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit56.jpg', tag: 'Flame-Grilled' },
+  { title: 'Mexican Burrito Bowl with Sour Cream', category: 'wraps', img: 'assets/images/JPEG/Edit35.jpg', tag: 'Creamy & Savory' },
   { title: 'Belgian Choco-Chip Mochaccino', category: 'drinks', img: 'assets/images/JPEG/Edit58.jpg', tag: '70% Dark Cocoa' },
+  { title: 'Adobo Spiced Protein Greens', category: 'crispy', img: 'assets/images/JPEG/Edit38.jpg', tag: 'High Nutrient' },
+  { title: 'Smoky Chipotle Chicken Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit59.jpg', tag: 'Adobo Seared' },
   { title: 'Artisan Cold Brew Cream Shake', category: 'drinks', img: 'assets/images/JPEG/Edit22.jpg', tag: 'Slow Steeped' },
+  { title: 'Grilled Bell Pepper & Corn Salad', category: 'crispy', img: 'assets/images/JPEG/Edit3.jpg', tag: 'Charred & Fresh' },
+  { title: 'Charred Sweet Corn & Fajita Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit8.jpg', tag: 'House Marinade' },
+  { title: 'Passion Fruit Sunset Splash', category: 'drinks', img: 'assets/images/JPEG/Edit37.jpg', tag: 'Zesty Refresher' },
+  { title: 'Herb-Infused Garden Harvest Salad', category: 'crispy', img: 'assets/images/JPEG/Edit46.jpg', tag: 'Daily Crisp' },
+  { title: 'Indiranagar Signature Rice Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit32.jpg', tag: 'Cilantro Lime Base' },
   { title: 'Velvet Vanilla Bean Frost Shake', category: 'drinks', img: 'assets/images/JPEG/Edit30.jpg', tag: 'Creamy Classic' },
-  { title: 'Passion Fruit Sunset Splash', category: 'drinks', img: 'assets/images/JPEG/Edit37.jpg', tag: 'Zesty Refresher' }
+  { title: 'Crisp Greens with Feta & Corn', category: 'crispy', img: 'assets/images/JPEG/Edit54.jpg', tag: 'Clean Macro' },
+  { title: 'Slow-Simmered Black Bean Fiesta', category: 'wraps', img: 'assets/images/JPEG/Edit44.jpg', tag: 'Zero Preservatives' }
 ];
 
 let currentMenuCat = 'all';
@@ -831,11 +828,37 @@ function initGallery() {
     document.body.style.overflow = '';
   }
 
+  // Smart randomizer helper that shuffles items while guaranteeing visual variety
+  function randomizeGalleryItems(items) {
+    const list = [...items];
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+    // Prevent adjacent items with identical wrap scrabble tiles (Edit61, Edit4, Edit56)
+    for (let i = 0; i < list.length - 1; i++) {
+      const aIsWrap = /Edit(61|4|56)\.jpg/.test(list[i].img);
+      const bIsWrap = /Edit(61|4|56)\.jpg/.test(list[i + 1].img);
+      if (aIsWrap && bIsWrap) {
+        const swapIdx = (i + 4) % list.length;
+        [list[i + 1], list[swapIdx]] = [list[swapIdx], list[i + 1]];
+      }
+    }
+    return list;
+  }
+
+  // Pre-randomize collection on load so visitors experience a dynamic, vibrant spread
+  const randomizedAllItems = randomizeGalleryItems(GALLERY_ITEMS);
+
   function renderGallery(cat = 'all') {
-    currentFilteredGallery = GALLERY_ITEMS.filter(item => cat === 'all' || item.category === cat);
+    if (cat === 'all') {
+      currentFilteredGallery = randomizedAllItems;
+    } else {
+      currentFilteredGallery = randomizeGalleryItems(GALLERY_ITEMS.filter(item => item.category === cat));
+    }
     container.innerHTML = currentFilteredGallery.map((item, idx) => `
       <div class="gallery-frame" data-gallery-index="${idx}" tabindex="0" role="button" aria-label="View photo of ${item.title}">
-        <img src="${item.img}" alt="${item.title}" loading="lazy" width="400" height="400">
+        <img src="${item.img}" alt="${item.title}" loading="${idx < 8 ? 'eager' : 'lazy'}" decoding="async" width="400" height="400">
         <div class="gallery-hover-overlay">
           <span class="gallery-item-tag">${item.tag}</span>
           <h4 class="gallery-item-title">${item.title}</h4>
