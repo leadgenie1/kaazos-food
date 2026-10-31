@@ -3,79 +3,85 @@
  * Zero Bloat • Zero Emojis • Fast Loading on Low-End Devices
  */
 
-// Top 6 Curated Kaazos Signature Menu Items
+// Top 6 Curated Kaazos Signature Dishes (Strictly: Rice bowl, Salad bowl, Fruit bowl, Quesadillas, Smoothie, Pressed juice)
 const MENU_DATA = [
   {
-    id: 'signature-burrito-wrap',
-    name: 'Custom Burrito Wrap',
-    category: 'veg',
-    isVeg: true,
-    calories: 520,
-    protein: '18g',
-    carbs: '68g',
-    fat: '16g',
-    desc: 'Warm toasted tortilla packed with seasoned cilantro lime rice, slow-cooked black beans, fresh pico de gallo, and house marinades.',
-    image: 'assets/images/burrito.jpg'
-  },
-  {
     id: 'signature-rice-bowl',
-    name: 'Mexican Fiesta Rice Bowl',
-    category: 'veg',
-    isVeg: true,
-    calories: 490,
-    protein: '16g',
-    carbs: '72g',
-    fat: '14g',
-    desc: 'Steamed cilantro lime rice base, spiced black beans, charred sweet corn, fresh tomato salsa, sour cream, and house guacamole.',
-    image: 'assets/images/bowl.jpg'
-  },
-  {
-    id: 'signature-chipotle-chicken-bowl',
-    name: 'Smoky Chipotle Chicken Bowl',
+    name: 'Rice Bowl',
+    dishType: 'Rice bowl',
     category: 'nonveg',
     isVeg: false,
-    calories: 640,
-    protein: '44g',
-    carbs: '48g',
-    fat: '20g',
-    desc: 'Double portion of flame-grilled tender chicken breast, spiced black beans, fajita bell peppers, charred corn, and high-protein dressing.',
-    image: 'assets/images/hero.jpg'
-  },
-  {
-    id: 'signature-peri-peri-fries',
-    name: 'Loaded Peri-Peri Crisps & Fries',
-    category: 'veg',
-    isVeg: true,
     calories: 520,
-    protein: '16g',
-    carbs: '56g',
-    fat: '24g',
-    desc: 'Golden crispy russet potato fries smothered in warm cheese sauce, spiced paneer cubes, jalapeños, and Kaazos fiery peri-peri dusting.',
-    image: 'assets/images/fries.jpg'
+    protein: '38g',
+    carbs: '64g',
+    fat: '14g',
+    desc: 'Flame-grilled marinated chicken or spiced paneer over steamed cilantro-lime rice, slow-simmered black beans, charred corn salsa, and house guacamole.',
+    image: 'assets/images/JPEG/Edit2.jpg'
   },
   {
-    id: 'signature-fiesta-nachos',
-    name: 'Loaded Fiesta Chicken Nachos',
-    category: 'nonveg',
-    isVeg: false,
-    calories: 560,
-    protein: '36g',
-    carbs: '44g',
-    fat: '22g',
-    desc: 'Crispy corn tortilla chips loaded with spiced chicken chunks, black beans, fresh pico de gallo, salsa roja, and creamy cilantro-lime sauce.',
-    image: 'assets/images/tacos.jpg'
-  },
-  {
-    id: 'signature-chocolate-shake',
-    name: 'Belgian Chocolate & Oreo Shake',
+    id: 'signature-salad-bowl',
+    name: 'Salad Bowl',
+    dishType: 'Salad bowl',
     category: 'veg',
     isVeg: true,
-    calories: 420,
-    protein: '8g',
-    carbs: '52g',
-    fat: '18g',
-    desc: 'Ultra-thick gourmet shake whipped with Belgian dark chocolate ganache, creamy dairy vanilla, and crumbled crunchy Oreos.',
-    image: 'assets/images/shakes.jpg'
+    calories: 340,
+    protein: '16g',
+    carbs: '24g',
+    fat: '12g',
+    desc: 'Triple-washed crisp farm greens tossed with roasted spiced paneer cubes, ripe cherry tomatoes, sweet corn, tender black beans, and house citrus dressing.',
+    image: 'assets/images/JPEG/Edit50.jpg'
+  },
+  {
+    id: 'signature-fruit-bowl',
+    name: 'Fruit Bowl',
+    dishType: 'Fruit bowl',
+    category: 'veg',
+    isVeg: true,
+    calories: 310,
+    protein: '9g',
+    carbs: '54g',
+    fat: '7g',
+    desc: 'Ripe freshly sliced bananas, roasted pumpkin & chia seeds, golden raisins, and toasted oats served over a nutrient-dense chilled grain base.',
+    image: 'assets/images/JPEG/Edit18.jpg'
+  },
+  {
+    id: 'signature-quesadillas',
+    name: 'Quesadillas',
+    dishType: 'Quesadillas',
+    category: 'nonveg',
+    isVeg: false,
+    calories: 540,
+    protein: '28g',
+    carbs: '46g',
+    fat: '22g',
+    desc: 'Crisp griddled flour tortilla stuffed with spiced chicken or fajita peppers, melted Monterey Jack & cheddar cheese blend, and paired with house dips.',
+    image: 'assets/images/JPEG/Edit34.jpg'
+  },
+  {
+    id: 'signature-smoothie',
+    name: 'Smoothie',
+    dishType: 'Smoothie',
+    category: 'veg',
+    isVeg: true,
+    calories: 230,
+    protein: '7g',
+    carbs: '42g',
+    fat: '3g',
+    desc: 'Wild berries blended slow with chilled milk and whole natural fruit. Velvety, antioxidant-rich, and crafted with zero refined sugars.',
+    image: 'assets/images/JPEG/Edit1.jpg'
+  },
+  {
+    id: 'signature-pressed-juice',
+    name: 'Pressed Juice',
+    dishType: 'Pressed juice',
+    category: 'veg',
+    isVeg: true,
+    calories: 120,
+    protein: '2g',
+    carbs: '26g',
+    fat: '0.5g',
+    desc: '100% pure cold-pressed sweet watermelon infused with crushed garden mint leaves and Persian lime. Zero preservatives or added sugar.',
+    image: 'assets/images/JPEG/Edit13.jpg'
   }
 ];
 
@@ -324,16 +330,43 @@ Object.keys(STUFFD_NUTRITION_DATA).forEach(cat => {
 
 let currentStuffdCategory = 'burrito';
 
-// Gallery Items
+// Curated Kaazos Authentic Gallery Items (High-Resolution Professional Photography)
 const GALLERY_ITEMS = [
-  { title: 'Artisanal Burrito Wrap', category: 'wraps', img: 'assets/images/burrito.jpg', tag: 'Hand-Rolled & Toasted' },
-  { title: 'Mexican Rice & Guacamole Bowl', category: 'wraps', img: 'assets/images/bowl.jpg', tag: 'Signature Dish' },
-  { title: 'Loaded Fiesta Chicken Nachos', category: 'crispy', img: 'assets/images/tacos.jpg', tag: 'Fiesta Favorite' },
-  { title: 'Loaded Peri-Peri Fries', category: 'crispy', img: 'assets/images/fries.jpg', tag: 'Double Drizzle' },
-  { title: 'Crispy Glazed Burger', category: 'crispy', img: 'assets/images/wings.jpg', tag: 'Golden & Crunchy' },
-  { title: 'Kaazos Indiranagar Kitchen', category: 'wraps', img: 'assets/images/our-story.jpg', tag: 'Hospitality & Ambience' },
-  { title: 'Belgian Chocolate Shake', category: 'drinks', img: 'assets/images/shakes.jpg', tag: 'Ice Cold & Rich' },
-  { title: 'Smoky Chipotle Chicken Feast', category: 'wraps', img: 'assets/images/hero.jpg', tag: 'High Protein Spread' }
+  // Burritos & Signature Bowls
+  { title: 'Handcrafted Kaazos Burrito Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit61.jpg', tag: 'Signature Wrap' },
+  { title: 'Fiesta Paneer & Fresh Guac Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit4.jpg', tag: 'Golden Toasted' },
+  { title: 'Smoky Chipotle Chicken Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit56.jpg', tag: 'Flame-Grilled' },
+  { title: 'Mexican Fiesta Rice Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit2.jpg', tag: 'Signature Bowl' },
+  { title: 'Fiesta Grilled Paneer Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit5.jpg', tag: 'Vegetarian Craft' },
+  { title: 'Flame-Grilled Chicken Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit20.jpg', tag: 'Double Protein' },
+  { title: 'Black Bean & Basmati Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit24.jpg', tag: 'Whole-Food Nutrition' },
+  { title: 'Mexican Burrito Bowl with Sour Cream', category: 'wraps', img: 'assets/images/JPEG/Edit35.jpg', tag: 'Creamy & Savory' },
+  { title: 'Smoky Chipotle Chicken Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit59.jpg', tag: 'Adobo Seared' },
+  { title: 'Charred Sweet Corn & Fajita Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit8.jpg', tag: 'House Marinade' },
+  { title: 'Indiranagar Signature Rice Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit32.jpg', tag: 'Cilantro Lime Base' },
+  { title: 'Slow-Simmered Black Bean Fiesta', category: 'wraps', img: 'assets/images/JPEG/Edit44.jpg', tag: 'Zero Preservatives' },
+
+  // Crisps, Salads & Quesadillas
+  { title: 'Fresh Garden Fiesta Salad Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit50.jpg', tag: 'Farm-Fresh Harvest' },
+  { title: 'Golden Toasted Artisanal Quesadilla', category: 'crispy', img: 'assets/images/JPEG/Edit60.jpg', tag: 'Crisp & Savory' },
+  { title: 'Grilled Bell Pepper & Corn Salad', category: 'crispy', img: 'assets/images/JPEG/Edit3.jpg', tag: 'Charred & Fresh' },
+  { title: 'Smoky Chipotle Tossed Salad Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit10.jpg', tag: 'Citrus Vinaigrette' },
+  { title: 'Fiesta Jalapeño Crunch Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit21.jpg', tag: 'Zesty & Crisp' },
+  { title: 'Adobo Spiced Protein Greens', category: 'crispy', img: 'assets/images/JPEG/Edit38.jpg', tag: 'High Nutrient' },
+  { title: 'Herb-Infused Garden Harvest Salad', category: 'crispy', img: 'assets/images/JPEG/Edit46.jpg', tag: 'Daily Crisp' },
+  { title: 'Crisp Greens with Feta & Corn', category: 'crispy', img: 'assets/images/JPEG/Edit54.jpg', tag: 'Clean Macro' },
+
+  // Coolers, Refrescos & Gourmet Shakes
+  { title: 'Classic Sparkling Mint Mojito', category: 'drinks', img: 'assets/images/JPEG/Edit25.jpg', tag: 'Muddled Mint & Lime' },
+  { title: 'Chilled Watermelon Mint Refresco', category: 'drinks', img: 'assets/images/JPEG/Edit13.jpg', tag: 'Fresh Pressed' },
+  { title: 'Wild Berry Smoothie', category: 'drinks', img: 'assets/images/JPEG/Edit1.jpg', tag: 'Antioxidant Rich' },
+  { title: 'Sunshine Mango Refresco', category: 'drinks', img: 'assets/images/JPEG/Edit12.jpg', tag: 'Tropical Citrus' },
+  { title: 'Oreo Crumble Gourmet Thickshake', category: 'drinks', img: 'assets/images/JPEG/Edit16.jpg', tag: 'Ice Cold & Rich' },
+  { title: 'Alphonso Mango Cream Shake', category: 'drinks', img: 'assets/images/JPEG/Edit28.jpg', tag: 'Fresh Fruit Slices' },
+  { title: 'Belgian Choco-Chip Mochaccino', category: 'drinks', img: 'assets/images/JPEG/Edit58.jpg', tag: '70% Dark Cocoa' },
+  { title: 'Artisan Cold Brew Cream Shake', category: 'drinks', img: 'assets/images/JPEG/Edit22.jpg', tag: 'Slow Steeped' },
+  { title: 'Velvet Vanilla Bean Frost Shake', category: 'drinks', img: 'assets/images/JPEG/Edit30.jpg', tag: 'Creamy Classic' },
+  { title: 'Passion Fruit Sunset Splash', category: 'drinks', img: 'assets/images/JPEG/Edit37.jpg', tag: 'Zesty Refresher' }
 ];
 
 let currentMenuCat = 'all';
@@ -427,7 +460,7 @@ function renderMenu() {
   container.innerHTML = filtered.map(item => `
     <article class="product-card" data-id="${item.id}">
       <div class="card-img-holder">
-        <img src="${item.image}" alt="${item.name}" loading="lazy" width="400" height="250">
+        <img src="${item.image}" alt="${item.name}" loading="eager" decoding="async" width="400" height="250">
       </div>
       <div class="card-body">
         <div class="card-header-row">
@@ -459,11 +492,54 @@ function initStuffdNutritionCalculator() {
 
   if (!tableBody) return;
 
+  const DISH_SPOTLIGHT_DATA = {
+    burrito: {
+      title: 'Artisanal Handcrafted Burrito Wrap',
+      tag: 'Hand-Rolled & Toasted',
+      desc: 'Warm toasted flour tortilla layered with cilantro lime rice, slow-cooked black beans, fresh pico de gallo, and house marinades.',
+      image: 'assets/images/JPEG/Edit61.jpg'
+    },
+    bowl: {
+      title: 'Mexican Fiesta Daily Rice Bowl',
+      tag: 'Signature Bowl',
+      desc: 'Steamed cilantro basmati rice base, spiced black beans, charred sweet corn, fresh tomato salsa, sour cream, and guacamole.',
+      image: 'assets/images/JPEG/Edit2.jpg'
+    },
+    quesadilla: {
+      title: 'Golden Toasted Artisanal Quesadilla',
+      tag: 'Griddled & Crisp',
+      desc: 'Flour tortilla layered with melted Oaxaca-style cheese, grilled fajita vegetables, house seasonings, and rich savory dips.',
+      image: 'assets/images/JPEG/Edit60.jpg'
+    },
+    salad: {
+      title: 'Fresh Garden Harvest Fiesta Salad',
+      tag: 'Farm-Fresh & Clean Macros',
+      desc: 'Crisp romaine lettuce, farm-fresh cherry tomatoes, charred corn, seasoned black beans, and high-protein grilled toppings.',
+      image: 'assets/images/JPEG/Edit50.jpg'
+    }
+  };
+
   // Render current category table rows
   function renderTable(catKey) {
     currentStuffdCategory = catKey;
     const catData = STUFFD_NUTRITION_DATA[catKey];
     if (!catData) return;
+
+    // Update dish preview spotlight
+    const spotlightCard = document.getElementById('stuffdDishSpotlight');
+    if (spotlightCard && DISH_SPOTLIGHT_DATA[catKey]) {
+      const d = DISH_SPOTLIGHT_DATA[catKey];
+      spotlightCard.innerHTML = `
+        <div class="stuffd-spotlight-visual">
+          <img src="${d.image}" alt="${d.title}" class="stuffd-spotlight-img" width="110" height="110" loading="eager">
+        </div>
+        <div class="stuffd-spotlight-text">
+          <span class="stuffd-spotlight-tag">${d.tag}</span>
+          <h3 class="stuffd-spotlight-title">${d.title}</h3>
+          <p class="stuffd-spotlight-desc">${d.desc}</p>
+        </div>
+      `;
+    }
 
     const selectedSet = stuffdSelectedItems[catKey];
     tableBody.innerHTML = '';
@@ -597,7 +673,7 @@ function initStuffdNutritionCalculator() {
         `Ingredients: ${selectedNames.join(', ') || 'Custom Build'}\n` +
         `Macros: ${Math.round(totals.cal)} kcal | ${totals.protein.toFixed(1)}g Protein | ${totals.carbs.toFixed(1)}g Carbs | ${totals.fat.toFixed(1)}g Fats.\n` +
         `Can I order this customized bowl?`;
-      waBtn.href = `https://wa.me/919876543210?text=${encodeURIComponent(msg)}`;
+      waBtn.href = `https://wa.me/916360699336?text=${encodeURIComponent(msg)}`;
     }
   }
 
@@ -706,25 +782,109 @@ function initStuffdNutritionCalculator() {
 }
 
 /* ==========================================================================
-   4. Food Gallery
+   4. Food Gallery & Interactive Photo Lightbox
    ========================================================================== */
 function initGallery() {
   const container = document.getElementById('galleryGrid');
   const tabs = document.querySelectorAll('.gallery-filter-btn');
   if (!container) return;
 
+  let currentFilteredGallery = [];
+  let currentGalleryIndex = 0;
+
+  // Lightbox elements
+  const modal = document.getElementById('galleryLightboxModal');
+  const modalImg = document.getElementById('galleryLightboxImg');
+  const modalTitle = document.getElementById('galleryLightboxTitle');
+  const modalTag = document.getElementById('galleryLightboxTag');
+  const modalCounter = document.getElementById('galleryLightboxCounter');
+  const closeBtn = document.getElementById('btnGalleryClose');
+  const prevBtn = document.getElementById('btnGalleryPrev');
+  const nextBtn = document.getElementById('btnGalleryNext');
+  const backdrop = document.getElementById('galleryLightboxBackdrop');
+
+  function updateLightbox(index) {
+    if (!currentFilteredGallery || currentFilteredGallery.length === 0) return;
+    currentGalleryIndex = (index + currentFilteredGallery.length) % currentFilteredGallery.length;
+    const item = currentFilteredGallery[currentGalleryIndex];
+    if (modalImg) {
+      modalImg.src = item.img;
+      modalImg.alt = item.title;
+    }
+    if (modalTitle) modalTitle.textContent = item.title;
+    if (modalTag) modalTag.textContent = item.tag;
+    if (modalCounter) modalCounter.textContent = `${currentGalleryIndex + 1} of ${currentFilteredGallery.length}`;
+  }
+
+  function openGalleryLightbox(index) {
+    if (!modal) return;
+    updateLightbox(index);
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGalleryLightbox() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
   function renderGallery(cat = 'all') {
-    const items = GALLERY_ITEMS.filter(item => cat === 'all' || item.category === cat);
-    container.innerHTML = items.map(item => `
-      <div class="gallery-frame">
+    currentFilteredGallery = GALLERY_ITEMS.filter(item => cat === 'all' || item.category === cat);
+    container.innerHTML = currentFilteredGallery.map((item, idx) => `
+      <div class="gallery-frame" data-gallery-index="${idx}" tabindex="0" role="button" aria-label="View photo of ${item.title}">
         <img src="${item.img}" alt="${item.title}" loading="lazy" width="400" height="400">
         <div class="gallery-hover-overlay">
-          <span style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; color: var(--kz-red-light);">${item.tag}</span>
-          <h4 style="font-family: var(--font-heading); font-size: 1.05rem; margin-top: 0.2rem; font-weight: 800;">${item.title}</h4>
+          <span class="gallery-item-tag">${item.tag}</span>
+          <h4 class="gallery-item-title">${item.title}</h4>
+          <span class="gallery-view-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            Click to view
+          </span>
         </div>
       </div>
     `).join('');
+
+    // Attach click and keyboard listeners to each frame
+    container.querySelectorAll('.gallery-frame').forEach(frame => {
+      frame.addEventListener('click', () => {
+        const idx = parseInt(frame.getAttribute('data-gallery-index'), 10);
+        openGalleryLightbox(idx);
+      });
+      frame.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const idx = parseInt(frame.getAttribute('data-gallery-index'), 10);
+          openGalleryLightbox(idx);
+        }
+      });
+    });
   }
+
+  // Lightbox event handlers
+  if (closeBtn) closeBtn.addEventListener('click', closeGalleryLightbox);
+  if (backdrop) backdrop.addEventListener('click', closeGalleryLightbox);
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateLightbox(currentGalleryIndex - 1);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateLightbox(currentGalleryIndex + 1);
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (!modal || !modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeGalleryLightbox();
+    else if (e.key === 'ArrowLeft') updateLightbox(currentGalleryIndex - 1);
+    else if (e.key === 'ArrowRight') updateLightbox(currentGalleryIndex + 1);
+  });
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -1265,6 +1425,8 @@ window.KAAZOS_GOOGLE_REVIEWS_CONFIG = {
   proxyUrl: '',
 };
 
+const GOOGLE_REVIEWS_MAPS_URL = 'https://www.google.com/maps/place/Kaazos/@12.9820664,77.6395855,17z/data=!4m6!3m5!1s0x3bae17895c471c3b:0xf03b10e9f28d51fb!8m2!3d12.9820664!4d77.6395855!16s%2Fg%2F11zbsyw93p';
+
 function renderMinimalReviewCard(review) {
   const author = review.author_name || review.author || 'Kaazos Patron';
   const tag = review.tag || review.relative_time_description || 'verified diner';
@@ -1275,9 +1437,15 @@ function renderMinimalReviewCard(review) {
   const starsHtml = Array(starsCount).fill(starSvg).join('');
 
   return `
-    <div class="google-review-card">
-      <div class="mrc-stars" aria-label="${starsCount} out of 5 stars">
-        ${starsHtml}
+    <div class="google-review-card" tabindex="0" title="Double-click to verify on Google Reviews">
+      <div class="review-top-row">
+        <div class="mrc-stars" aria-label="${starsCount} out of 5 stars">
+          ${starsHtml}
+        </div>
+        <a href="${GOOGLE_REVIEWS_MAPS_URL}" target="_blank" rel="noopener noreferrer" class="google-verified-pill" title="View review on Google Maps">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4"><path d="M21.35 11.1h-9.17v2.73h5.27c-.23 1.2-1.39 3.51-5.27 3.51-3.17 0-5.76-2.59-5.76-5.76s2.59-5.76 5.76-5.76c1.8 0 3.01.77 3.7 1.43l2.16-2.08C20.47 3.53 17.5 2 12.18 2 6.56 2 2 6.56 2 12.18s4.56 10.18 10.18 10.18c5.87 0 9.77-4.13 9.77-9.95 0-.67-.07-1.18-.18-1.31z"/></svg>
+          <span>Google Verified ↗</span>
+        </a>
       </div>
       <p class="mrc-quote">"${text}"</p>
       <div class="mrc-author-line">
@@ -1398,6 +1566,42 @@ function initGoogleReviewsCarousel() {
     viewport.addEventListener('mouseleave', () => resumeScrollAfterDelay(600));
 
     allCards.forEach(card => {
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('title', 'Double-click to open Google Reviews');
+
+      // Inject Google Verified chip header if not present
+      const stars = card.querySelector('.mrc-stars');
+      if (stars && !card.querySelector('.google-verified-pill')) {
+        const topRow = document.createElement('div');
+        topRow.className = 'review-top-row';
+        stars.parentNode.insertBefore(topRow, stars);
+        topRow.appendChild(stars);
+
+        const pill = document.createElement('a');
+        pill.href = GOOGLE_REVIEWS_MAPS_URL;
+        pill.target = '_blank';
+        pill.rel = 'noopener noreferrer';
+        pill.className = 'google-verified-pill';
+        pill.title = 'View authentic review on Google Maps';
+        pill.innerHTML = `
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4"><path d="M21.35 11.1h-9.17v2.73h5.27c-.23 1.2-1.39 3.51-5.27 3.51-3.17 0-5.76-2.59-5.76-5.76s2.59-5.76 5.76-5.76c1.8 0 3.01.77 3.7 1.43l2.16-2.08C20.47 3.53 17.5 2 12.18 2 6.56 2 2 6.56 2 12.18s4.56 10.18 10.18 10.18c5.87 0 9.77-4.13 9.77-9.95 0-.67-.07-1.18-.18-1.31z"/></svg>
+          <span>Google Verified ↗</span>
+        `;
+        topRow.appendChild(pill);
+      }
+
+      // Double-click anywhere on the card to open Google Reviews
+      card.addEventListener('dblclick', () => {
+        window.open(GOOGLE_REVIEWS_MAPS_URL, '_blank', 'noopener,noreferrer');
+      });
+
+      // Press Enter to open Google Reviews
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          window.open(GOOGLE_REVIEWS_MAPS_URL, '_blank', 'noopener,noreferrer');
+        }
+      });
+
       card.addEventListener('mouseenter', pauseScroll);
       card.addEventListener('mouseleave', () => resumeScrollAfterDelay(500));
     });
