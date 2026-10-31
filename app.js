@@ -1448,7 +1448,8 @@ window.KAAZOS_GOOGLE_REVIEWS_CONFIG = {
   proxyUrl: '',
 };
 
-const GOOGLE_REVIEWS_MAPS_URL = 'https://www.google.com/maps/place/Kaazos/@12.9820664,77.6395855,17z/data=!4m6!3m5!1s0x3bae17895c471c3b:0xf03b10e9f28d51fb!8m2!3d12.9820664!4d77.6395855!16s%2Fg%2F11zbsyw93p';
+const GOOGLE_REVIEWS_MAPS_URL = 'https://search.google.com/local/reviews?placeid=ChIJG3xHXPkXrj4R-1GN8ukQO_A';
+const GOOGLE_MAPS_LOCATION_URL = 'https://www.google.com/maps/search/?api=1&query=Kaazos+Indiranagar+Bengaluru';
 
 function renderMinimalReviewCard(review) {
   const author = review.author_name || review.author || 'Kaazos Patron';
@@ -1605,7 +1606,7 @@ function initGoogleReviewsCarousel() {
         pill.target = '_blank';
         pill.rel = 'noopener noreferrer';
         pill.className = 'google-verified-pill';
-        pill.title = 'View authentic review on Google Maps';
+        pill.title = 'View authentic reviews on Google';
         pill.innerHTML = `
           <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4"><path d="M21.35 11.1h-9.17v2.73h5.27c-.23 1.2-1.39 3.51-5.27 3.51-3.17 0-5.76-2.59-5.76-5.76s2.59-5.76 5.76-5.76c1.8 0 3.01.77 3.7 1.43l2.16-2.08C20.47 3.53 17.5 2 12.18 2 6.56 2 2 6.56 2 12.18s4.56 10.18 10.18 10.18c5.87 0 9.77-4.13 9.77-9.95 0-.67-.07-1.18-.18-1.31z"/></svg>
           <span>Google Verified ↗</span>
