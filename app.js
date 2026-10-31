@@ -1997,10 +1997,22 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 const MENU_BOARDS = [
   {
-    tag: 'Official Menu Board',
-    title: 'Kaazos In-Store Menu Board',
-    desc: 'Choose your base (Rice Bowl, Burrito Wrap, Nachos Bowl, Salad Bowl), signature fillings, protein bowls, loaded nachos, and tacos.',
-    image: 'assets/images/menu-card-official.jpg'
+    tag: 'Board 01',
+    title: 'Bowls, Wraps, Nachos & Tacos',
+    desc: 'Choose your base (Rice Bowl, Burrito Wrap, Nachos Bowl, Salad Bowl), signature fillings, extras, protein bowls, loaded nachos, and crispy tacos.',
+    image: 'assets/images/menu-card-1.jpg'
+  },
+  {
+    tag: 'Board 02',
+    title: 'Appetizers, Juices, Shakes & Desserts',
+    desc: 'Salted & peri-peri fries, loaded chicken fries, tenders, pressed juices, mocktails, Oreo Chocodilla, fruit smoothies, and indulgent thickshakes.',
+    image: 'assets/images/menu-card-2.jpg'
+  },
+  {
+    tag: 'Board 03',
+    title: 'Salads, Oatmeal Bowls, Fruits & Quesadillas',
+    desc: 'Exotic salads (Mexican, Caesar, Avocado & Orange), egg protein salads, royal fruit harvest, oatmeal bowls, and golden cheesy quesadillas.',
+    image: 'assets/images/menu-card-3.jpg'
   }
 ];
 
