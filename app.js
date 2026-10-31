@@ -1997,22 +1997,10 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 const MENU_BOARDS = [
   {
-    tag: 'Board 01',
-    title: 'Custom Bowls & Burrito Wraps',
-    desc: 'Pick your base (Brown Rice, Burrito Wrap, Salad Bowl, Nachos Bowl), choose whole-food fillings & high-protein toppings.',
-    image: 'assets/images/menu-card-1.jpg'
-  },
-  {
-    tag: 'Board 02',
-    title: 'Tacos, Quesadillas & Nachos',
-    desc: 'Crispy hard shell & soft flour tacos (Buy Any Taco @ ₹89), golden grilled cheese quesadillas, and loaded Rancho\'s & Haven nachos.',
-    image: 'assets/images/menu-card-3.jpg'
-  },
-  {
-    tag: 'Board 03',
-    title: 'Crispy Sides, Shakes & Refrescos',
-    desc: 'Peri-peri fries, crispy chicken wings & tenders, Belgian dark chocolate shake, Nutella indulgence, and Mexican refrescos.',
-    image: 'assets/images/menu-card-2.jpg'
+    tag: 'Official Menu Board',
+    title: 'Kaazos In-Store Menu Board',
+    desc: 'Choose your base (Rice Bowl, Burrito Wrap, Nachos Bowl, Salad Bowl), signature fillings, protein bowls, loaded nachos, and tacos.',
+    image: 'assets/images/menu-card-official.jpg'
   }
 ];
 

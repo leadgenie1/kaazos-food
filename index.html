@@ -993,19 +993,15 @@
       <div class="section-head text-center" style="max-width: 760px; margin: 0 auto clamp(1.25rem, 2vw, 1.75rem); text-align: center;">
         <span class="eyebrow">Dine-In &amp; Takeaway</span>
         <h2 class="section-title">In-Store Menu</h2>
-        <p class="section-subtitle">Explore our complete kitchen menu boards — freshly prepped bowls, tacos, loaded crisps, and thick shakes.</p>
+        <p class="section-subtitle">Explore our official kitchen menu board — freshly prepped bowls, tacos, loaded crisps, and signature fillings.</p>
       </div>
     </div>
     <div class="menu-horizontal-container">
-      <div class="menu-horizontal-row">
-        <div class="menu-strip-item" onclick="openMenuLightbox(0)" title="Click to view menu board">
-          <img src="assets/images/menu-card-1.jpg" alt="Kaazos In-Store Menu - Bowls & Burritos" loading="lazy" class="menu-strip-img" />
-        </div>
-        <div class="menu-strip-item" onclick="openMenuLightbox(1)" title="Click to view menu board">
-          <img src="assets/images/menu-card-3.jpg" alt="Kaazos In-Store Menu - Tacos, Quesadillas & Nachos" loading="lazy" class="menu-strip-img" />
-        </div>
-        <div class="menu-strip-item" onclick="openMenuLightbox(2)" title="Click to view menu board">
-          <img src="assets/images/menu-card-2.jpg" alt="Kaazos In-Store Menu - Crispy Sides, Shakes & Desserts" loading="lazy" class="menu-strip-img" />
+      <div class="menu-board-showcase" onclick="openMenuLightbox(0)" role="button" tabindex="0" title="Click to view full size menu board" aria-label="View official Kaazos in-store menu board">
+        <img src="assets/images/menu-card-official.jpg" alt="Kaazos Official In-Store Menu Board - Choose Your Own, Protein Bowls, Loaded Nachos & Tacos" loading="lazy" class="menu-board-hero-img" width="1024" height="682" />
+        <div class="menu-board-hover-hint">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          <span>Click to view full screen</span>
         </div>
       </div>
     </div>
@@ -1018,7 +1014,7 @@
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
     <div class="lightbox-dialog-minimal" onclick="event.stopPropagation()">
-      <img id="lightboxImg" src="assets/images/menu-card-1.jpg" alt="Kaazos Official Menu Board" class="lightbox-img-minimal" />
+      <img id="lightboxImg" src="assets/images/menu-card-official.jpg" alt="Kaazos Official Menu Board" class="lightbox-img-minimal" />
     </div>
   </div>
 

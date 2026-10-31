@@ -5464,6 +5464,62 @@ button,
   transform: scale(1.03);
 }
 
+/* Featured In-Store Official Menu Board Showcase */
+.menu-board-showcase {
+  max-width: 1040px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(12, 79, 72, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(12, 79, 72, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.menu-board-showcase:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(12, 79, 72, 0.2), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.menu-board-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-board-showcase:hover .menu-board-hero-img {
+  transform: scale(1.015);
+}
+
+.menu-board-hover-hint {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background: rgba(12, 79, 72, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.menu-board-showcase:hover .menu-board-hover-hint {
+  background: var(--kz-red);
+  transform: scale(1.05);
+}
+
 /* ==========================================================================
    MINIMAL IMAGE-ONLY MENU LIGHTBOX MODAL
    ========================================================================== */
