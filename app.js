@@ -97,51 +97,57 @@ const STUFFD_NUTRITION_DATA = {
         title: 'Base Grains (Select One)',
         type: 'single',
         items: [
-          { id: 'bwr_rice_cilantro', name: 'Cilantro Lime Basmati Rice', cal: 210.0, fat: 3.2, satFat: 0.6, sodium: 240.0, carbs: 42.0, protein: 4.2, fiber: 1.8, sugars: 0.4, default: true, icon: '🍚' },
-          { id: 'bwr_rice_brown', name: 'Whole Brown Grain Rice & Quinoa', cal: 195.0, fat: 2.8, satFat: 0.5, sodium: 160.0, carbs: 38.5, protein: 5.4, fiber: 4.2, sugars: 0.5, default: false, icon: '🌾' },
-          { id: 'bwr_rice_half_greens', name: 'Half Rice & Half Crisp Greens', cal: 120.0, fat: 1.8, satFat: 0.3, sodium: 130.0, carbs: 23.0, protein: 2.8, fiber: 2.4, sugars: 1.1, default: false, icon: '🥗' }
+          { id: 'bwr_rice_cilantro', name: 'Cilantro Lime Basmati Rice', cal: 210.0, fat: 2.8, satFat: 0.5, sodium: 240.0, carbs: 42.0, protein: 4.2, fiber: 1.8, sugars: 0.4, default: true, icon: '🍚' },
+          { id: 'bwr_rice_brown', name: 'Whole Brown Grain Rice & Quinoa', cal: 196.5, fat: 2.5, satFat: 0.4, sodium: 160.0, carbs: 38.0, protein: 5.5, fiber: 4.2, sugars: 0.5, default: false, icon: '🌾' },
+          { id: 'bwr_rice_half_greens', name: 'Half Rice & Crisp Salad Greens', cal: 119.4, fat: 1.8, satFat: 0.3, sodium: 130.0, carbs: 23.0, protein: 2.8, fiber: 2.4, sugars: 1.1, default: false, icon: '🥗' }
         ]
       },
       {
-        title: 'Mains & Primary Proteins',
+        title: 'Pick Your Filling (Select One)',
         type: 'single',
         items: [
-          { id: 'bwr_prot_chipotle_chk', name: 'Smoked Chipotle Chicken', cal: 195.0, fat: 6.2, satFat: 1.8, sodium: 385.0, carbs: 2.4, protein: 32.5, fiber: 0.5, sugars: 1.0, default: true, icon: '🍗' },
-          { id: 'bwr_prot_periperi_chk', name: 'Grilled Peri-Peri Chicken', cal: 205.0, fat: 6.8, satFat: 2.0, sodium: 395.0, carbs: 1.8, protein: 34.0, fiber: 0.5, sugars: 0.8, default: false, icon: '🍗' },
-          { id: 'bwr_prot_desi_paneer', name: 'Desi Spiced Paneer', cal: 245.0, fat: 17.5, satFat: 10.2, sodium: 320.0, carbs: 4.2, protein: 16.5, fiber: 0.5, sugars: 1.5, default: false, icon: '🧀' },
-          { id: 'bwr_prot_fajita_veg', name: 'Sizzling Fajita Veggies', cal: 85.0, fat: 3.5, satFat: 0.6, sodium: 190.0, carbs: 12.0, protein: 2.5, fiber: 3.5, sugars: 4.2, default: false, icon: '🫑' },
-          { id: 'bwr_prot_mushrooms', name: 'Crunchy Portobello Mushrooms', cal: 95.0, fat: 4.8, satFat: 0.8, sodium: 180.0, carbs: 8.2, protein: 4.5, fiber: 2.8, sugars: 2.5, default: false, icon: '🍄' }
+          { id: 'bwr_fill_chatpata_chk', name: 'Grilled Chatpata Chicken', cal: 189.7, fat: 5.3, satFat: 1.5, sodium: 385.0, carbs: 2.5, protein: 33.0, fiber: 0.5, sugars: 0.8, default: true, icon: '🍗' },
+          { id: 'bwr_fill_lowfat_chk', name: 'Low-Fat Chipotle Chicken', cal: 174.9, fat: 3.3, satFat: 0.8, sodium: 360.0, carbs: 1.8, protein: 34.5, fiber: 0.4, sugars: 0.6, default: false, icon: '🍗' },
+          { id: 'bwr_fill_peri_chk', name: 'Crispy Peri-Peri Chicken', cal: 224.7, fat: 8.3, satFat: 2.2, sodium: 420.0, carbs: 6.5, protein: 31.0, fiber: 0.6, sugars: 0.9, default: false, icon: '🍗' },
+          { id: 'bwr_fill_chipotle_paneer', name: 'Chipotle Paneer', cal: 235.0, fat: 17.0, satFat: 10.0, sodium: 320.0, carbs: 4.0, protein: 16.5, fiber: 0.5, sugars: 1.5, default: false, icon: '🧀' },
+          { id: 'bwr_fill_fajita_veg', name: 'Fajita Veggies', cal: 85.0, fat: 3.0, satFat: 0.5, sodium: 190.0, carbs: 12.0, protein: 2.5, fiber: 3.5, sugars: 4.2, default: false, icon: '🫑' },
+          { id: 'bwr_fill_mushrooms', name: 'Sautéed Mushrooms', cal: 89.4, fat: 4.6, satFat: 0.8, sodium: 180.0, carbs: 7.5, protein: 4.5, fiber: 2.8, sugars: 2.2, default: false, icon: '🍄' }
         ]
       },
       {
-        title: 'Fresh Veggies & Fillings',
+        title: 'Fresh Veggies & Beans (Select Any)',
         type: 'multi',
         items: [
-          { id: 'bwr_veg_corn_beans', name: 'Charred Sweet Corn & Black Beans', cal: 88.0, fat: 1.2, satFat: 0.2, sodium: 135.0, carbs: 16.5, protein: 3.8, fiber: 4.2, sugars: 3.1, default: true, icon: '🌽' },
-          { id: 'bwr_veg_pico', name: 'Fresh Pico de Gallo', cal: 25.0, fat: 0.2, satFat: 0.0, sodium: 110.0, carbs: 5.2, protein: 0.8, fiber: 1.4, sugars: 2.8, default: true, icon: '🍅' },
-          { id: 'bwr_veg_peppers', name: 'Sautéed Bell Peppers & Onions', cal: 42.0, fat: 1.2, satFat: 0.2, sodium: 95.0, carbs: 7.5, protein: 1.2, fiber: 2.0, sugars: 3.5, default: true, icon: '🫑' },
-          { id: 'bwr_veg_cucumbers', name: 'Crisp English Cucumbers', cal: 16.0, fat: 0.1, satFat: 0.0, sodium: 8.0, carbs: 3.4, protein: 0.7, fiber: 1.0, sugars: 1.6, default: false, icon: '🥒' },
-          { id: 'bwr_veg_jalapenos', name: 'Pickled Jalapeños', cal: 12.0, fat: 0.1, satFat: 0.0, sodium: 280.0, carbs: 2.5, protein: 0.4, fiber: 1.0, sugars: 1.2, default: false, icon: '🌶️' }
+          { id: 'bwr_veg_corn_beans', name: 'Charred Sweet Corn & Spiced Black Beans', cal: 90.2, fat: 1.0, satFat: 0.2, sodium: 135.0, carbs: 16.5, protein: 3.8, fiber: 4.2, sugars: 3.0, default: true, icon: '🌽' },
+          { id: 'bwr_veg_pico', name: 'Fresh Tomato Salsa (Pico de Gallo)', cal: 25.8, fat: 0.2, satFat: 0.0, sodium: 110.0, carbs: 5.2, protein: 0.8, fiber: 1.4, sugars: 2.8, default: true, icon: '🍅' },
+          { id: 'bwr_veg_peppers', name: 'Sautéed Bell Peppers & Onions', cal: 45.6, fat: 1.2, satFat: 0.2, sodium: 95.0, carbs: 7.5, protein: 1.2, fiber: 2.0, sugars: 3.5, default: true, icon: '🫑' },
+          { id: 'bwr_veg_cucumbers', name: 'Crisp English Cucumbers', cal: 17.3, fat: 0.1, satFat: 0.0, sodium: 8.0, carbs: 3.4, protein: 0.7, fiber: 1.0, sugars: 1.6, default: false, icon: '🥒' },
+          { id: 'bwr_veg_jalapenos', name: 'Pickled Jalapeños', cal: 12.5, fat: 0.1, satFat: 0.0, sodium: 280.0, carbs: 2.5, protein: 0.4, fiber: 1.0, sugars: 1.2, default: false, icon: '🌶️' }
         ]
       },
       {
-        title: 'Signature Sauces & Salsas',
+        title: 'Sauces & Salsas (Select Any)',
         type: 'multi',
         items: [
-          { id: 'bwr_sauce_guac', name: 'Creamy Hass Guacamole', cal: 95.0, fat: 8.5, satFat: 1.4, sodium: 125.0, carbs: 5.0, protein: 1.3, fiber: 3.8, sugars: 0.6, default: true, icon: '🥑' },
-          { id: 'bwr_sauce_salsa_roja', name: 'Fire-Roasted Tomato Salsa', cal: 32.0, fat: 0.4, satFat: 0.1, sodium: 210.0, carbs: 6.5, protein: 1.0, fiber: 1.6, sugars: 3.2, default: true, icon: '🥣' },
-          { id: 'bwr_sauce_sour_cream', name: 'Cooling Herb Sour Cream', cal: 68.0, fat: 6.2, satFat: 3.8, sodium: 85.0, carbs: 1.8, protein: 1.2, fiber: 0.0, sugars: 1.2, default: false, icon: '🥛' },
-          { id: 'bwr_sauce_chipotle_mayo', name: 'Smoky Chipotle Mayo', cal: 85.0, fat: 8.2, satFat: 1.2, sodium: 220.0, carbs: 2.8, protein: 0.8, fiber: 0.4, sugars: 1.5, default: false, icon: '🍶' }
+          { id: 'bwr_sauce_guac', name: 'In-House Guacamole', cal: 101.7, fat: 8.5, satFat: 1.4, sodium: 125.0, carbs: 5.0, protein: 1.3, fiber: 3.8, sugars: 0.6, default: true, icon: '🥑' },
+          { id: 'bwr_sauce_salsa_roja', name: 'Fire-Roasted Tomato Salsa', cal: 33.6, fat: 0.4, satFat: 0.1, sodium: 210.0, carbs: 6.5, protein: 1.0, fiber: 1.6, sugars: 3.2, default: true, icon: '🥣' },
+          { id: 'bwr_sauce_sour_cream', name: 'Cooling Sour Cream', cal: 70.5, fat: 6.5, satFat: 4.0, sodium: 85.0, carbs: 1.8, protein: 1.2, fiber: 0.0, sugars: 1.2, default: false, icon: '🥛' },
+          { id: 'bwr_sauce_chipotle_mayo', name: 'In-House Chipotle Mayo', cal: 88.2, fat: 8.2, satFat: 1.2, sodium: 220.0, carbs: 2.8, protein: 0.8, fiber: 0.4, sugars: 1.5, default: false, icon: '🍶' },
+          { id: 'bwr_sauce_garlic_ranch', name: 'Garlic Ranch Dip', cal: 83.4, fat: 7.8, satFat: 1.5, sodium: 215.0, carbs: 2.4, protein: 0.9, fiber: 0.2, sugars: 1.8, default: false, icon: '🥣' }
         ]
       },
       {
-        title: 'Toppings & Boosters',
+        title: 'Extras & Add-Ons (Select Any)',
         type: 'multi',
         items: [
-          { id: 'bwr_top_strips', name: 'Crunchy Tortilla Crisps', cal: 75.0, fat: 3.8, satFat: 0.6, sodium: 85.0, carbs: 9.8, protein: 1.2, fiber: 0.8, sugars: 0.2, default: true, icon: '🌮' },
-          { id: 'bwr_top_extra_chk', name: 'Double Chicken Scoop (+100g)', cal: 165.0, fat: 5.2, satFat: 1.5, sodium: 320.0, carbs: 0.5, protein: 28.0, fiber: 0.0, sugars: 0.0, default: false, icon: '🍗' },
-          { id: 'bwr_top_cheese', name: 'Monterey Jack & Cheddar Shreds', cal: 110.0, fat: 9.0, satFat: 5.5, sodium: 180.0, carbs: 0.8, protein: 6.8, fiber: 0.0, sugars: 0.2, default: false, icon: '🧀' },
-          { id: 'bwr_top_egg', name: 'Hard Boiled Farm Egg', cal: 74.0, fat: 5.0, satFat: 1.6, sodium: 70.0, carbs: 0.4, protein: 6.3, fiber: 0.0, sugars: 0.4, default: false, icon: '🥚' }
+          { id: 'bwr_extra_chips', name: 'Corn Chips', cal: 111.5, fat: 5.5, satFat: 0.8, sodium: 110.0, carbs: 14.0, protein: 1.5, fiber: 1.2, sugars: 0.3, default: true, icon: '🌮' },
+          { id: 'bwr_extra_cheese', name: 'Cheese', cal: 116.7, fat: 9.5, satFat: 5.8, sodium: 180.0, carbs: 0.8, protein: 7.0, fiber: 0.0, sugars: 0.2, default: false, icon: '🧀' },
+          { id: 'bwr_extra_egg', name: 'Boiled Egg (1 Piece)', cal: 71.8, fat: 5.0, satFat: 1.6, sodium: 70.0, carbs: 0.4, protein: 6.3, fiber: 0.0, sugars: 0.4, default: false, icon: '🥚' },
+          { id: 'bwr_extra_chatpata_chk', name: 'Extra Grilled Chatpata Chicken (+100g)', cal: 157.6, fat: 4.4, satFat: 1.2, sodium: 320.0, carbs: 2.0, protein: 27.5, fiber: 0.4, sugars: 0.6, default: false, icon: '🍗' },
+          { id: 'bwr_extra_lowfat_chk', name: 'Extra Low-Fat Chipotle Chicken (+100g)', cal: 146.4, fat: 2.8, satFat: 0.7, sodium: 300.0, carbs: 1.5, protein: 28.8, fiber: 0.3, sugars: 0.5, default: false, icon: '🍗' },
+          { id: 'bwr_extra_peri_chk', name: 'Extra Crispy Peri-Peri Chicken (+100g)', cal: 186.9, fat: 6.9, satFat: 1.8, sodium: 350.0, carbs: 5.4, protein: 25.8, fiber: 0.5, sugars: 0.8, default: false, icon: '🍗' },
+          { id: 'bwr_extra_paneer', name: 'Extra Chipotle Paneer (+80g)', cal: 188.0, fat: 13.6, satFat: 8.0, sodium: 255.0, carbs: 3.2, protein: 13.2, fiber: 0.4, sugars: 1.2, default: false, icon: '🧀' },
+          { id: 'bwr_extra_mushrooms', name: 'Extra Sautéed Mushrooms (+80g)', cal: 71.7, fat: 3.7, satFat: 0.6, sodium: 145.0, carbs: 6.0, protein: 3.6, fiber: 2.2, sugars: 1.8, default: false, icon: '🍄' }
         ]
       }
     ]
@@ -154,50 +160,51 @@ const STUFFD_NUTRITION_DATA = {
         title: 'Mini Base Grains (Select One)',
         type: 'single',
         items: [
-          { id: 'bwm_rice_cilantro', name: 'Mini Cilantro Lime Basmati Rice', cal: 135.0, fat: 2.0, satFat: 0.4, sodium: 155.0, carbs: 27.0, protein: 2.7, fiber: 1.2, sugars: 0.3, default: true, icon: '🍚' },
-          { id: 'bwm_rice_brown', name: 'Mini Whole Brown Rice & Quinoa', cal: 125.0, fat: 1.8, satFat: 0.3, sodium: 105.0, carbs: 24.5, protein: 3.5, fiber: 2.7, sugars: 0.3, default: false, icon: '🌾' },
-          { id: 'bwm_rice_half_greens', name: 'Mini Half Rice & Crisp Greens', cal: 80.0, fat: 1.2, satFat: 0.2, sodium: 85.0, carbs: 15.0, protein: 1.8, fiber: 1.6, sugars: 0.7, default: false, icon: '🥗' }
+          { id: 'bwm_rice_cilantro', name: 'Mini Cilantro Lime Basmati Rice', cal: 140.3, fat: 1.9, satFat: 0.3, sodium: 160.0, carbs: 28.0, protein: 2.8, fiber: 1.2, sugars: 0.3, default: true, icon: '🍚' },
+          { id: 'bwm_rice_brown', name: 'Mini Whole Brown Rice & Quinoa', cal: 131.3, fat: 1.7, satFat: 0.3, sodium: 105.0, carbs: 25.3, protein: 3.7, fiber: 2.8, sugars: 0.3, default: false, icon: '🌾' },
+          { id: 'bwm_rice_half_greens', name: 'Mini Half Rice & Crisp Greens', cal: 80.4, fat: 1.2, satFat: 0.2, sodium: 85.0, carbs: 15.5, protein: 1.9, fiber: 1.6, sugars: 0.7, default: false, icon: '🥗' }
         ]
       },
       {
-        title: 'Mains & Primary Proteins',
+        title: 'Pick Your Filling (Select One)',
         type: 'single',
         items: [
-          { id: 'bwm_prot_chipotle_chk', name: 'Mini Smoked Chipotle Chicken', cal: 125.0, fat: 4.0, satFat: 1.2, sodium: 250.0, carbs: 1.5, protein: 21.0, fiber: 0.3, sugars: 0.6, default: true, icon: '🍗' },
-          { id: 'bwm_prot_periperi_chk', name: 'Mini Grilled Peri-Peri Chicken', cal: 132.0, fat: 4.4, satFat: 1.3, sodium: 255.0, carbs: 1.2, protein: 22.0, fiber: 0.3, sugars: 0.5, default: false, icon: '🍗' },
-          { id: 'bwm_prot_desi_paneer', name: 'Mini Desi Spiced Paneer', cal: 160.0, fat: 11.5, satFat: 6.8, sodium: 210.0, carbs: 2.8, protein: 11.0, fiber: 0.3, sugars: 1.0, default: false, icon: '🧀' },
-          { id: 'bwm_prot_fajita_veg', name: 'Mini Sizzling Fajita Veggies', cal: 55.0, fat: 2.2, satFat: 0.4, sodium: 125.0, carbs: 8.0, protein: 1.6, fiber: 2.2, sugars: 2.8, default: false, icon: '🫑' },
-          { id: 'bwm_prot_mushrooms', name: 'Mini Crunchy Portobello Mushrooms', cal: 62.0, fat: 3.1, satFat: 0.5, sodium: 115.0, carbs: 5.4, protein: 3.0, fiber: 1.8, sugars: 1.6, default: false, icon: '🍄' }
+          { id: 'bwm_fill_chatpata_chk', name: 'Mini Grilled Chatpata Chicken', cal: 126.3, fat: 3.5, satFat: 1.0, sodium: 255.0, carbs: 1.7, protein: 22.0, fiber: 0.3, sugars: 0.5, default: true, icon: '🍗' },
+          { id: 'bwm_fill_lowfat_chk', name: 'Mini Low-Fat Chipotle Chicken', cal: 116.6, fat: 2.2, satFat: 0.5, sodium: 240.0, carbs: 1.2, protein: 23.0, fiber: 0.3, sugars: 0.4, default: false, icon: '🍗' },
+          { id: 'bwm_fill_peri_chk', name: 'Mini Crispy Peri-Peri Chicken', cal: 149.5, fat: 5.5, satFat: 1.5, sodium: 280.0, carbs: 4.3, protein: 20.7, fiber: 0.4, sugars: 0.6, default: false, icon: '🍗' },
+          { id: 'bwm_fill_chipotle_paneer', name: 'Mini Chipotle Paneer', cal: 164.3, fat: 11.9, satFat: 7.0, sodium: 225.0, carbs: 2.8, protein: 11.5, fiber: 0.4, sugars: 1.0, default: false, icon: '🧀' },
+          { id: 'bwm_fill_fajita_veg', name: 'Mini Fajita Veggies', cal: 57.6, fat: 2.0, satFat: 0.3, sodium: 130.0, carbs: 8.2, protein: 1.7, fiber: 2.4, sugars: 2.9, default: false, icon: '🫑' },
+          { id: 'bwm_fill_mushrooms', name: 'Mini Sautéed Mushrooms', cal: 62.0, fat: 3.2, satFat: 0.5, sodium: 125.0, carbs: 5.2, protein: 3.1, fiber: 2.0, sugars: 1.5, default: false, icon: '🍄' }
         ]
       },
       {
-        title: 'Fresh Veggies & Fillings',
+        title: 'Fresh Veggies & Beans (Select Any)',
         type: 'multi',
         items: [
-          { id: 'bwm_veg_corn_beans', name: 'Sweet Corn & Black Beans (Mini)', cal: 58.0, fat: 0.8, satFat: 0.1, sodium: 90.0, carbs: 11.0, protein: 2.5, fiber: 2.8, sugars: 2.0, default: true, icon: '🌽' },
-          { id: 'bwm_veg_pico', name: 'Fresh Pico de Gallo (Mini)', cal: 18.0, fat: 0.1, satFat: 0.0, sodium: 75.0, carbs: 3.6, protein: 0.5, fiber: 1.0, sugars: 1.9, default: true, icon: '🍅' },
-          { id: 'bwm_veg_peppers', name: 'Sautéed Bell Peppers (Mini)', cal: 28.0, fat: 0.8, satFat: 0.1, sodium: 65.0, carbs: 5.0, protein: 0.8, fiber: 1.3, sugars: 2.3, default: true, icon: '🫑' },
-          { id: 'bwm_veg_cucumbers', name: 'Crisp English Cucumbers (Mini)', cal: 12.0, fat: 0.1, satFat: 0.0, sodium: 5.0, carbs: 2.5, protein: 0.5, fiber: 0.7, sugars: 1.1, default: false, icon: '🥒' },
-          { id: 'bwm_veg_jalapenos', name: 'Pickled Jalapeños (Mini)', cal: 8.0, fat: 0.1, satFat: 0.0, sodium: 180.0, carbs: 1.6, protein: 0.3, fiber: 0.6, sugars: 0.8, default: false, icon: '🌶️' }
+          { id: 'bwm_veg_corn_beans', name: 'Sweet Corn & Black Beans (Mini)', cal: 60.3, fat: 0.7, satFat: 0.1, sodium: 90.0, carbs: 11.0, protein: 2.5, fiber: 2.8, sugars: 2.0, default: true, icon: '🌽' },
+          { id: 'bwm_veg_pico', name: 'Fresh Tomato Salsa (Mini)', cal: 17.7, fat: 0.1, satFat: 0.0, sodium: 75.0, carbs: 3.6, protein: 0.5, fiber: 1.0, sugars: 1.9, default: true, icon: '🍅' },
+          { id: 'bwm_veg_peppers', name: 'Sautéed Bell Peppers & Onions (Mini)', cal: 31.2, fat: 0.8, satFat: 0.1, sodium: 65.0, carbs: 5.2, protein: 0.8, fiber: 1.4, sugars: 2.4, default: true, icon: '🫑' },
+          { id: 'bwm_veg_cucumbers', name: 'Crisp English Cucumbers (Mini)', cal: 12.9, fat: 0.1, satFat: 0.0, sodium: 6.0, carbs: 2.5, protein: 0.5, fiber: 0.7, sugars: 1.2, default: false, icon: '🥒' },
+          { id: 'bwm_veg_jalapenos', name: 'Pickled Jalapeños (Mini)', cal: 8.5, fat: 0.1, satFat: 0.0, sodium: 185.0, carbs: 1.6, protein: 0.3, fiber: 0.6, sugars: 0.8, default: false, icon: '🌶️' }
         ]
       },
       {
-        title: 'Signature Sauces & Salsas',
+        title: 'Sauces & Salsas (Select Any)',
         type: 'multi',
         items: [
-          { id: 'bwm_sauce_guac', name: 'Creamy Hass Guacamole (Mini)', cal: 62.0, fat: 5.5, satFat: 0.9, sodium: 80.0, carbs: 3.2, protein: 0.8, fiber: 2.4, sugars: 0.4, default: true, icon: '🥑' },
-          { id: 'bwm_sauce_salsa_roja', name: 'Fire-Roasted Tomato Salsa (Mini)', cal: 22.0, fat: 0.3, satFat: 0.1, sodium: 140.0, carbs: 4.4, protein: 0.7, fiber: 1.1, sugars: 2.1, default: true, icon: '🥣' },
-          { id: 'bwm_sauce_sour_cream', name: 'Cooling Herb Sour Cream (Mini)', cal: 45.0, fat: 4.1, satFat: 2.5, sodium: 55.0, carbs: 1.2, protein: 0.8, fiber: 0.0, sugars: 0.8, default: false, icon: '🥛' },
-          { id: 'bwm_sauce_chipotle_mayo', name: 'Smoky Chipotle Mayo (Mini)', cal: 56.0, fat: 5.4, satFat: 0.8, sodium: 145.0, carbs: 1.8, protein: 0.5, fiber: 0.3, sugars: 1.0, default: false, icon: '🍶' }
+          { id: 'bwm_sauce_guac', name: 'In-House Guacamole (Mini)', cal: 70.7, fat: 5.9, satFat: 1.0, sodium: 85.0, carbs: 3.5, protein: 0.9, fiber: 2.7, sugars: 0.4, default: true, icon: '🥑' },
+          { id: 'bwm_sauce_salsa_roja', name: 'Fire-Roasted Tomato Salsa (Mini)', cal: 24.7, fat: 0.3, satFat: 0.1, sodium: 155.0, carbs: 4.8, protein: 0.7, fiber: 1.2, sugars: 2.4, default: true, icon: '🥣' },
+          { id: 'bwm_sauce_sour_cream', name: 'Cooling Sour Cream (Mini)', cal: 49.8, fat: 4.6, satFat: 2.9, sodium: 60.0, carbs: 1.3, protein: 0.8, fiber: 0.0, sugars: 0.9, default: false, icon: '🥛' },
+          { id: 'bwm_sauce_chipotle_mayo', name: 'In-House Chipotle Mayo (Mini)', cal: 59.1, fat: 5.5, satFat: 0.8, sodium: 145.0, carbs: 1.9, protein: 0.5, fiber: 0.3, sugars: 1.0, default: false, icon: '🍶' }
         ]
       },
       {
-        title: 'Toppings & Boosters',
+        title: 'Extras & Add-Ons (Select Any)',
         type: 'multi',
         items: [
-          { id: 'bwm_top_strips', name: 'Crunchy Tortilla Crisps (Mini)', cal: 50.0, fat: 2.5, satFat: 0.4, sodium: 55.0, carbs: 6.5, protein: 0.8, fiber: 0.5, sugars: 0.1, default: true, icon: '🌮' },
-          { id: 'bwm_top_egg', name: 'Hard Boiled Farm Egg', cal: 74.0, fat: 5.0, satFat: 1.6, sodium: 70.0, carbs: 0.4, protein: 6.3, fiber: 0.0, sugars: 0.4, default: false, icon: '🥚' },
-          { id: 'bwm_top_cheese', name: 'Monterey Jack & Cheddar Shreds (Mini)', cal: 75.0, fat: 6.0, satFat: 3.7, sodium: 120.0, carbs: 0.5, protein: 4.5, fiber: 0.0, sugars: 0.1, default: false, icon: '🧀' }
+          { id: 'bwm_extra_chips', name: 'Corn Chips (Mini)', cal: 74.5, fat: 3.7, satFat: 0.5, sodium: 75.0, carbs: 9.3, protein: 1.0, fiber: 0.8, sugars: 0.2, default: true, icon: '🌮' },
+          { id: 'bwm_extra_cheese', name: 'Cheese (Mini)', cal: 77.5, fat: 6.3, satFat: 3.9, sodium: 120.0, carbs: 0.5, protein: 4.7, fiber: 0.0, sugars: 0.1, default: false, icon: '🧀' },
+          { id: 'bwm_extra_egg', name: 'Boiled Egg (1 Piece)', cal: 71.8, fat: 5.0, satFat: 1.6, sodium: 70.0, carbs: 0.4, protein: 6.3, fiber: 0.0, sugars: 0.4, default: false, icon: '🥚' }
         ]
       }
     ]
@@ -210,55 +217,57 @@ const STUFFD_NUTRITION_DATA = {
         title: 'Tortilla (Select One)',
         type: 'single',
         items: [
-          { id: 'b_tort_10', name: '10" Soft Flour Tortilla', cal: 218.1, fat: 6.4, satFat: 3.2, sodium: 533.1, carbs: 34.4, protein: 5.0, fiber: 1.7, sugars: 1.1, default: true, icon: '🌯' },
-          { id: 'b_tort_whole', name: '10" Wholemeal Tortilla', cal: 202.0, fat: 5.8, satFat: 2.7, sodium: 310.1, carbs: 32.9, protein: 5.9, fiber: 3.0, sugars: 0.8, default: false, icon: '🌾' },
-          { id: 'b_tort_12', name: '12" Loaded Flour Tortilla', cal: 285.0, fat: 8.2, satFat: 4.1, sodium: 670.0, carbs: 45.0, protein: 7.2, fiber: 2.2, sugars: 1.4, default: false, icon: '🌯' }
+          { id: 'b_tort_10', name: '10" Soft Flour Tortilla', cal: 215.2, fat: 6.4, satFat: 3.2, sodium: 533.1, carbs: 34.4, protein: 5.0, fiber: 1.7, sugars: 1.1, default: true, icon: '🌯' },
+          { id: 'b_tort_whole', name: '10" Wholemeal Tortilla', cal: 207.4, fat: 5.8, satFat: 2.7, sodium: 310.1, carbs: 32.9, protein: 5.9, fiber: 3.0, sugars: 0.8, default: false, icon: '🌾' }
         ]
       },
       {
-        title: 'Mains & Primary Proteins',
+        title: 'Pick Your Filling (Select One)',
         type: 'single',
         items: [
-          { id: 'b_prot_chipotle_chk', name: 'Smoked Chipotle Chicken', cal: 195.0, fat: 6.2, satFat: 1.8, sodium: 385.0, carbs: 2.4, protein: 32.5, fiber: 0.5, sugars: 1.0, default: true, icon: '🍗' },
-          { id: 'b_prot_tinga_chk', name: 'Spicy Chicken Tinga', cal: 182.0, fat: 5.4, satFat: 1.6, sodium: 410.0, carbs: 3.2, protein: 29.8, fiber: 0.8, sugars: 1.2, default: false, icon: '🍗' },
-          { id: 'b_prot_desi_paneer', name: 'Desi Spiced Paneer', cal: 245.0, fat: 17.5, satFat: 10.2, sodium: 320.0, carbs: 4.2, protein: 16.5, fiber: 0.5, sugars: 1.5, default: false, icon: '🧀' },
-          { id: 'b_prot_chipotle_paneer', name: 'Chipotle Cottage Cheese / Paneer', cal: 238.0, fat: 16.8, satFat: 9.8, sodium: 315.0, carbs: 4.8, protein: 16.0, fiber: 0.6, sugars: 1.4, default: false, icon: '🧀' },
-          { id: 'b_prot_fajita_veg', name: 'Sizzling Fajita Veggies', cal: 85.0, fat: 3.5, satFat: 0.6, sodium: 190.0, carbs: 12.0, protein: 2.5, fiber: 3.5, sugars: 4.2, default: false, icon: '🫑' },
-          { id: 'b_prot_mushrooms', name: 'Crunchy Portobello & Button Mushrooms', cal: 95.0, fat: 4.8, satFat: 0.8, sodium: 180.0, carbs: 8.2, protein: 4.5, fiber: 2.8, sugars: 2.5, default: false, icon: '🍄' }
+          { id: 'b_fill_chatpata_chk', name: 'Grilled Chatpata Chicken', cal: 189.7, fat: 5.3, satFat: 1.5, sodium: 385.0, carbs: 2.5, protein: 33.0, fiber: 0.5, sugars: 0.8, default: true, icon: '🍗' },
+          { id: 'b_fill_lowfat_chk', name: 'Low-Fat Chipotle Chicken', cal: 174.9, fat: 3.3, satFat: 0.8, sodium: 360.0, carbs: 1.8, protein: 34.5, fiber: 0.4, sugars: 0.6, default: false, icon: '🍗' },
+          { id: 'b_fill_peri_chk', name: 'Crispy Peri-Peri Chicken', cal: 224.7, fat: 8.3, satFat: 2.2, sodium: 420.0, carbs: 6.5, protein: 31.0, fiber: 0.6, sugars: 0.9, default: false, icon: '🍗' },
+          { id: 'b_fill_chipotle_paneer', name: 'Chipotle Paneer', cal: 235.0, fat: 17.0, satFat: 10.0, sodium: 320.0, carbs: 4.0, protein: 16.5, fiber: 0.5, sugars: 1.5, default: false, icon: '🧀' },
+          { id: 'b_fill_fajita_veg', name: 'Fajita Veggies', cal: 85.0, fat: 3.0, satFat: 0.5, sodium: 190.0, carbs: 12.0, protein: 2.5, fiber: 3.5, sugars: 4.2, default: false, icon: '🫑' },
+          { id: 'b_fill_mushrooms', name: 'Sautéed Mushrooms', cal: 89.4, fat: 4.6, satFat: 0.8, sodium: 180.0, carbs: 7.5, protein: 4.5, fiber: 2.8, sugars: 2.2, default: false, icon: '🍄' }
         ]
       },
       {
-        title: 'Fresh Veggies & Fillings',
+        title: 'Fresh Veggies & Fillings (Select Any)',
         type: 'multi',
         items: [
-          { id: 'b_veg_lettuce', name: 'Crisp Iceberg Lettuce', cal: 15.0, fat: 0.2, satFat: 0.0, sodium: 8.0, carbs: 2.8, protein: 0.9, fiber: 1.2, sugars: 1.5, default: true, icon: '🥬' },
-          { id: 'b_veg_pico', name: 'Fresh Pico de Gallo', cal: 25.0, fat: 0.2, satFat: 0.0, sodium: 110.0, carbs: 5.2, protein: 0.8, fiber: 1.4, sugars: 2.8, default: true, icon: '🍅' },
-          { id: 'b_veg_corn_beans', name: 'Charred Sweet Corn & Black Beans', cal: 88.0, fat: 1.2, satFat: 0.2, sodium: 135.0, carbs: 16.5, protein: 3.8, fiber: 4.2, sugars: 3.1, default: true, icon: '🌽' },
-          { id: 'b_veg_peppers', name: 'Sautéed Bell Peppers & Onions', cal: 42.0, fat: 1.2, satFat: 0.2, sodium: 95.0, carbs: 7.5, protein: 1.2, fiber: 2.0, sugars: 3.5, default: false, icon: '🫑' },
-          { id: 'b_veg_cabbage', name: 'Purple Crunchy Slaw', cal: 28.0, fat: 0.4, satFat: 0.1, sodium: 45.0, carbs: 5.8, protein: 1.1, fiber: 2.1, sugars: 3.0, default: false, icon: '🥗' },
-          { id: 'b_veg_jalapenos', name: 'Pickled Jalapeños', cal: 12.0, fat: 0.1, satFat: 0.0, sodium: 280.0, carbs: 2.5, protein: 0.4, fiber: 1.0, sugars: 1.2, default: false, icon: '🌶️' }
+          { id: 'b_veg_rice', name: 'Steamed Cilantro Lime Rice', cal: 69.7, fat: 0.9, satFat: 0.2, sodium: 80.0, carbs: 14.0, protein: 1.4, fiber: 0.6, sugars: 0.1, default: true, icon: '🍚' },
+          { id: 'b_veg_corn_beans', name: 'Charred Sweet Corn & Spiced Black Beans', cal: 72.0, fat: 0.8, satFat: 0.1, sodium: 108.0, carbs: 13.2, protein: 3.0, fiber: 3.4, sugars: 2.4, default: true, icon: '🌽' },
+          { id: 'b_veg_pico', name: 'Fresh Tomato Salsa (Pico de Gallo)', cal: 21.0, fat: 0.2, satFat: 0.0, sodium: 88.0, carbs: 4.2, protein: 0.6, fiber: 1.1, sugars: 2.2, default: true, icon: '🍅' },
+          { id: 'b_veg_peppers', name: 'Sautéed Bell Peppers & Onions', cal: 37.0, fat: 1.0, satFat: 0.1, sodium: 76.0, carbs: 6.0, protein: 1.0, fiber: 1.6, sugars: 2.8, default: false, icon: '🫑' },
+          { id: 'b_veg_lettuce', name: 'Crisp Shredded Lettuce', cal: 6.5, fat: 0.1, satFat: 0.0, sodium: 5.0, carbs: 1.0, protein: 0.4, fiber: 0.6, sugars: 0.5, default: true, icon: '🥬' },
+          { id: 'b_veg_jalapenos', name: 'Pickled Jalapeños', cal: 10.5, fat: 0.1, satFat: 0.0, sodium: 230.0, carbs: 2.1, protein: 0.3, fiber: 0.8, sugars: 1.0, default: false, icon: '🌶️' }
         ]
       },
       {
-        title: 'Signature Sauces & Salsas',
+        title: 'Sauces & Salsas (Select Any)',
         type: 'multi',
         items: [
-          { id: 'b_sauce_salsa_roja', name: 'Fire-Roasted Tomato Salsa', cal: 32.0, fat: 0.4, satFat: 0.1, sodium: 210.0, carbs: 6.5, protein: 1.0, fiber: 1.6, sugars: 3.2, default: true, icon: '🥣' },
-          { id: 'b_sauce_guac', name: 'Creamy Hass Guacamole', cal: 95.0, fat: 8.5, satFat: 1.4, sodium: 125.0, carbs: 5.0, protein: 1.3, fiber: 3.8, sugars: 0.6, default: false, icon: '🥑' },
-          { id: 'b_sauce_chipotle_mayo', name: 'Smoky Chipotle Mayo', cal: 85.0, fat: 8.2, satFat: 1.2, sodium: 220.0, carbs: 2.8, protein: 0.8, fiber: 0.4, sugars: 1.5, default: false, icon: '🍶' },
-          { id: 'b_sauce_sour_cream', name: 'Cooling Herb Sour Cream', cal: 68.0, fat: 6.2, satFat: 3.8, sodium: 85.0, carbs: 1.8, protein: 1.2, fiber: 0.0, sugars: 1.2, default: true, icon: '🥛' },
-          { id: 'b_sauce_habanero', name: 'Fiery Habanero Salsa', cal: 22.0, fat: 0.2, satFat: 0.0, sodium: 250.0, carbs: 4.5, protein: 0.5, fiber: 1.1, sugars: 2.0, default: false, icon: '🔥' }
+          { id: 'b_sauce_salsa_roja', name: 'Fire-Roasted Tomato Salsa', cal: 29.4, fat: 0.3, satFat: 0.1, sodium: 185.0, carbs: 5.7, protein: 0.9, fiber: 1.4, sugars: 2.8, default: true, icon: '🥣' },
+          { id: 'b_sauce_guac', name: 'In-House Guacamole', cal: 81.4, fat: 6.8, satFat: 1.1, sodium: 100.0, carbs: 4.0, protein: 1.0, fiber: 3.0, sugars: 0.5, default: false, icon: '🥑' },
+          { id: 'b_sauce_sour_cream', name: 'Cooling Sour Cream', cal: 60.4, fat: 5.6, satFat: 3.4, sodium: 72.0, carbs: 1.5, protein: 1.0, fiber: 0.0, sugars: 1.0, default: true, icon: '🥛' },
+          { id: 'b_sauce_chipotle_mayo', name: 'In-House Chipotle Mayo', cal: 73.5, fat: 6.8, satFat: 1.0, sodium: 180.0, carbs: 2.3, protein: 0.7, fiber: 0.3, sugars: 1.2, default: false, icon: '🍶' },
+          { id: 'b_sauce_garlic_ranch', name: 'Garlic Ranch Dip', cal: 69.5, fat: 6.5, satFat: 1.2, sodium: 175.0, carbs: 2.0, protein: 0.7, fiber: 0.2, sugars: 1.5, default: false, icon: '🥣' }
         ]
       },
       {
-        title: 'Toppings & Boosters',
+        title: 'Extras & Add-Ons (Select Any)',
         type: 'multi',
         items: [
-          { id: 'b_top_cheese', name: 'Monterey Jack & Cheddar Shreds', cal: 110.0, fat: 9.0, satFat: 5.5, sodium: 180.0, carbs: 0.8, protein: 6.8, fiber: 0.0, sugars: 0.2, default: true, icon: '🧀' },
-          { id: 'b_top_extra_chk', name: 'Extra Grilled Chicken (+100g)', cal: 165.0, fat: 5.2, satFat: 1.5, sodium: 320.0, carbs: 0.5, protein: 28.0, fiber: 0.0, sugars: 0.0, default: false, icon: '🍗' },
-          { id: 'b_top_extra_paneer', name: 'Extra Spiced Paneer (+90g)', cal: 210.0, fat: 15.0, satFat: 9.0, sodium: 280.0, carbs: 3.2, protein: 14.0, fiber: 0.5, sugars: 1.2, default: false, icon: '🧀' },
-          { id: 'b_top_queso', name: 'Warm Queso Drizzle', cal: 92.0, fat: 7.2, satFat: 4.2, sodium: 240.0, carbs: 3.0, protein: 4.0, fiber: 0.2, sugars: 1.0, default: false, icon: '🧀' },
-          { id: 'b_top_egg', name: 'Hard Boiled Farm Egg (2 halves)', cal: 74.0, fat: 5.0, satFat: 1.6, sodium: 70.0, carbs: 0.4, protein: 6.3, fiber: 0.0, sugars: 0.4, default: false, icon: '🥚' }
+          { id: 'b_extra_cheese', name: 'Cheese', cal: 116.7, fat: 9.5, satFat: 5.8, sodium: 180.0, carbs: 0.8, protein: 7.0, fiber: 0.0, sugars: 0.2, default: true, icon: '🧀' },
+          { id: 'b_extra_chips', name: 'Corn Chips', cal: 111.5, fat: 5.5, satFat: 0.8, sodium: 110.0, carbs: 14.0, protein: 1.5, fiber: 1.2, sugars: 0.3, default: false, icon: '🌮' },
+          { id: 'b_extra_egg', name: 'Boiled Egg (1 Piece)', cal: 71.8, fat: 5.0, satFat: 1.6, sodium: 70.0, carbs: 0.4, protein: 6.3, fiber: 0.0, sugars: 0.4, default: false, icon: '🥚' },
+          { id: 'b_extra_chatpata_chk', name: 'Extra Grilled Chatpata Chicken (+100g)', cal: 157.6, fat: 4.4, satFat: 1.2, sodium: 320.0, carbs: 2.0, protein: 27.5, fiber: 0.4, sugars: 0.6, default: false, icon: '🍗' },
+          { id: 'b_extra_lowfat_chk', name: 'Extra Low-Fat Chipotle Chicken (+100g)', cal: 146.4, fat: 2.8, satFat: 0.7, sodium: 300.0, carbs: 1.5, protein: 28.8, fiber: 0.3, sugars: 0.5, default: false, icon: '🍗' },
+          { id: 'b_extra_peri_chk', name: 'Extra Crispy Peri-Peri Chicken (+100g)', cal: 186.9, fat: 6.9, satFat: 1.8, sodium: 350.0, carbs: 5.4, protein: 25.8, fiber: 0.5, sugars: 0.8, default: false, icon: '🍗' },
+          { id: 'b_extra_paneer', name: 'Extra Chipotle Paneer (+80g)', cal: 188.0, fat: 13.6, satFat: 8.0, sodium: 255.0, carbs: 3.2, protein: 13.2, fiber: 0.4, sugars: 1.2, default: false, icon: '🧀' },
+          { id: 'b_extra_mushrooms', name: 'Extra Sautéed Mushrooms (+80g)', cal: 71.7, fat: 3.7, satFat: 0.6, sodium: 145.0, carbs: 6.0, protein: 3.6, fiber: 2.2, sugars: 1.8, default: false, icon: '🍄' }
         ]
       }
     ]
@@ -283,11 +292,11 @@ Object.keys(STUFFD_NUTRITION_DATA).forEach(cat => {
   });
 });
 
-let currentStuffdCategory = 'burrito';
+let currentStuffdCategory = 'bowl_reg';
 
 // Curated Kaazos Authentic Gallery Items (Interleaved & Diverse Variety)
 const GALLERY_ITEMS = [
-  { title: 'Mexican Fiesta Rice Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit2.jpg', tag: 'Signature Bowl' },
+  { title: 'Signature Rice Bowl (Regular)', category: 'wraps', img: 'assets/images/JPEG/Edit2.jpg', tag: 'Signature Bowl' },
   { title: 'Wild Berry Smoothie', category: 'drinks', img: 'assets/images/JPEG/Edit1.jpg', tag: 'Antioxidant Rich' },
   { title: 'Fresh Garden Fiesta Salad Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit50.jpg', tag: 'Farm-Fresh Harvest' },
   { title: 'Handcrafted Kaazos Burrito Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit61.jpg', tag: 'Signature Wrap' },
@@ -446,21 +455,21 @@ function initStuffdNutritionCalculator() {
 
   const DISH_SPOTLIGHT_DATA = {
     bowl_reg: {
-      title: 'Mexican Fiesta Rice Bowl (Regular)',
-      tag: 'Signature Bowl • Full Portion',
-      desc: 'Steamed cilantro basmati rice base, spiced black beans, charred sweet corn, fresh tomato salsa, sour cream, and guacamole.',
+      title: 'Rice Bowl (Regular)',
+      tag: 'Choose Your Own • Regular Bowl',
+      desc: 'Cilantro basmati rice base with choice of Grilled Chatpata Chicken, Low-Fat Chipotle Chicken, Chipotle Paneer, Sautéed Mushrooms, or Fajita Veggies, topped with spiced black beans, sweet corn, fresh tomato salsa, sour cream, and guacamole.',
       image: 'assets/images/JPEG/Edit2.jpg'
     },
     bowl_mini: {
-      title: 'Mexican Fiesta Rice Bowl (Mini)',
-      tag: 'Light & Crisp • Compact Portion',
-      desc: 'Balanced lighter portion cilantro rice, seasoned black beans, sweet corn, fresh pico de gallo, and zesty house marinades.',
+      title: 'Rice Bowl (Mini)',
+      tag: 'Choose Your Own • Mini Bowl',
+      desc: 'Balanced lighter portion of cilantro basmati rice with choice of protein or veggies, spiced black beans, sweet corn, fresh tomato salsa, and zesty house sauces.',
       image: 'assets/images/JPEG/Edit5.jpg'
     },
     burrito: {
-      title: 'Artisanal Handcrafted Burrito Wrap (Regular)',
-      tag: 'Hand-Rolled & Toasted',
-      desc: 'Warm toasted flour tortilla layered with cilantro lime rice, slow-cooked black beans, fresh pico de gallo, and house marinades.',
+      title: 'Burrito Wrap (Regular)',
+      tag: 'Choose Your Own • Hand-Rolled Wrap',
+      desc: 'Warm toasted 10" flour tortilla layered with cilantro lime rice, spiced black beans, fresh tomato salsa, sour cream, and your choice of freshly prepared fillings.',
       image: 'assets/images/JPEG/Edit61.jpg'
     }
   };
