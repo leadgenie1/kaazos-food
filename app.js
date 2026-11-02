@@ -933,47 +933,52 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   6. Authentic Fresh Ingredients Bowl Parallax (Naturalistic Scroll Parallax)
+   6. Deconstructed Exploded Salad Animation (Pure Scroll-Driven Parallax)
    ========================================================================== */
 function initDeconstructedSalad() {
   const section = document.getElementById('saladExplodedSection');
   const stage = document.getElementById('saladStage');
-  const bowlFrame = document.getElementById('realBowlFrame');
-  const bowlImg = document.getElementById('realBowlImg');
+  const stack = document.getElementById('saladLayersStack');
+
+  const layerTop = document.getElementById('layerTop');
+  const layerAvocado = document.getElementById('layerAvocado');
+  const layerCornBeans = document.getElementById('layerCornBeans');
+  const layerChicken = document.getElementById('layerChicken');
+  const layerLettuce = document.getElementById('layerLettuce');
   const callouts = document.querySelectorAll('.salad-callout');
 
-  if (!section || !bowlImg || !bowlFrame) return;
+  if (!section || !layerTop || !stack) return;
 
-  function applyParallax(progress) {
-    const p = Math.max(0, Math.min(1, progress));
+  function applyExplosion(progress) {
+    const explosion = Math.max(0, Math.min(1, progress));
+    const packFactor = 1.0 - explosion;
 
-    // Naturalistic optical zoom focusing right into the center of the bowl (from 1.0x overview to 1.25x close-up)
-    const zoomScale = 1.0 + (p * 0.25);
-    // Subtle natural vertical centering so the delicious ingredients are framed right in the eye-line
-    const panY = p * -3.2;
-    bowlImg.style.transform = `scale(${zoomScale.toFixed(3)}) translateY(${panY.toFixed(2)}%)`;
+    // Shift the whole bowl assembly up into dead center at start, lowering to stage floor when exploded
+    stack.style.setProperty('--stack-shift', `${-packFactor * 38}%`);
 
-    // Subtle framing shift
-    bowlFrame.style.setProperty('--stack-shift', `${(1 - p) * -6}px`);
+    // Staggered vertical levitation nestled naturally inside the bowl cavity behind front rim
+    layerAvocado.style.transform = `translateY(${packFactor * 55}%) scale(${1 - packFactor * 0.04})`;
+    layerTop.style.transform = `translateY(${packFactor * 43.3}%) scale(${1 - packFactor * 0.04})`;
+    layerCornBeans.style.transform = `translateY(${packFactor * 32.9}%) scale(${1 - packFactor * 0.03})`;
+    layerChicken.style.transform = `translateY(${packFactor * 23.3}%) scale(${1 - packFactor * 0.02})`;
+    layerLettuce.style.transform = `translateY(${packFactor * 11.25}%)`;
 
-    // Callout pointers reveal progressively with natural staggered float
-    callouts.forEach((c, idx) => {
-      const staggerThreshold = 0.12 + (idx * 0.05);
-      if (p < staggerThreshold) {
+    // Callout pointers reveal progressively as the salad blooms
+    callouts.forEach(c => {
+      if (explosion < 0.18) {
         c.style.opacity = '0';
         c.style.pointerEvents = 'none';
       } else {
-        const opacity = Math.min(1, (p - staggerThreshold) / 0.35);
+        const opacity = Math.min(1, (explosion - 0.18) / 0.45);
         c.style.opacity = `${opacity}`;
         c.style.pointerEvents = 'auto';
       }
       const isLeft = c.classList.contains('callout-top-left') || c.classList.contains('callout-mid-left') || c.classList.contains('callout-bottom-left');
-      const slideX = (1 - p) * (isLeft ? 22 : -22);
-      c.style.transform = `translateX(${slideX.toFixed(1)}px)`;
+      c.style.transform = `translateX(${packFactor * (isLeft ? 25 : -25)}px)`;
     });
   }
 
-  // Scroll scrub: section pins on screen; user sees full bowl tray first, then scrolling zooms into bowl
+  // Scroll scrub: section pins on screen; user sees normal bowl first, then scrolling expands it
   function onScroll() {
     const rect = section.getBoundingClientRect();
     const windowHeight = window.innerHeight;
@@ -981,24 +986,27 @@ function initDeconstructedSalad() {
     const totalScroll = section.offsetHeight - (windowHeight - navOffset);
 
     if (totalScroll <= 0) {
-      applyParallax(0);
+      applyExplosion(0);
       return;
     }
 
+    // Scrolled distance inside the pinned section
     const scrolledInside = navOffset - rect.top;
     const rawProgress = scrolledInside / totalScroll;
 
-    // Normal overview on arrival, smooth natural scrub, hold view near end
+    // Phase 1: On arrival (rawProgress <= 0.05), bowl is 100% normal and centered
+    // Phase 2: Active scroll (0.05 to 0.85), salad deconstructs smoothly
+    // Phase 3: Hold exploded view (0.85 to 1.0) so user can read ingredients
     let progress;
-    if (rawProgress <= 0.04) {
+    if (rawProgress <= 0.05) {
       progress = 0.0;
-    } else if (rawProgress >= 0.88) {
+    } else if (rawProgress >= 0.85) {
       progress = 1.0;
     } else {
-      progress = (rawProgress - 0.04) / (0.88 - 0.04);
+      progress = (rawProgress - 0.05) / (0.85 - 0.05);
     }
 
-    applyParallax(progress);
+    applyExplosion(progress);
   }
 
   // Initial check on load
@@ -1024,13 +1032,13 @@ function initDeconstructedSalad() {
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-      bowlFrame.style.setProperty('--tilt-y', `${(x * 5).toFixed(2)}deg`);
-      bowlFrame.style.setProperty('--tilt-x', `${(-y * 4).toFixed(2)}deg`);
+      stack.style.setProperty('--tilt-y', `${x * 8}deg`);
+      stack.style.setProperty('--tilt-x', `${-y * 6}deg`);
     });
 
     stage.addEventListener('mouseleave', () => {
-      bowlFrame.style.setProperty('--tilt-y', '0deg');
-      bowlFrame.style.setProperty('--tilt-x', '0deg');
+      stack.style.setProperty('--tilt-y', '0deg');
+      stack.style.setProperty('--tilt-x', '0deg');
     });
   }
 }
