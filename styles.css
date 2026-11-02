@@ -3991,79 +3991,89 @@ button,
   animation: none;
 }
 
-/* Mini Deck of Cards Stack inside the Trigger Button */
-.wallet-cards-deck {
+/* Stacked Social Media Logo Icons Deck inside Trigger Button */
+.stacked-social-deck {
   position: relative;
-  width: 38px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.22s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
 }
 
-.deck-card {
+.deck-social-icon {
   position: absolute;
-  border-radius: 4px;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Back Card (Facebook Blue) */
-.deck-card.card-back {
-  width: 27px;
-  height: 18px;
+.deck-social-icon svg {
+  fill: #ffffff;
+}
+
+/* Layer 1: Facebook (Back / Top-Left) */
+.deck-social-icon.icon-facebook {
+  width: 25px;
+  height: 25px;
   background: #1877f2;
   z-index: 1;
-  transform: rotate(-18deg) translate(-6px, -4px);
-  animation: cardBackPeek 3.8s ease-in-out infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transform: translate(-7px, -6px) rotate(-14deg) scale(0.92);
+  animation: stackedFbMotion 3.8s ease-in-out infinite;
 }
 
-.deck-card.card-back svg {
-  width: 11px;
-  height: 11px;
-  fill: #ffffff;
-}
-
-/* Middle Card (Instagram Gradient) */
-.deck-card.card-middle {
-  width: 28px;
-  height: 19px;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-  z-index: 2;
-  transform: rotate(-5deg) translate(-1px, -1px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: cardMidPeek 3.8s ease-in-out infinite;
-}
-
-.deck-card.card-middle svg {
-  width: 12px;
-  height: 12px;
-  fill: #ffffff;
-}
-
-/* Front Card (WhatsApp Green) */
-.deck-card.card-front {
-  width: 30px;
-  height: 21px;
-  background: #25d366;
-  z-index: 3;
-  transform: rotate(9deg) translate(4px, 3px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: cardFrontPeek 3.8s ease-in-out infinite;
-}
-
-.deck-card.card-front svg {
+.deck-social-icon.icon-facebook svg {
   width: 13px;
   height: 13px;
-  fill: #ffffff;
+}
+
+/* Layer 2: Instagram (Middle / Top-Right) */
+.deck-social-icon.icon-instagram {
+  width: 26px;
+  height: 26px;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  z-index: 2;
+  transform: translate(6px, -5px) rotate(12deg) scale(0.95);
+  animation: stackedInstaMotion 3.8s ease-in-out infinite;
+}
+
+.deck-social-icon.icon-instagram svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Layer 3: WhatsApp (Front / Bottom-Center) */
+.deck-social-icon.icon-whatsapp {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(145deg, #25d366 0%, #128c7e 100%);
+  z-index: 3;
+  transform: translate(-1px, 6px) rotate(0deg) scale(1.04);
+  animation: stackedWaMotion 3.8s ease-in-out infinite;
+}
+
+.deck-social-icon.icon-whatsapp svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Dynamic Hover Fanning on the Trigger Button */
+.float-dock-toggle.wallet-stack-toggle:hover .deck-social-icon.icon-facebook {
+  transform: translate(-12px, -9px) rotate(-22deg) scale(1);
+}
+
+.float-dock-toggle.wallet-stack-toggle:hover .deck-social-icon.icon-instagram {
+  transform: translate(11px, -8px) rotate(20deg) scale(1);
+}
+
+.float-dock-toggle.wallet-stack-toggle:hover .deck-social-icon.icon-whatsapp {
+  transform: translate(-1px, 10px) rotate(0deg) scale(1.12);
 }
 
 /* Social Links Tap Hint Badge */
@@ -4087,26 +4097,6 @@ button,
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* Open Icon (Actual Social Links Icon when closed) */
-.dock-open-icon {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-  transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  pointer-events: none;
-}
-
-.dock-open-icon svg {
-  width: 25px;
-  height: 25px;
-  stroke: #ffffff;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
-}
-
 /* Close Icon in Trigger */
 .wallet-close-icon {
   position: absolute;
@@ -4121,10 +4111,9 @@ button,
 }
 
 /* When Floating Dock is Open */
-.floating-social-dock.is-open .dock-open-icon,
-.floating-social-dock.is-open .wallet-cards-deck {
+.floating-social-dock.is-open .stacked-social-deck {
   opacity: 0;
-  transform: scale(0.3) rotate(45deg);
+  transform: scale(0.3) rotate(60deg);
   pointer-events: none;
 }
 
@@ -4165,7 +4154,7 @@ button,
   display: none;
 }
 
-/* Subtle Card Deck Peek / Shuffle Animations */
+/* Subtle Stacked Social Peek / Shift Animations */
 @keyframes walletPebbleBob {
   0%, 100% {
     transform: translateY(0);
@@ -4175,39 +4164,36 @@ button,
   }
 }
 
-@keyframes cardBackPeek {
-  0%, 75%, 100% {
-    transform: rotate(-18deg) translate(-6px, -4px);
+@keyframes stackedFbMotion {
+  0%, 100% {
+    transform: translate(-7px, -6px) rotate(-14deg) scale(0.92);
   }
-  82% {
-    transform: rotate(-26deg) translate(-10px, -7px);
+  30% {
+    transform: translate(-10px, -8px) rotate(-20deg) scale(0.95);
   }
-  89% {
-    transform: rotate(-18deg) translate(-6px, -4px);
-  }
-}
-
-@keyframes cardMidPeek {
-  0%, 75%, 100% {
-    transform: rotate(-5deg) translate(-1px, -1px);
-  }
-  82% {
-    transform: rotate(-9deg) translate(-3px, -3px);
-  }
-  89% {
-    transform: rotate(-5deg) translate(-1px, -1px);
+  60% {
+    transform: translate(-6px, -5px) rotate(-10deg) scale(0.9);
   }
 }
 
-@keyframes cardFrontPeek {
-  0%, 75%, 100% {
-    transform: rotate(9deg) translate(4px, 3px);
+@keyframes stackedInstaMotion {
+  0%, 100% {
+    transform: translate(6px, -5px) rotate(12deg) scale(0.95);
   }
-  82% {
-    transform: rotate(18deg) translate(8px, 6px);
+  45% {
+    transform: translate(9px, -8px) rotate(18deg) scale(0.98);
   }
-  89% {
-    transform: rotate(9deg) translate(4px, 3px);
+  75% {
+    transform: translate(5px, -4px) rotate(8deg) scale(0.92);
+  }
+}
+
+@keyframes stackedWaMotion {
+  0%, 100% {
+    transform: translate(-1px, 6px) rotate(0deg) scale(1.04);
+  }
+  50% {
+    transform: translate(-1px, 9px) rotate(-4deg) scale(1.08);
   }
 }
 
