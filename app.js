@@ -946,6 +946,8 @@ function initDeconstructedSalad() {
   const layerChicken = document.getElementById('layerChicken');
   const layerLettuce = document.getElementById('layerLettuce');
   const callouts = document.querySelectorAll('.salad-callout');
+  const scrollBar = document.getElementById('bowlScrollBar');
+  const scrollHint = document.getElementById('bowlScrollHint');
 
   if (!section || !layerTop || !stack) return;
 
@@ -954,28 +956,46 @@ function initDeconstructedSalad() {
     const packFactor = 1.0 - explosion;
 
     // Shift the whole bowl assembly up into dead center at start, lowering to stage floor when exploded
-    stack.style.setProperty('--stack-shift', `${-packFactor * 38}%`);
+    stack.style.setProperty('--stack-shift', `${-packFactor * 36}%`);
 
     // Staggered vertical levitation nestled naturally inside the bowl cavity behind front rim
-    layerAvocado.style.transform = `translateY(${packFactor * 55}%) scale(${1 - packFactor * 0.04})`;
-    layerTop.style.transform = `translateY(${packFactor * 43.3}%) scale(${1 - packFactor * 0.04})`;
-    layerCornBeans.style.transform = `translateY(${packFactor * 32.9}%) scale(${1 - packFactor * 0.03})`;
-    layerChicken.style.transform = `translateY(${packFactor * 23.3}%) scale(${1 - packFactor * 0.02})`;
-    layerLettuce.style.transform = `translateY(${packFactor * 11.25}%)`;
+    if (layerAvocado) layerAvocado.style.transform = `translateY(${packFactor * 55}%) scale(${1 - packFactor * 0.04})`;
+    if (layerTop) layerTop.style.transform = `translateY(${packFactor * 43.3}%) scale(${1 - packFactor * 0.04})`;
+    if (layerCornBeans) layerCornBeans.style.transform = `translateY(${packFactor * 32.9}%) scale(${1 - packFactor * 0.03})`;
+    if (layerChicken) layerChicken.style.transform = `translateY(${packFactor * 23.3}%) scale(${1 - packFactor * 0.02})`;
+    if (layerLettuce) layerLettuce.style.transform = `translateY(${packFactor * 11.25}%)`;
 
     // Callout pointers reveal progressively as the salad blooms
-    callouts.forEach(c => {
-      if (explosion < 0.18) {
+    callouts.forEach((c, idx) => {
+      const threshold = 0.15 + (idx * 0.05);
+      if (explosion < threshold) {
         c.style.opacity = '0';
         c.style.pointerEvents = 'none';
       } else {
-        const opacity = Math.min(1, (explosion - 0.18) / 0.45);
+        const opacity = Math.min(1, (explosion - threshold) / 0.35);
         c.style.opacity = `${opacity}`;
         c.style.pointerEvents = 'auto';
       }
       const isLeft = c.classList.contains('callout-top-left') || c.classList.contains('callout-mid-left') || c.classList.contains('callout-bottom-left');
-      c.style.transform = `translateX(${packFactor * (isLeft ? 25 : -25)}px)`;
+      c.style.transform = `translateX(${packFactor * (isLeft ? 35 : -35)}px)`;
     });
+
+    if (scrollBar) {
+      scrollBar.style.width = `${(explosion * 100).toFixed(1)}%`;
+    }
+
+    if (scrollHint) {
+      const hintText = scrollHint.querySelector('.hint-text');
+      if (hintText) {
+        if (explosion < 0.25) {
+          hintText.textContent = 'Scroll to explore • 1/3 Ripe Hass Avocado & Fresh Pico De Gallo';
+        } else if (explosion < 0.70) {
+          hintText.textContent = 'Scroll to explore • 2/3 Charred Sweet Corn & Flame-Grilled Chicken';
+        } else {
+          hintText.textContent = 'Scroll to explore • 3/3 Triple-Washed Lettuce & Simmered Beans';
+        }
+      }
+    }
   }
 
   // Scroll scrub: section pins on screen; user sees normal bowl first, then scrolling expands it
@@ -994,16 +1014,16 @@ function initDeconstructedSalad() {
     const scrolledInside = navOffset - rect.top;
     const rawProgress = scrolledInside / totalScroll;
 
-    // Phase 1: On arrival (rawProgress <= 0.05), bowl is 100% normal and centered
-    // Phase 2: Active scroll (0.05 to 0.85), salad deconstructs smoothly
-    // Phase 3: Hold exploded view (0.85 to 1.0) so user can read ingredients
+    // Phase 1: On arrival (rawProgress <= 0.04), bowl is solid & sealed
+    // Phase 2: Active scroll (0.04 to 0.88), salad explodes smoothly
+    // Phase 3: Hold exploded view (0.88 to 1.0) so user can inspect ingredients
     let progress;
-    if (rawProgress <= 0.05) {
+    if (rawProgress <= 0.04) {
       progress = 0.0;
-    } else if (rawProgress >= 0.85) {
+    } else if (rawProgress >= 0.88) {
       progress = 1.0;
     } else {
-      progress = (rawProgress - 0.05) / (0.85 - 0.05);
+      progress = (rawProgress - 0.04) / (0.88 - 0.04);
     }
 
     applyExplosion(progress);
