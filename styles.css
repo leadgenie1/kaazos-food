@@ -1453,7 +1453,12 @@ button,
   flex-grow: 1;
 }
 
-/* Clean, Simple Macro Line */
+/* Clean, Simple Macro Line (Clean Numeric Typography) */
+.card-macro-strip,
+.card-macro-strip * {
+  font-family: var(--font-body) !important;
+}
+
 .card-macro-strip {
   display: flex;
   align-items: center;
@@ -1461,13 +1466,15 @@ button,
   margin-top: auto;
   padding-top: 0.85rem;
   border-top: 1px solid rgba(12, 79, 72, 0.08);
+  font-family: var(--font-body) !important;
   font-size: 0.84rem;
   font-weight: 700;
   color: #44605b;
 }
 
 .card-macro-strip .macro-val {
-  font-family: var(--font-heading);
+  font-family: var(--font-body) !important;
+  font-weight: 700;
   letter-spacing: 0.2px;
 }
 
@@ -2027,7 +2034,7 @@ button,
 }
 
 .stuffd-table tfoot td.total-val {
-  font-family: var(--font-heading);
+  font-family: var(--font-body) !important;
   font-size: 1.05rem;
   font-weight: 800;
   color: #ffffff;
@@ -2079,8 +2086,8 @@ button,
 }
 
 .cockpit-stat strong {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-family: var(--font-body) !important;
+  font-size: 1.25rem;
   font-weight: 900;
   color: #ffffff;
   line-height: 1;
@@ -4539,6 +4546,19 @@ button,
   resize: vertical;
 }
 
+.apply-grid-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .apply-grid-dual {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
 @media (max-width: 992px) {
   .careers-hero-grid {
     grid-template-columns: 1fr;
@@ -5030,7 +5050,7 @@ button,
 
 .nutrition-metric-card .metric-val {
   display: block;
-  font-family: var(--font-heading);
+  font-family: var(--font-body) !important;
   font-size: 2.2rem;
   font-weight: 900;
   color: var(--kz-red-light);
@@ -5185,7 +5205,7 @@ button,
 
 .pillar-num {
   display: block;
-  font-family: var(--font-heading);
+  font-family: var(--font-body) !important;
   font-size: 1.1rem;
   font-weight: 900;
   color: var(--kz-red-light);
@@ -5387,7 +5407,7 @@ button,
 }
 
 .preview-macro-box .val {
-  font-family: var(--font-heading);
+  font-family: var(--font-body) !important;
   font-size: 1.45rem;
   font-weight: 900;
   color: var(--kz-cream-100);
