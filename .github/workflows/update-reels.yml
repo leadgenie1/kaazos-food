@@ -1,0 +1,47 @@
+name: Weekly Instagram Reels Sync
+
+on:
+  schedule:
+    # Runs once every Monday at 00:00 UTC (weekly sync)
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+    # Allows manual click-to-sync from the GitHub Actions tab anytime
+
+permissions:
+  contents: write
+
+jobs:
+  sync-reels:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Instagram Reels Sync
+        env:
+          INSTAGRAM_USERNAME: 'kaazos_food'
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          PUBLIC_FEED_URL: ${{ secrets.PUBLIC_FEED_URL }}
+        run: |
+          python scripts/sync-instagram-reels.py
+
+      - name: Commit and Push if Changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add api/instagram-reels.json
+          if git diff --staged --quiet; then
+            echo "No new reels detected. api/instagram-reels.json is already up to date."
+          else
+            git commit -m "chore(reels): automated weekly Instagram sync [skip ci]"
+            git push
+            echo "Successfully synced new Instagram reels to website!"
+          fi
