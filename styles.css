@@ -2459,6 +2459,23 @@ button,
   white-space: nowrap;
 }
 
+.rating-orange {
+  color: var(--kz-red, #f35925);
+  font-weight: 700;
+}
+
+.rating-orange strong {
+  font-weight: 800;
+}
+
+.stars-gold {
+  color: #f59e0b;
+  letter-spacing: 2px;
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
 .header-inline-link:hover {
   color: var(--kz-red);
   border-bottom-color: var(--kz-red);
