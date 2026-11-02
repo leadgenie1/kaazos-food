@@ -4430,12 +4430,17 @@ button,
   color: var(--dig-gray-600);
 }
 
+.job-title,
+.job-title * {
+  font-family: 'Bricolage Grotesque', var(--font-body), -apple-system, sans-serif !important;
+}
+
 .job-title {
-  font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--kz-green-950);
-  line-height: 1.2;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .job-desc {
