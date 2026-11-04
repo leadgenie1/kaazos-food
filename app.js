@@ -337,7 +337,7 @@ let menuSearchQuery = '';
 /* ==========================================================================
    Initialization
    ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
+function initAll() {
   initNavbarBlur();
   initHeroParallaxScroll();
   initMenu();
@@ -347,7 +347,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initDeconstructedSalad();
   initReelsCarousel();
   initGoogleReviewsCarousel();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
 
 /* ==========================================================================
    1. Navbar Glassmorphic Elevation on Scroll
@@ -933,98 +939,179 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   6. Deconstructed Exploded Salad Animation (Pure Scroll-Driven Parallax)
+   6. Photorealistic Deconstructed Salad Scroll Animation (GSAP + ScrollTrigger)
    ========================================================================== */
 function initDeconstructedSalad() {
   const section = document.getElementById('saladExplodedSection');
   const stage = document.getElementById('saladStage');
   const stack = document.getElementById('saladLayersStack');
 
-  const layerTop = document.getElementById('layerTop');
-  const layerAvocado = document.getElementById('layerAvocado');
-  const layerCornBeans = document.getElementById('layerCornBeans');
-  const layerChicken = document.getElementById('layerChicken');
+  const layerBowl = document.getElementById('layerBowl');
   const layerLettuce = document.getElementById('layerLettuce');
+  const layerTomatoes = document.getElementById('layerTomatoes');
+  const layerCucumber = document.getElementById('layerCucumber');
+  const layerCornVeg = document.getElementById('layerCornVeg');
+  const layerBeans = document.getElementById('layerBeans');
+  const layerPaneer = document.getElementById('layerPaneer');
+  const layerCheese = document.getElementById('layerCheese');
+  const layerHerbs = document.getElementById('layerHerbs');
+  const layerCheeseHerbs = document.getElementById('layerCheeseHerbs');
+  const layerBowlFront = document.getElementById('layerBowlFront');
   const callouts = document.querySelectorAll('.salad-callout');
 
-  if (!section || !layerTop || !stack) return;
+  if (!section || !stack || !layerLettuce) return;
 
-  function applyExplosion(progress) {
-    const explosion = Math.max(0, Math.min(1, progress));
-    const packFactor = 1.0 - explosion;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Shift the whole bowl assembly up into dead center at start, lowering to stage floor when exploded
-    stack.style.setProperty('--stack-shift', `${-packFactor * 38}%`);
+  // Packed offsets inside bowl cavity (assembled state)
+  const packed = {
+    stackY: 0,
+    herbs:   { y: 49, x: 0, rot: 0, scale: 0.92 },
+    cheese:  { y: 47, x: 0, rot: 0, scale: 0.92 },
+    paneer:  { y: 39, x: 0, rot: 0, scale: 0.93 },
+    beans:   { y: 30, x: 0, rot: 0, scale: 0.94 },
+    corn:    { y: 23.5, x: 0, rot: 0, scale: 0.95 },
+    cuke:    { y: 17, x: 0, rot: 0, scale: 0.96 },
+    tomato:  { y: 11, x: 0, rot: 0, scale: 0.97 },
+    lettuce: { y: 2,  x: 0, rot: 0, scale: 0.98 },
+  };
 
-    // Staggered vertical levitation nestled naturally inside the bowl cavity behind front rim
-    layerAvocado.style.transform = `translateY(${packFactor * 55}%) scale(${1 - packFactor * 0.04})`;
-    layerTop.style.transform = `translateY(${packFactor * 43.3}%) scale(${1 - packFactor * 0.04})`;
-    layerCornBeans.style.transform = `translateY(${packFactor * 32.9}%) scale(${1 - packFactor * 0.03})`;
-    layerChicken.style.transform = `translateY(${packFactor * 23.3}%) scale(${1 - packFactor * 0.02})`;
-    layerLettuce.style.transform = `translateY(${packFactor * 11.25}%)`;
+  // Exploded offsets at maximum separation (original photograph perspective)
+  const exploded = {
+    stackY: 0,
+    herbs:   { y: -4,   x: 0,  rot: 0.5,  scale: 1.02 },
+    cheese:  { y: -2,   x: 3,  rot: 1.0,  scale: 1.01 },
+    paneer:  { y: -0.5, x: -4, rot: -1.2, scale: 1.01 },
+    beans:   { y: 0.5,  x: 3,  rot: 1.0,  scale: 1.0 },
+    corn:    { y: 1.2,  x: -2, rot: -0.8, scale: 1.0 },
+    cuke:    { y: 1.8,  x: 3,  rot: 1.2,  scale: 1.0 },
+    tomato:  { y: 2.2,  x: -3, rot: -1.0, scale: 1.0 },
+    lettuce: { y: 2.5,  x: 1,  rot: 0.5,  scale: 1.0 },
+  };
 
-    // Callout pointers reveal progressively as the salad blooms
-    callouts.forEach(c => {
-      if (explosion < 0.18) {
-        c.style.opacity = '0';
-        c.style.pointerEvents = 'none';
-      } else {
-        const opacity = Math.min(1, (explosion - 0.18) / 0.45);
-        c.style.opacity = `${opacity}`;
-        c.style.pointerEvents = 'auto';
+  const hasGSAP = (typeof window.gsap !== 'undefined') && (typeof window.ScrollTrigger !== 'undefined');
+
+  if (hasGSAP && !prefersReducedMotion) {
+    window.gsap.registerPlugin(window.ScrollTrigger);
+
+    // Initial state: gather all layers inside the ceramic bowl
+    if (layerHerbs) {
+      window.gsap.set(layerHerbs, { yPercent: packed.herbs.y, x: packed.herbs.x, rotation: packed.herbs.rot, scale: packed.herbs.scale });
+    }
+    if (layerCheese) {
+      window.gsap.set(layerCheese, { yPercent: packed.cheese.y, x: packed.cheese.x, rotation: packed.cheese.rot, scale: packed.cheese.scale });
+    }
+    if (layerCheeseHerbs) {
+      window.gsap.set(layerCheeseHerbs, { yPercent: packed.herbs.y, x: packed.herbs.x, rotation: packed.herbs.rot, scale: packed.herbs.scale });
+    }
+    window.gsap.set(layerPaneer,   { yPercent: packed.paneer.y,  x: packed.paneer.x,  rotation: packed.paneer.rot,  scale: packed.paneer.scale });
+    window.gsap.set(layerBeans,    { yPercent: packed.beans.y,   x: packed.beans.x,   rotation: packed.beans.rot,   scale: packed.beans.scale });
+    window.gsap.set(layerCornVeg,  { yPercent: packed.corn.y,    x: packed.corn.x,    rotation: packed.corn.rot,    scale: packed.corn.scale });
+    window.gsap.set(layerCucumber, { yPercent: packed.cuke.y,    x: packed.cuke.x,    rotation: packed.cuke.rot,    scale: packed.cuke.scale });
+    window.gsap.set(layerTomatoes, { yPercent: packed.tomato.y,  x: packed.tomato.x,  rotation: packed.tomato.rot,  scale: packed.tomato.scale });
+    window.gsap.set(layerLettuce,  { yPercent: packed.lettuce.y, x: packed.lettuce.x, rotation: packed.lettuce.rot, scale: packed.lettuce.scale });
+    window.gsap.set(stack,         { yPercent: packed.stackY });
+    window.gsap.set(callouts,      { opacity: 0, pointerEvents: 'none' });
+
+    // Pinned continuous scrub timeline matching requirements
+    const isMobile = window.innerWidth <= 720;
+    const isTablet = window.innerWidth <= 1024;
+    const startTrigger = isMobile ? 'top 60px' : 'top 76px';
+    const scrubDistance = isMobile ? '+=650' : (isTablet ? '+=850' : '+=1100');
+
+    const tl = window.gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: startTrigger,
+        end: scrubDistance,
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true
       }
-      const isLeft = c.classList.contains('callout-top-left') || c.classList.contains('callout-mid-left') || c.classList.contains('callout-bottom-left');
-      c.style.transform = `translateX(${packFactor * (isLeft ? 25 : -25)}px)`;
     });
-  }
 
-  // Scroll scrub: section pins on screen; user sees normal bowl first, then scrolling expands it
-  function onScroll() {
-    const rect = section.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const navOffset = 76; // Match sticky navbar height
-    const totalScroll = section.offsetHeight - (windowHeight - navOffset);
+    // One-Way Scroll Explode: Deconstructs into mid-air layers and STAYS exploded
+    // (User does NOT want it to put back in the bowl when scrolling forward)
+    tl.to(stack,         { yPercent: exploded.stackY, ease: 'power1.out', duration: 1.0 }, 0);
+    if (layerHerbs) {
+      tl.to(layerHerbs,  { yPercent: exploded.herbs.y,  x: exploded.herbs.x,  rotation: exploded.herbs.rot,  scale: exploded.herbs.scale,  ease: 'power1.out', duration: 1.0 }, 0);
+    }
+    if (layerCheese) {
+      tl.to(layerCheese, { yPercent: exploded.cheese.y, x: exploded.cheese.x, rotation: exploded.cheese.rot, scale: exploded.cheese.scale, ease: 'power1.out', duration: 1.0 }, 0);
+    }
+    if (layerCheeseHerbs) {
+      tl.to(layerCheeseHerbs, { yPercent: exploded.herbs.y, x: exploded.herbs.x, rotation: exploded.herbs.rot, scale: exploded.herbs.scale, ease: 'power1.out', duration: 1.0 }, 0);
+    }
+    tl.to(layerPaneer,   { yPercent: exploded.paneer.y,  x: exploded.paneer.x,  rotation: exploded.paneer.rot,  scale: exploded.paneer.scale,  ease: 'power1.out', duration: 1.0 }, 0)
+      .to(layerBeans,    { yPercent: exploded.beans.y,   x: exploded.beans.x,   rotation: exploded.beans.rot,   scale: exploded.beans.scale,   ease: 'power1.out', duration: 1.0 }, 0)
+      .to(layerCornVeg,  { yPercent: exploded.corn.y,    x: exploded.corn.x,    rotation: exploded.corn.rot,    scale: exploded.corn.scale,    ease: 'power1.out', duration: 1.0 }, 0)
+      .to(layerCucumber, { yPercent: exploded.cuke.y,    x: exploded.cuke.x,    rotation: exploded.cuke.rot,    scale: exploded.cuke.scale,    ease: 'power1.out', duration: 1.0 }, 0)
+      .to(layerTomatoes, { yPercent: exploded.tomato.y,  x: exploded.tomato.x,  rotation: exploded.tomato.rot,  scale: exploded.tomato.scale,  ease: 'power1.out', duration: 1.0 }, 0)
+      .to(layerLettuce,  { yPercent: exploded.lettuce.y, x: exploded.lettuce.x, rotation: exploded.lettuce.rot, scale: exploded.lettuce.scale, ease: 'power1.out', duration: 1.0 }, 0)
+      .to(callouts,      { opacity: 1, pointerEvents: 'auto', stagger: 0.04, ease: 'power1.out', duration: 0.5 }, 0.5);
 
-    if (totalScroll <= 0) {
-      applyExplosion(0);
-      return;
+    // Refresh ScrollTrigger when images load to ensure precise pixel measurements
+    window.addEventListener('load', () => {
+      window.ScrollTrigger.refresh();
+    });
+  } else {
+    // Pure Scroll-Scrub Engine (Fallback / Offline / Native rAF)
+    section.classList.add('no-gsap-fallback');
+
+    function lerp(a, b, t) {
+      return a + (b - a) * t;
     }
 
-    // Scrolled distance inside the pinned section
-    const scrolledInside = navOffset - rect.top;
-    const rawProgress = scrolledInside / totalScroll;
+    function onScrollFallback() {
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const isMobile = window.innerWidth < 768;
+      const navOffset = isMobile ? 60 : 76;
+      const totalScroll = section.offsetHeight - (windowHeight - navOffset);
+      if (totalScroll <= 0) return;
 
-    // Phase 1: On arrival (rawProgress <= 0.05), bowl is 100% normal and centered
-    // Phase 2: Active scroll (0.05 to 0.85), salad deconstructs smoothly
-    // Phase 3: Hold exploded view (0.85 to 1.0) so user can read ingredients
-    let progress;
-    if (rawProgress <= 0.05) {
-      progress = 0.0;
-    } else if (rawProgress >= 0.85) {
-      progress = 1.0;
-    } else {
-      progress = (rawProgress - 0.05) / (0.85 - 0.05);
-    }
+      const scrolledInside = navOffset - rect.top;
+      const rawProgress = Math.max(0, Math.min(1, scrolledInside / totalScroll));
 
-    applyExplosion(progress);
-  }
+      // Progression from 0 to 1 (stays exploded)
+      const t = rawProgress;
+      const e = t * t * (3 - 2 * t);
 
-  // Initial check on load
-  onScroll();
+      stack.style.transform = `translateY(${lerp(packed.stackY, exploded.stackY, e)}%)`;
 
-  // Scroll listener with requestAnimationFrame throttling
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        onScroll();
-        ticking = false;
+      function setLayer(el, p, exp) {
+        if (!el) return;
+        const y = lerp(p.y, exp.y, e);
+        const x = lerp(p.x, exp.x, e);
+        const r = lerp(p.rot, exp.rot, e);
+        const s = lerp(p.scale, exp.scale, e);
+        el.style.transform = `translate3d(${x}px, ${y}%, 0) rotate(${r}deg) scale(${s})`;
+      }
+
+      setLayer(layerHerbs,       packed.herbs,   exploded.herbs);
+      setLayer(layerCheese,      packed.cheese,  exploded.cheese);
+      setLayer(layerCheeseHerbs, packed.herbs,   exploded.herbs);
+      setLayer(layerPaneer,      packed.paneer,  exploded.paneer);
+      setLayer(layerBeans,       packed.beans,   exploded.beans);
+      setLayer(layerCornVeg,     packed.corn,    exploded.corn);
+      setLayer(layerCucumber,    packed.cuke,    exploded.cuke);
+      setLayer(layerTomatoes,    packed.tomato,  exploded.tomato);
+      setLayer(layerLettuce,     packed.lettuce, exploded.lettuce);
+
+      callouts.forEach(c => {
+        const op = Math.max(0, Math.min(1, (e - 0.25) / 0.45));
+        c.style.opacity = `${op}`;
+        c.style.pointerEvents = op > 0.8 ? 'auto' : 'none';
       });
-      ticking = true;
     }
-  }, { passive: true });
 
-  // Subtle 3D mouse perspective tilt on stage
+    onScrollFallback();
+    window.addEventListener('scroll', onScrollFallback, { passive: true });
+    window.addEventListener('resize', onScrollFallback, { passive: true });
+  }
+
+  // Subtle 3D mouse perspective tilt on stage (desktop only)
   if (stage) {
     stage.addEventListener('mousemove', (e) => {
       if (window.innerWidth < 768) return;
