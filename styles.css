@@ -179,6 +179,19 @@ button,
 }
 
 /* ==========================================================================
+   LAYOUT STABILITY & CORE WEB VITALS (CLS & RENDER ENGINE OPTIMIZATION)
+   ========================================================================== */
+.content-wrapper,
+.luxury-editorial-hero,
+.salad-exploded-section,
+.menu-section,
+.calculator-section,
+.reels-section,
+.reviews-section {
+  contain: layout;
+}
+
+/* ==========================================================================
    GLASSMORPHIC BLUR NAVBAR (Ultra-Smooth, GPU-friendly)
    ========================================================================== */
 .site-nav {

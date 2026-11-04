@@ -335,18 +335,36 @@ let currentDietFilter = 'all';
 let menuSearchQuery = '';
 
 /* ==========================================================================
-   Initialization
+   Initialization (Performance-Optimized Core Web Vitals Scheduling)
+   - Phase 1 (Immediate / Synchronous): Critical above-the-fold modules (Navbar, Mobile Menu, Hero, Floating Dock)
+   - Phase 2 (Micro-task / Idle): Primary interactive content (Menu Showcase & Salad)
+   - Phase 3 (Deferred / Idle): Below-the-fold heavy widgets (Nutrition Calculator, Gallery, Reels, Reviews)
    ========================================================================== */
 function initAll() {
+  // Phase 1: Critical above-the-fold user interface (immediate, 0ms latency)
   initNavbarBlur();
-  initHeroParallaxScroll();
-  initMenu();
-  initStuffdNutritionCalculator();
-  initGallery();
   initMobileMenu();
-  initDeconstructedSalad();
-  initReelsCarousel();
-  initGoogleReviewsCarousel();
+  initHeroParallaxScroll();
+  initFloatingSocialDock();
+
+  // Helper for non-blocking idle scheduling to minimize Total Blocking Time (TBT)
+  const scheduleIdle = (typeof window.requestIdleCallback === 'function')
+    ? (cb) => window.requestIdleCallback(cb, { timeout: 1500 })
+    : (cb) => setTimeout(cb, 16);
+
+  // Phase 2: Primary interactive content (idle priority)
+  scheduleIdle(() => {
+    initMenu();
+    initDeconstructedSalad();
+  });
+
+  // Phase 3: Below-the-fold secondary widgets (deferred idle priority)
+  scheduleIdle(() => {
+    initStuffdNutritionCalculator();
+    initGallery();
+    initReelsCarousel();
+    initGoogleReviewsCarousel();
+  });
 }
 
 if (document.readyState === 'loading') {
@@ -1935,94 +1953,58 @@ function initHeroParallaxScroll() {
 /* ==========================================================================
    EXPANDABLE WALLET-STACK FLOATING DOCK CONTROLLER
    ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
+function initFloatingSocialDock() {
   const toggle = document.getElementById('floatDockToggle');
   const dock = document.getElementById('floatingDock') || document.querySelector('.floating-social-dock');
   const backdrop = document.getElementById('dockBackdrop');
   if (!toggle || !dock) return;
 
-  let openScrollY = 0;
-
-  // Auto-close when moving cursor far away from the dock (> 240px)
-  function onMouseMoveAway(e) {
-    if (!dock.classList.contains('is-open')) return;
-    const rect = dock.getBoundingClientRect();
-    const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
-    const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
-    const dist = Math.sqrt(dx * dx + dy * dy);
-
-    if (dist > 640) {
-      closeDock();
-    }
-  }
-
-  // Auto-close if user scrolls away on the screen
-  function onScrollAway() {
-    if (!dock.classList.contains('is-open')) return;
-    if (Math.abs(window.scrollY - openScrollY) > 60) {
-      closeDock();
-    }
-  }
-
-  // Auto-close when cursor leaves the browser window
-  function onMouseLeaveScreen(e) {
-    if (!e.relatedTarget && !e.toElement && dock.classList.contains('is-open')) {
-      closeDock();
-    }
-  }
-
-  // Auto-close when window loses focus (e.g. alt-tab or switching away)
-  function onWindowBlur() {
-    if (dock.classList.contains('is-open')) {
-      closeDock();
-    }
-  }
+  // Prevent duplicate event listener registration
+  if (toggle.dataset.dockInitialized === 'true') return;
+  toggle.dataset.dockInitialized = 'true';
 
   function closeDock() {
     dock.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
     if (backdrop) backdrop.classList.remove('is-open');
-
-    // Clean up active listeners
-    window.removeEventListener('mousemove', onMouseMoveAway);
-    window.removeEventListener('scroll', onScrollAway);
-    document.documentElement.removeEventListener('mouseleave', onMouseLeaveScreen);
-    window.removeEventListener('blur', onWindowBlur);
   }
 
   function openDock() {
     dock.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
     if (backdrop) backdrop.classList.add('is-open');
-    openScrollY = window.scrollY;
-
-    // Attach moving-away detection listeners
-    window.addEventListener('mousemove', onMouseMoveAway, { passive: true });
-    window.addEventListener('scroll', onScrollAway, { passive: true });
-    document.documentElement.addEventListener('mouseleave', onMouseLeaveScreen);
-    window.addEventListener('blur', onWindowBlur);
   }
 
-  toggle.addEventListener('click', (e) => {
-    e.stopPropagation();
+  function toggleDock(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     const isOpen = dock.classList.contains('is-open');
     if (isOpen) {
       closeDock();
     } else {
       openDock();
     }
-  });
-
-  if (backdrop) {
-    backdrop.addEventListener('click', closeDock);
   }
 
+  toggle.addEventListener('click', toggleDock);
+
+  if (backdrop) {
+    backdrop.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDock();
+    });
+  }
+
+  // Close when tapping / clicking anywhere outside the dock on the document
   document.addEventListener('click', (e) => {
     if (dock.classList.contains('is-open') && !dock.contains(e.target)) {
       closeDock();
     }
   });
 
+  // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && dock.classList.contains('is-open')) {
       closeDock();
@@ -2032,10 +2014,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Auto-close when clicking any action link
   dock.querySelectorAll('.float-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      setTimeout(closeDock, 250);
+      setTimeout(closeDock, 300);
     });
   });
-});
+}
+
+// Fallback auto-invocation if script executes before/after DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFloatingSocialDock);
+} else {
+  initFloatingSocialDock();
+}
 
 /* ==========================================================================
    OFFICIAL IN-STORE MENU LIGHTBOX & TABS LOGIC
