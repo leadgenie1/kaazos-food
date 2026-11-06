@@ -7,7 +7,7 @@
 const MENU_DATA = [
   {
     id: 'signature-rice-bowl',
-    name: 'Rice Bowl',
+    name: 'Chatpata Chicken Bowl (Regular)',
     dishType: 'Rice bowl',
     category: 'nonveg',
     isVeg: false,
@@ -15,12 +15,12 @@ const MENU_DATA = [
     protein: '38g',
     carbs: '64g',
     fat: '14g',
-    desc: 'Flame-grilled marinated chicken or spiced paneer over steamed cilantro-lime rice, slow-simmered black beans, charred corn salsa, and house guacamole.',
-    image: 'assets/images/JPEG/Edit2.jpg'
+    desc: 'Flame-grilled marinated chicken over steamed cilantro-lime rice, slow-simmered black beans, charred corn salsa, and house guacamole.',
+    image: 'assets/images/chatpata-chicken-bowl-regular.jpg'
   },
   {
     id: 'signature-salad-bowl',
-    name: 'Salad Bowl',
+    name: 'Fajita Veg Bowl (Regular)',
     dishType: 'Salad bowl',
     category: 'veg',
     isVeg: true,
@@ -28,12 +28,12 @@ const MENU_DATA = [
     protein: '16g',
     carbs: '24g',
     fat: '12g',
-    desc: 'Triple-washed crisp farm greens tossed with roasted spiced paneer cubes, ripe cherry tomatoes, sweet corn, tender black beans, and house citrus dressing.',
-    image: 'assets/images/JPEG/Edit50.jpg'
+    desc: 'Triple-washed crisp farm greens tossed with charred fajita bell peppers, ripe cherry tomatoes, sweet corn, tender black beans, and house citrus dressing.',
+    image: 'assets/images/fajita-veg-bowl-regular.jpg'
   },
   {
     id: 'signature-fruit-bowl',
-    name: 'Fruit Bowl',
+    name: 'Apple & Banana Breakfast Oatmeal',
     dishType: 'Fruit bowl',
     category: 'veg',
     isVeg: true,
@@ -41,12 +41,12 @@ const MENU_DATA = [
     protein: '9g',
     carbs: '54g',
     fat: '7g',
-    desc: 'Ripe freshly sliced bananas, roasted pumpkin & chia seeds, golden raisins, and toasted oats served over a nutrient-dense chilled grain base.',
-    image: 'assets/images/JPEG/Edit18.jpg'
+    desc: 'Crisp fresh apple slices and ripe bananas paired with roasted pumpkin seeds, chia seeds, and slow-rolled toasted oats over a chilled grain base.',
+    image: 'assets/images/morning-breakfast-apple-banana-oatmeal.jpg'
   },
   {
     id: 'signature-quesadillas',
-    name: 'Quesadillas',
+    name: 'Desi Mex Chicken Quesadilla',
     dishType: 'Quesadillas',
     category: 'nonveg',
     isVeg: false,
@@ -54,12 +54,12 @@ const MENU_DATA = [
     protein: '28g',
     carbs: '46g',
     fat: '22g',
-    desc: 'Crisp griddled flour tortilla stuffed with spiced chicken or fajita peppers, melted Monterey Jack & cheddar cheese blend, and paired with house dips.',
-    image: 'assets/images/JPEG/Edit34.jpg'
+    desc: 'Crisp griddled flour tortilla stuffed with spiced chicken, melted Monterey Jack & cheddar cheese blend, and paired with house dips.',
+    image: 'assets/images/desi-mex-chicken-quesadilla.jpg'
   },
   {
     id: 'signature-smoothie',
-    name: 'Smoothie',
+    name: 'Berry Boost Smoothie',
     dishType: 'Smoothie',
     category: 'veg',
     isVeg: true,
@@ -68,11 +68,11 @@ const MENU_DATA = [
     carbs: '42g',
     fat: '3g',
     desc: 'Wild berries blended slow with chilled milk and whole natural fruit. Velvety, antioxidant-rich, and crafted with zero refined sugars.',
-    image: 'assets/images/JPEG/Edit1.jpg'
+    image: 'assets/images/berry-boost-smoothie.jpg'
   },
   {
     id: 'signature-pressed-juice',
-    name: 'Pressed Juice',
+    name: 'Fresh Lemonade Cooler',
     dishType: 'Pressed juice',
     category: 'veg',
     isVeg: true,
@@ -80,8 +80,8 @@ const MENU_DATA = [
     protein: '2g',
     carbs: '26g',
     fat: '0.5g',
-    desc: '100% pure cold-pressed sweet watermelon infused with crushed garden mint leaves and Persian lime. Zero preservatives or added sugar.',
-    image: 'assets/images/JPEG/Edit13.jpg'
+    desc: '100% pure freshly squeezed lemon juice infused with crushed garden mint leaves and Persian lime. Zero preservatives or added sugar.',
+    image: 'assets/images/fresh-lemonade-cooler.jpg'
   }
 ];
 
@@ -296,38 +296,37 @@ let currentStuffdCategory = 'bowl_reg';
 
 // Curated Kaazos Authentic Gallery Items (Interleaved & Diverse Variety)
 const GALLERY_ITEMS = [
-  { title: 'Signature Rice Bowl (Regular)', category: 'wraps', img: 'assets/images/JPEG/Edit2.jpg', tag: 'Signature Bowl' },
-  { title: 'Wild Berry Smoothie', category: 'drinks', img: 'assets/images/JPEG/Edit1.jpg', tag: 'Antioxidant Rich' },
-  { title: 'Fresh Garden Fiesta Salad Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit50.jpg', tag: 'Farm-Fresh Harvest' },
-  { title: 'Handcrafted Kaazos Burrito Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit61.jpg', tag: 'Signature Wrap' },
-  { title: 'Chilled Watermelon Mint Refresco', category: 'drinks', img: 'assets/images/JPEG/Edit13.jpg', tag: 'Fresh Pressed' },
-  { title: 'Golden Toasted Artisanal Quesadilla', category: 'crispy', img: 'assets/images/JPEG/Edit34.jpg', tag: 'Crisp & Savory' },
-  { title: 'Fiesta Grilled Paneer Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit5.jpg', tag: 'Vegetarian Craft' },
-  { title: 'Fresh Tropical Fruit & Chia Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit18.jpg', tag: 'Vibrant & Light' },
-  { title: 'Oreo Crumble Gourmet Thickshake', category: 'drinks', img: 'assets/images/JPEG/Edit16.jpg', tag: 'Ice Cold & Rich' },
-  { title: 'Flame-Grilled Chicken Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit20.jpg', tag: 'Double Protein' },
-  { title: 'Cheesy Loaded Veggie Quesadilla', category: 'crispy', img: 'assets/images/JPEG/Edit60.jpg', tag: 'Griddled & Crisp' },
-  { title: 'Classic Sparkling Mint Mojito', category: 'drinks', img: 'assets/images/JPEG/Edit25.jpg', tag: 'Muddled Mint & Lime' },
-  { title: 'Fiesta Paneer & Fresh Guac Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit4.jpg', tag: 'Golden Toasted' },
-  { title: 'Smoky Chipotle Tossed Salad Bowl', category: 'crispy', img: 'assets/images/JPEG/Edit10.jpg', tag: 'Citrus Vinaigrette' },
-  { title: 'Alphonso Mango Cream Shake', category: 'drinks', img: 'assets/images/JPEG/Edit28.jpg', tag: 'Fresh Fruit Slices' },
-  { title: 'Black Bean & Basmati Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit24.jpg', tag: 'Whole-Food Nutrition' },
-  { title: 'Fiesta Jalapeño Crunch Salad', category: 'crispy', img: 'assets/images/JPEG/Edit21.jpg', tag: 'Zesty & Crisp' },
-  { title: 'Sunshine Mango Refresco', category: 'drinks', img: 'assets/images/JPEG/Edit12.jpg', tag: 'Tropical Citrus' },
-  { title: 'Smoky Chipotle Chicken Wrap', category: 'wraps', img: 'assets/images/JPEG/Edit56.jpg', tag: 'Flame-Grilled' },
-  { title: 'Mexican Burrito Bowl with Sour Cream', category: 'wraps', img: 'assets/images/JPEG/Edit35.jpg', tag: 'Creamy & Savory' },
-  { title: 'Belgian Choco-Chip Mochaccino', category: 'drinks', img: 'assets/images/JPEG/Edit58.jpg', tag: '70% Dark Cocoa' },
-  { title: 'Adobo Spiced Protein Greens', category: 'crispy', img: 'assets/images/JPEG/Edit38.jpg', tag: 'High Nutrient' },
-  { title: 'Smoky Chipotle Chicken Fiesta Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit59.jpg', tag: 'Adobo Seared' },
-  { title: 'Artisan Cold Brew Cream Shake', category: 'drinks', img: 'assets/images/JPEG/Edit22.jpg', tag: 'Slow Steeped' },
-  { title: 'Grilled Bell Pepper & Corn Salad', category: 'crispy', img: 'assets/images/JPEG/Edit3.jpg', tag: 'Charred & Fresh' },
-  { title: 'Charred Sweet Corn & Fajita Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit8.jpg', tag: 'House Marinade' },
-  { title: 'Passion Fruit Sunset Splash', category: 'drinks', img: 'assets/images/JPEG/Edit37.jpg', tag: 'Zesty Refresher' },
-  { title: 'Herb-Infused Garden Harvest Salad', category: 'crispy', img: 'assets/images/JPEG/Edit46.jpg', tag: 'Daily Crisp' },
-  { title: 'Indiranagar Signature Rice Bowl', category: 'wraps', img: 'assets/images/JPEG/Edit32.jpg', tag: 'Cilantro Lime Base' },
-  { title: 'Velvet Vanilla Bean Frost Shake', category: 'drinks', img: 'assets/images/JPEG/Edit30.jpg', tag: 'Creamy Classic' },
-  { title: 'Crisp Greens with Feta & Corn', category: 'crispy', img: 'assets/images/JPEG/Edit54.jpg', tag: 'Clean Macro' },
-  { title: 'Slow-Simmered Black Bean Fiesta', category: 'wraps', img: 'assets/images/JPEG/Edit44.jpg', tag: 'Zero Preservatives' }
+  { title: 'Kaazos Chatpata Chicken Bowl (Regular)', category: 'wraps', img: 'assets/images/chatpata-chicken-bowl-regular.jpg', tag: 'Signature Bowl' },
+  { title: 'Kaazos Berry Boost Smoothie', category: 'drinks', img: 'assets/images/berry-boost-smoothie.jpg', tag: 'Antioxidant Smoothie' },
+  { title: 'Kaazos Cheesy Melt Quesadilla', category: 'crispy', img: 'assets/images/cheesy-melt-quesadilla.jpg', tag: 'Artisanal Quesadilla' },
+  { title: 'Kaazos Chipotle Chicken Burrito Wrap', category: 'wraps', img: 'assets/images/chipotle-chicken-burrito-wrap.jpg', tag: 'Signature Wrap' },
+  { title: 'Kaazos Fresh Lemonade Cooler', category: 'drinks', img: 'assets/images/fresh-lemonade-cooler.jpg', tag: 'Fresh Cooler' },
+  { title: 'Kaazos Desi Mex Chicken Quesadilla', category: 'crispy', img: 'assets/images/desi-mex-chicken-quesadilla.jpg', tag: 'Signature Quesadilla' },
+  { title: 'Kaazos Chipotle Paneer Mini Bowl', category: 'wraps', img: 'assets/images/chipotle-paneer-mini-bowl.jpg', tag: 'Vegetarian Craft' },
+  { title: 'Kaazos Morning Breakfast Apple & Banana Oatmeal', category: 'drinks', img: 'assets/images/morning-breakfast-apple-banana-oatmeal.jpg', tag: 'Vibrant Oatmeal' },
+  { title: 'Kaazos Chicken Loaded Nachos', category: 'crispy', img: 'assets/images/chicken-loaded-nachos.jpg', tag: 'Loaded Nachos' },
+  { title: 'Kaazos Chipotle Chicken Mini Bowl', category: 'wraps', img: 'assets/images/chipotle-chicken-mini-bowl.jpg', tag: 'Double Protein' },
+  { title: 'Kaazos Oreo Chocodilla', category: 'crispy', img: 'assets/images/oreo-chocodilla.jpg', tag: 'Dessert Quesadilla' },
+  { title: 'Kaazos Lemon Ice Tea', category: 'drinks', img: 'assets/images/lemon-ice-tea.jpg', tag: 'Chilled Brew' },
+  { title: 'Kaazos Crispy Peri Peri Chicken Burrito Wrap', category: 'wraps', img: 'assets/images/crispy-peri-peri-chicken-burrito-wrap.jpg', tag: 'Spicy Wrap' },
+  { title: 'Kaazos Chipotle Chicken Loaded Fries', category: 'crispy', img: 'assets/images/chipotle-chicken-loaded-fries.jpg', tag: 'Loaded Fries' },
+  { title: 'Kaazos Kitkat Oreo Shake', category: 'drinks', img: 'assets/images/kitkat-oreo-shake.jpg', tag: 'Gourmet Shake' },
+  { title: 'Kaazos Chipotle Paneer Bowl (Regular)', category: 'wraps', img: 'assets/images/chipotle-paneer-bowl-regular.jpg', tag: 'Whole-Food Nutrition' },
+  { title: 'Kaazos Loaded Mushroom Nachos', category: 'crispy', img: 'assets/images/loaded-mushroom-nachos.jpg', tag: 'Zesty & Crisp' },
+  { title: 'Kaazos Apple Cinnamon Cream Shake', category: 'drinks', img: 'assets/images/apple-cinnamon-cream-shake.jpg', tag: 'Craft Shake' },
+  { title: 'Kaazos Crispy Chicken Bowl (Regular)', category: 'wraps', img: 'assets/images/crispy-chicken-bowl-regular.jpg', tag: 'Flame-Grilled' },
+  { title: 'Kaazos Crispy Chicken Loaded Fries', category: 'crispy', img: 'assets/images/crispy-chicken-loaded-fries.jpg', tag: 'High Protein Crisp' },
+  { title: 'Kaazos Brownie & Chocolate Shake', category: 'drinks', img: 'assets/images/brownie-chocolate-shake.jpg', tag: 'Rich Cocoa' },
+  { title: 'Kaazos Crispy Chicken Mini Bowl', category: 'wraps', img: 'assets/images/crispy-chicken-mini-bowl.jpg', tag: 'Adobo Seared' },
+  { title: 'Kaazos Nachos with Cheese Sauce & Sour Cream', category: 'crispy', img: 'assets/images/nachos-with-cheese-sauce-sour-cream.jpg', tag: 'Savory Dip & Crisp' },
+  { title: 'Kaazos Banana Almond Rose Shake', category: 'drinks', img: 'assets/images/banana-almond-rose-shake.jpg', tag: 'Slow Steeped' },
+  { title: 'Kaazos Fajita Veg Bowl (Regular)', category: 'wraps', img: 'assets/images/fajita-veg-bowl-regular.jpg', tag: 'Farm-Fresh Harvest' },
+  { title: 'Kaazos Crispy Chicken Strips', category: 'crispy', img: 'assets/images/chicken-strips.jpg', tag: 'Daily Crisp' },
+  { title: 'Kaazos Banana Oat Breakfast Smoothie', category: 'drinks', img: 'assets/images/banana-oat-breakfast-smoothie.jpg', tag: 'Wholesome Breakfast' },
+  { title: 'Kaazos Fajita Veg Mini Bowl', category: 'wraps', img: 'assets/images/fajita-veg-mini-bowl.jpg', tag: 'Clean Macro' },
+  { title: 'Kaazos Chipotle Paneer Bowl (Regular Classic)', category: 'wraps', img: 'assets/images/chipotle-paneer-bowl-regular-classic.jpg', tag: 'Vegetarian Classic' },
+  { title: 'Kaazos Choco Peanut Butter & Nuts Oatmeal', category: 'drinks', img: 'assets/images/choco-peanut-butter-nuts-oatmeal.jpg', tag: 'Superfood Fuel' },
+  { title: 'Kaazos Chatpata Chicken Mini Bowl', category: 'wraps', img: 'assets/images/chatpata-chicken-mini-bowl.jpg', tag: 'Signature Mini Bowl' }
 ];
 
 let currentMenuCat = 'all';
@@ -479,22 +478,22 @@ function initStuffdNutritionCalculator() {
 
   const DISH_SPOTLIGHT_DATA = {
     bowl_reg: {
-      title: 'Rice Bowl (Regular)',
+      title: 'Kaazos Chatpata Chicken Bowl (Regular)',
       tag: 'Choose Your Own • Regular Bowl',
       desc: 'Cilantro basmati rice base with choice of Grilled Chatpata Chicken, Low-Fat Chipotle Chicken, Chipotle Paneer, Sautéed Mushrooms, or Fajita Veggies, topped with spiced black beans, sweet corn, fresh tomato salsa, sour cream, and guacamole.',
-      image: 'assets/images/JPEG/Edit2.jpg'
+      image: 'assets/images/chatpata-chicken-bowl-regular.jpg'
     },
     bowl_mini: {
-      title: 'Rice Bowl (Mini)',
+      title: 'Kaazos Chipotle Chicken Mini Bowl',
       tag: 'Choose Your Own • Mini Bowl',
       desc: 'Balanced lighter portion of cilantro basmati rice with choice of protein or veggies, spiced black beans, sweet corn, fresh tomato salsa, and zesty house sauces.',
-      image: 'assets/images/JPEG/Edit5.jpg'
+      image: 'assets/images/chipotle-chicken-mini-bowl.jpg'
     },
     burrito: {
-      title: 'Burrito Wrap (Regular)',
+      title: 'Kaazos Chipotle Chicken Burrito Wrap',
       tag: 'Choose Your Own • Hand-Rolled Wrap',
       desc: 'Warm toasted 10" flour tortilla layered with cilantro lime rice, spiced black beans, fresh tomato salsa, sour cream, and your choice of freshly prepared fillings.',
-      image: 'assets/images/JPEG/Edit61.jpg'
+      image: 'assets/images/chipotle-chicken-burrito-wrap.jpg'
     }
   };
 
@@ -817,10 +816,10 @@ function initGallery() {
       const j = Math.floor(Math.random() * (i + 1));
       [list[i], list[j]] = [list[j], list[i]];
     }
-    // Prevent adjacent items with identical wrap scrabble tiles (Edit61, Edit4, Edit56)
+    // Prevent adjacent items with identical wrap scrabble tiles
     for (let i = 0; i < list.length - 1; i++) {
-      const aIsWrap = /Edit(61|4|56)\.jpg/.test(list[i].img);
-      const bIsWrap = /Edit(61|4|56)\.jpg/.test(list[i + 1].img);
+      const aIsWrap = /burrito-wrap/.test(list[i].img);
+      const bIsWrap = /burrito-wrap/.test(list[i + 1].img);
       if (aIsWrap && bIsWrap) {
         const swapIdx = (i + 4) % list.length;
         [list[i + 1], list[swapIdx]] = [list[swapIdx], list[i + 1]];
