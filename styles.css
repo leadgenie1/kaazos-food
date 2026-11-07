@@ -3174,10 +3174,10 @@ button,
 
 .salad-exploded-stage {
   position: relative;
-  max-width: 1260px;
+  max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  height: min(72vh, 640px);
+  height: min(80vh, 720px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3265,27 +3265,28 @@ button,
 }
 
 .callout-card {
-  background: var(--dig-cream-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 0.85rem 1.2rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.65rem 0.95rem;
   border-radius: 12px;
-  border: 1.5px solid rgba(12, 79, 72, 0.16);
-  box-shadow: 0 10px 28px -4px rgba(0, 36, 26, 0.12);
-  max-width: 250px;
+  border: 1px solid rgba(12, 79, 72, 0.14);
+  box-shadow: 0 6px 20px -3px rgba(0, 36, 26, 0.08);
+  max-width: 220px;
 }
 
 .callout-title {
   font-family: var(--font-heading);
-  font-size: 0.92rem;
+  font-size: 0.82rem;
   font-weight: 800;
   color: var(--kz-green-950);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.2px;
 }
 
 .callout-desc {
-  font-size: 0.78rem;
-  line-height: 1.45;
+  font-size: 0.72rem;
+  line-height: 1.35;
   color: var(--dig-gray-600);
   margin: 0;
 }
@@ -3298,58 +3299,60 @@ button,
 
 .callout-svg {
   display: block;
+  width: clamp(55px, 6vw, 95px);
+  height: 24px;
 }
 
-/* Precise Coordinates Aligned with Ingredient Layers (dead center vertically) */
+/* Perfectly Spaced Coordinates: 24-26% gap eliminates all card congestion */
 .callout-top-left {
-  top: 13.5%;
-  left: 2%;
+  top: 18%;
+  left: clamp(1%, 2.5vw, 4%);
   transform: translateY(-50%);
 }
 
 .callout-top-right {
-  top: 25.5%;
-  right: 2%;
+  top: 30%;
+  right: clamp(1%, 2.5vw, 4%);
   transform: translateY(-50%);
 }
 
 .callout-mid-left {
-  top: 36%;
-  left: 2%;
+  top: 43%;
+  left: clamp(1%, 2.5vw, 4%);
   transform: translateY(-50%);
 }
 
 .callout-mid-right {
-  top: 45%;
-  right: 2%;
+  top: 56%;
+  right: clamp(1%, 2.5vw, 4%);
   transform: translateY(-50%);
 }
 
 .callout-bottom-left {
-  top: 54%;
-  left: 2%;
+  top: 69%;
+  left: clamp(1%, 2.5vw, 4%);
   transform: translateY(-50%);
 }
 
 .callout-bottom-right {
-  top: 63%;
-  right: 2%;
+  top: 82%;
+  right: clamp(1%, 2.5vw, 4%);
   transform: translateY(-50%);
 }
 
 @media (max-width: 1240px) {
   .callout-card {
-    max-width: 200px;
-    padding: 0.65rem 0.85rem;
+    max-width: 185px;
+    padding: 0.55rem 0.8rem;
   }
   .callout-svg {
-    width: 85px;
+    width: clamp(45px, 5vw, 75px);
   }
   .callout-title {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
   }
   .callout-desc {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
   }
 }
 
@@ -3386,7 +3389,7 @@ button,
     margin-bottom: 0;
   }
   .salad-exploded-stage {
-    height: min(70vh, 620px);
+    height: min(76vh, 660px);
     max-width: 960px;
   }
   .callout-card {
@@ -6284,3 +6287,4 @@ button,
     grid-template-columns: 1fr;
   }
 }
+
